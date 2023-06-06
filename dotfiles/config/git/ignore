@@ -1,0 +1,35 @@
+.DS_Store
+.vscode
+
+# python
+.envrc
+.venv
+__pycache__
+.python-version
+.ipynb_checkpoints
+poetry.lock
+*.ipynb
+
+# size
+*.pt
+*.npy
+*.pth
+*.pkl
+*.zip
+*.tar.gz
+
+# c++
+*.o
+.ccls-cache
+
+# TeX
+*.bak*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.dvi
+*.out
+*.pdf
+*.bbl
+*.blg

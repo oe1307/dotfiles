@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$(uname)" == "Darwin" ]; then
+    echo "OS: MacOS"
+    ln -snvf /opt/homebrew "$HOME/.homebrew"
+
+elif [ "$(uname)" == "Linux" ]; then
+    echo "OS: Ubuntu"
+    if [ -e "$HOME/.homebrew/bin/zsh" ]; then
+        ln -snvf "$HOME/private/dotfiles/config/bash/bash2zsh" "$HOME/.bash_profile"
+    else
+        ln -snvf "$HOME/private/dotfiles/config/bash/bashrc" "$HOME/.bash_profile"
+    fi
+
+else
+    echo "Not supported OS"
+    exit 1
+fi
+
+# dotfiles
+DOTFILES=$(ls "$HOME/private/dotfiles")
+for file in $DOTFILES; do
+    ln -snvf "$HOME/private/dotfiles/$file" "$HOME/.$file"
+done
+
+# command
+mkdir -p "$HOME/.local/bin"
+COMMANDS=$(ls "$HOME/private/command")
+for file in $COMMANDS; do
+    ln -snvf "$HOME/private/command/$file" "$HOME/.local/bin/$file"
+done

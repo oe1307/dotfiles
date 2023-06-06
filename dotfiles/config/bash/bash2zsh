@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[ -z "$PS1" ] && return
+
+if [ -f "$HOME/.homebrew/bin/zsh" ]; then
+    "$HOME/.homebrew/bin/zsh"
+    export SHELL="$HOME/.homebrew/bin/zsh"
+fi
