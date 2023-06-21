@@ -1,6 +1,10 @@
 #!/bin/bash
 
-SERVER_LIST="$(ls ~/.ssh/server)"
+if [ "$(uname)" == "Darwin" ]; then
+    SERVER_LIST="$(ls ~/.ssh/server)"
+else
+    SERVER_LIST=""
+fi
 
 if [ "$1 " = "--help " ]; then
     command ssh

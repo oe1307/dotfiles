@@ -3,7 +3,8 @@ return {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
         keys = {
-            { "gd", ":lua vim.lsp.buf.definition()<Return>", silent = true },
+            { "K", ":lua vim.lsp.buf.definition()<Return>", silent = true },
+            { "J", ":lua vim.lsp.buf.hover()<Return>", silent = true },
             { "re", ":lua vim.lsp.buf.rename()<Return>", silent = true },
         },
         dependencies = {
@@ -48,7 +49,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "markdown", "markdown_inline" },
+                ensure_installed = { "markdown", "markdown_inline", "regex" },
                 auto_install = true,
                 highlight = { enable = true },
                 indent = { enable = true },

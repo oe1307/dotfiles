@@ -31,11 +31,7 @@ return {
     {
         -- multiple cursors
         "mg979/vim-visual-multi",
-        config = function()
-            vim.g.VM_maps = {
-                ["I BS"] = "",
-            }
-        end,
+        tag = "v0.4.1",
     },
     {
         -- auto save
@@ -74,7 +70,6 @@ return {
     {
         -- snippets
         "L3MON4D3/LuaSnip",
-        build = "make install_jsregexp",
         config = function()
             require("luasnip.loaders.from_vscode").lazy_load()
         end,

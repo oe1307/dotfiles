@@ -9,6 +9,12 @@ keymap.set("v", "+", "<C-a>gv")
 keymap.set("n", "-", "<C-x>")
 keymap.set("v", "-", "<C-x>gv")
 
+-- delete keymap
+keymap.set("n", "d", "")
+keymap.set("n", "dd", "dd")
+keymap.set("n", "x", "")
+keymap.set("n", "<C-d>", "")
+
 -- do not yank
 keymap.set("v", "x", '"_x')
 keymap.set("n", "xx", '"_dd')
@@ -62,3 +68,7 @@ keymap.set("n", "bb", ":bnext<Return>", { silent = true })
 
 -- quit
 keymap.set("n", "<C-q>", ":q<Return>", { silent = true })
+
+-- readable
+vim.api.nvim_create_user_command("ReadableInput", "%s;------------------------------;", {})
+vim.api.nvim_create_user_command("ReadableOutput", "%s;^\n;------------------------------\r;", {})

@@ -13,6 +13,6 @@ return {
     {
         "tpope/vim-fugitive",
         lazy = false,
-        keys = { { "<C-d>", ":Gdiffsplit<Return>", silent = true } },
+        keys = { { "gd", ":Gdiffsplit<Return>", silent = true } },
     },
 }

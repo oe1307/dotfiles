@@ -29,10 +29,10 @@ return {
                     icons = {
                         glyphs = {
                             git = {
-                                unstaged = "!",
+                                unstaged = "★",
                                 renamed = "»",
                                 untracked = "?",
-                                deleted = "✘",
+                                deleted = "-",
                                 staged = "✓",
                                 unmerged = "",
                                 ignored = "◌",
