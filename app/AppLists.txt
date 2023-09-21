@@ -1,0 +1,30 @@
+Alfred 4.app
+AltTab.app
+Amphetamine.app
+AppCleaner.app
+Cisco Webex Meetings.app
+Clipy.app
+ImageOptim.app
+KeyboardCleanTool.app
+MenubarX.app
+Microsoft Excel.app
+Microsoft PowerPoint.app
+Microsoft Teams.app
+Microsoft Word.app
+MonitorControl.app
+OneDrive.app
+Pure Paste.app
+Rectangle.app
+RunCat.app
+Safari.app
+ScreenCursor.app
+Sim Daltonism.app
+Skim.app
+Slack.app
+Spotify.app
+Utilities
+Xcode.app
+iTerm.app
+jupyter_notebook.app
+neovim.app
+zoom.us.app

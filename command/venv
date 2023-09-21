@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -d .venv ]; then
+    echo "venv already exists" &&
+    echo "source .venv/bin/activate" >.envrc &&
+    echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
+    direnv allow &&
+    .venv/bin/pip install -q -U pip
+else
+    python3 -m venv .venv &&
+    echo "source .venv/bin/activate" >.envrc &&
+    echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
+    direnv allow &&
+    .venv/bin/pip install -q -U pip
+fi

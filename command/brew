@@ -1,0 +1,72 @@
+#!/bin/sh
+
+if [ "$1 " = "--help " ]; then
+    echo "Plugin usage:"
+    echo "  brew construct [brew|git|curl|ruby|xz]"
+    echo "  brew sync"
+    echo "  brew entry"
+    echo "  brew diff"
+    echo ""
+    ~/.homebrew/bin/brew --help
+
+elif [ "$1 " = "construct " ]; then
+    if [ "$2 " = "brew " ]; then
+        mkdir -p "$HOME"/.homebrew &&
+        (curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$HOME"/.homebrew) &&
+        ~/.homebrew/bin/brew update &&
+        ~/.homebrew/bin/brew tap beeftornado/rmtree
+    elif [ "$2 " = "git " ]; then
+        URL="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.31.4.tar.gz"
+        mkdir -p "$HOME"/.cache &&
+        wget -O "$HOME"/.cache/git.tar.gz $URL &&
+        tar zxvf "$HOME"/.cache/git.tar.gz -C "$HOME"/.cache &&
+        cd "$HOME"/.cache/git-2.31.4 &&
+        ./configure --prefix="$HOME/.local" &&
+        make -j 10 && make install &&
+        echo && echo "${ESC}[33mexport HOMEBREW_GIT_PATH=\$(which git)${ESC}[m"
+    elif [ "$2 " = "curl " ]; then
+        mkdir -p "$HOME"/.cache &&
+        git clone --depth 1 git@github.com:curl/curl.git "$HOME"/.cache/curl &&
+        cd "$HOME"/.cache/curl &&
+        autoreconf -fi &&
+        ./configure --prefix="$HOME"/.local --with-openssl &&
+        make -j 10 && make install &&
+        cd - &&
+        echo && echo "${ESC}[33mexport HOMEBREW_CURL_PATH=\$(which curl)${ESC}[m"
+    elif [ "$2 " = "ruby " ]; then
+        brew edit ruby
+        # "--eneble-shared" <- delete this line
+        brew install ruby
+    elif [ "$2 " = "xz " ]; then
+        brew install binutils
+        brew install gcc@7
+    fi
+
+elif [ "$1 " = "sync " ]; then
+    brew update
+    brew leaves >/tmp/tmp1.txt
+    diff /tmp/tmp1.txt "$HOME/private/brew.txt" >/tmp/tmp2.txt
+    pkg_list="$(grep -e '^>' </tmp/tmp2.txt | sed -e 's/^> //g')"
+    for pkg in $pkg_list; do
+        brew install "$pkg"
+        n_args=$?
+        if [ $n_args != 0 ]; then exit 1; fi
+    done
+    brew leaves >/tmp/tmp1.txt
+    diff /tmp/tmp1.txt "$HOME/private/brew.txt" >/tmp/tmp2.txt
+    pkg_list=$(grep -e "^<" </tmp/tmp2.txt | sed -e "s/^< //g")
+    for pkg in $pkg_list; do
+        yes | brew rmtree "$pkg"
+    done
+    brew upgrade
+
+elif [ "$1 " = "diff " ]; then
+    brew leaves >/tmp/tmp1.txt
+    diff /tmp/tmp1.txt "$HOME/private/brew.txt"
+
+elif [ "$1 " = "entry " ]; then
+    brew leaves >"$HOME/private/brew.txt"
+
+else
+    ~/.homebrew/bin/brew "$@"
+fi

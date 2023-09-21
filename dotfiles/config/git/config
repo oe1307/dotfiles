@@ -1,0 +1,44 @@
+[user]
+    name = oe1307
+    email = oe.issa.392@s.kyushu-u.ac.jp
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+    ui = auto
+
+[core]
+    editor = nvim
+    pager = delta
+
+[alias]
+    ignore = "update-index --skip-worktree"
+    unignore = "update-index --no-skip-worktree"
+    stash = "stash push"
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[pull]
+    rebase = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

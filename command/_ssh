@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ "$(uname)" == "Darwin" ]; then
+    SERVER_LIST="$(ls ~/.ssh/server)"
+else
+    SERVER_LIST=""
+fi
+
+if [ "$1 " = "--help " ]; then
+    command ssh
+elif [ -z "$1" ]; then
+    echo
+    for config in $SERVER_LIST; do
+        grep -o '^Host [0-9a-z.-]*' <"$HOME/.ssh/server/$config" | sort | sed -e "s/Host//" | tr -d "\n"
+        echo
+    done
+elif [ $# = 1 ]; then
+    ssh "$1"
+else
+    if [ -n "$SESSION_NAME" ]; then
+        session=$SESSION_NAME
+    else
+        session=multi-ssh-$(date +%s)
+    fi
+    window=multi-ssh
+
+    tmux new-session -d -n $window -s "$session"
+    tmux send-keys "ssh $1" C-m
+    shift
+
+    for i in "$@"; do
+        tmux split-window
+        tmux select-layout tiled
+        tmux send-keys "ssh $i" C-m
+    done
+    tmux select-pane -t 0
+    tmux set-window-option synchronize-panes on
+    tmux -2 attach-session -t "$session"
+fi

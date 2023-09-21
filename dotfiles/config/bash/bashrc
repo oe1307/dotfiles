@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/targets/x86_64-linux/lib/"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/gurobi/linux64/lib"
+export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+
+# PATH
+export PATH="$PATH:/opt/gurobi/linux64/bin"
+export PATH="$PATH:/usr/local/cuda/bin"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.homebrew/bin:$PATH"
+export PATH="$HOME/.homebrew/sbin:$PATH"
+
+# plugin
+source "$HOME/.config/ssh/workspace"
+source "$HOME/.config/git/git-prompt.sh"
+if which direnv >/dev/null 2>&1; then eval "$(direnv hook bash)"; fi
+CURL_PATH=$(which curl)
+GIT_PATH=$(which git)
+export HISTFILE=$HOME/.local/state/bash_history
+export GREP_OPTIONS="--color=auto"
+export HOMEBREW_CACHE="$HOME/.homebrew/cache"
+export HOMEBREW_CURL_PATH=$CURL_PATH
+export HOMEBREW_GIT_PATH=$GIT_PATH
+export DIRENV_LOG_FORMAT=""
+export GUROBI_HOME="/opt/gurobi/linux64"
+export GRB_LICENSE_FILE="/opt/gurobi/linux64/gurobi.lic"
+export LIBRARY_PATH="${LIBRARY_PATH}:/opt/intel/oneapi/mkl/latest/lib/intel64"
+export PROMPT="%f%F{green}%n@%m%f:%F{blue}%~%f"$'\n'"$ "
+export BAT_THEME="Visual Studio Dark+"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export SCREENRC="$HOME/.config/screen/screenrc"
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+
+# settings
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTFILESIZE=10000
+
+# ls
+alias ls="command ls --color=auto"
+alias la="command ls -a --color=auto"
+alias ll="command ls -la --color=auto"
+
+# formatter
+alias flake8="flake8 --ignore=E203,E402,W503 --max-line-length=88"
+alias black="black --line-length=88"
+alias isort="isort --profile=black"
+alias stylua="stylua --indent-type Spaces"
+alias clang-format="clang-format -style=Google"
+alias latexindent="find . -name \*.tex | xargs latexindent -w -s -m -g /dev/null -l ~/.config/latex/indent.yaml"
+alias prettier="prettier --prose-wrap always"
+
+# git
+alias gs="git status"
+alias gp="git pull"
+alias ga="git add"
+alias gP="git push"
+alias gS="git stash"
+alias gc="git commit"
+alias gC="git commit -m update"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git log"
+
+# other
+alias tree="tree -C -I .git -I __pycache__"
+alias pip-reset="pip list --format freeze | grep -v -e pip -e setuptools | xargs pip uninstall -y"
+alias hist="history 1 | peco"
+alias latexmk="latexmk -silent -f -pv"

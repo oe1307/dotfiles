@@ -1,0 +1,102 @@
+# LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/targets/x86_64-linux/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/gurobi/linux64/lib
+export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
+
+# PATH
+export PATH=$PATH:/opt/gurobi/linux64/bin
+export PATH=$PATH:/usr/local/cuda/bin
+export PATH=$HOME/.homebrew/sbin:$PATH
+export PATH=$HOME/.homebrew/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# XDG
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export HISTFILE=$HOME/.local/state/zsh_history
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+export SCREENRC=$HOME/.config/screen/screenrc
+
+# plugin
+source $HOME/.config/ssh/workspace
+source $HOME/.homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/git/git-prompt.sh
+if which direnv >/dev/null 2>&1; then eval "$(direnv hook zsh)"; fi
+if [ ! -e $HISTFILE ]; then mkdir -p "$(dirname "$HISTFILE")" && touch $HISTFILE; fi
+export SHELL=$HOME/.homebrew/bin/zsh
+export PROMPT="%f%F{green}%n@%m%f:"'%F{red}$(__git_ps1 "(%s)")'"%F{blue}%~%f"$'\n'"$ "
+export ESC=$(printf '\033')
+export GREP_OPTIONS=--color=auto
+export HOMEBREW_CACHE=$HOME/.homebrew/cache
+export HOMEBREW_CURL_PATH=$(which curl)
+export HOMEBREW_GIT_PATH=$(which git)
+export DIRENV_LOG_FORMAT=""
+export GUROBI_HOME=/opt/gurobi/linux64
+export GRB_LICENSE_FILE=/opt/gurobi/linux64/gurobi.lic
+export LIBRARY_PATH=/opt/intel/oneapi/mkl/latest/lib/intel64
+export BAT_THEME="Visual Studio Dark+"
+export LESSHISTFILE=-
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
+
+# settings
+HISTSIZE=100000
+SAVEHIST=100000
+setopt prompt_subst
+setopt +o nonomatch
+setopt share_history
+setopt append_history
+setopt hist_ignore_all_dups
+autoload -U compinit
+
+# exa
+alias ls="exa -g --icons --sort Name"
+alias la="exa -a -g --icons --sort Name"
+alias ll="exa -l -a -g --icons --sort Name"
+alias lls="command ls --color=auto"
+alias lla="command ls -a --color=auto"
+alias lll="command ls -la --color=auto"
+
+# bat
+alias cat="bat --style=plain"
+alias ccat="command cat"
+
+# formatter/linter
+alias flake8="flake8 --ignore=E203,E402,W503 --max-line-length=88"
+alias isort="isort --profile=black"
+alias stylua="stylua --indent-type Spaces"
+alias clang-format="clang-format -i"
+alias cpplint="cpplint --quiet --filter=-legal/copyright,-whitespace/indent,-build/include,-readability/todo --counting=detailed \$(find . -name \*.hpp -or -name \*.cpp)"
+alias latexindent="_latexindent"
+alias prettier="prettier -w --prose-wrap always"
+
+# git
+alias gs="git status"
+alias gp="git pull"
+alias ga="git add"
+alias gP="git push"
+alias gS="git stash"
+alias gc="git commit"
+alias gC="git commit -m update"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git log"
+alias lg="lazygit"
+
+# other
+alias top="htop"
+alias vim="nvim -O"
+alias git="_git"
+alias ssh="_ssh"
+alias tmux="tmux new -As0"
+alias watch="watch -c "
+alias nvidia-smi="watch -n 1 nvidia-smi"
+alias screen="screen -xR"
+alias tr="tree -C -I .git -I __pycache__ -I '*.jpg' -I '*.png' -I build"
+alias tree="tree -C"
+alias pip-reset="pip list --format freeze | grep -v -e pip -e setuptools | xargs pip uninstall -y"
+alias hist="history 1 | peco"
+alias latexmk="latexmk -silent -f -pv"
+alias rinput="pbpaste | sed -e 's/------------------------------//g' | pbcopy"
+alias routput="pbpaste | sed -e 's/^$/------------------------------/g' | pbcopy"

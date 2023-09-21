@@ -1,0 +1,9 @@
+#!/bin/bash
+
+TEXFILE=$(find . -name "*.tex")
+for file in $TEXFILE; do
+    latexindent "$file" -w -s -m -g /dev/null -y="defaultIndent: '    ',onlyOneBackUp: 1"
+done
+latexmk -C
+find . -name "*.bak" -delete
+rm -f indent.log
