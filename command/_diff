@@ -1,0 +1,54 @@
+#!/bin/bash
+
+args=""
+ignore=""
+recursive_flag=false
+dir1=""
+dir2=""
+
+while (($# > 0)); do
+    case $1 in
+        -r)
+            recursive_flag=true
+            dir1="$2"
+            dir2="$3"
+            shift 2
+            ;;
+        -x)
+            ignore="$ignore -x $2"
+            shift
+            ;;
+        *)
+            args="$args $1"
+            ;;
+    esac
+    shift
+done
+
+if ! $recursive_flag; then
+    # shellcheck disable=SC2086
+    delta $args
+
+elif [ -d "$dir1" ] && [ -d "$dir2" ]; then
+    # shellcheck disable=SC2086
+    diff_file=$(diff -q -r "$dir1" "$dir2" $ignore)
+    is_file=0
+    for f in $diff_file; do
+        if [ "$f" = "Files" ]; then
+            is_file=1
+        elif [ "$is_file" = 1 ]; then
+            is_file=0
+            file1="$f"
+        elif [ "$f" = "and" ]; then
+            is_file=2
+        elif [ "$is_file" = 2 ]; then
+            is_file=0
+            file2="$f"
+            # shellcheck disable=SC2086
+            delta --paging never $args "$file1" "$file2"
+        fi
+    done
+
+else
+    echo "usage: diff -r dir1 dir2"
+fi

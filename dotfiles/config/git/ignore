@@ -1,0 +1,26 @@
+.DS_Store
+.vscode
+.cache
+.build
+build
+*.zip
+*.tar.gz
+
+# python
+.envrc
+.venv
+__pycache__
+.ipynb_checkpoints
+*.ipynb
+*.egg-info
+*.pt
+*.npy
+*.pth
+*.pkl
+
+# c++
+.ccls-cache
+compile_commands.json
+
+# tex
+*.bak

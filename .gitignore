@@ -1,0 +1,15 @@
+Brewfile*.lock.json
+command/call
+dotfiles/config/.default-config-ubuntu
+dotfiles/config/Ultralytics
+dotfiles/config/gh/hosts.yml
+dotfiles/config/github-copilot/hosts.json
+dotfiles/config/htop
+dotfiles/config/iterm2
+dotfiles/config/jesseduffield/lazygit/state.yml
+dotfiles/config/nvim/lazy-lock.json
+dotfiles/config/nvim/plugin
+dotfiles/config/pulse
+dotfiles/config/subversion
+github-recovery-codes.txt
+ssh

@@ -1,0 +1,44 @@
+#!/bin/sh
+
+if [ "$1 " = "--help " ]; then
+    echo "Plugin usage:"
+    echo "  brew construct [brew|git|curl|ruby|xz]"
+    echo ""
+    ~/.homebrew/bin/brew --help
+
+elif [ "$1 " = "construct " ]; then
+    if [ "$2 " = "brew " ]; then
+        mkdir -p "$HOME"/.homebrew &&
+        (curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$HOME"/.homebrew) &&
+        ~/.homebrew/bin/brew update &&
+        ~/.homebrew/bin/brew tap beeftornado/rmtree
+    elif [ "$2 " = "git " ]; then
+        URL="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.31.4.tar.gz"
+        mkdir -p "$HOME"/.cache &&
+        wget -O "$HOME"/.cache/git.tar.gz $URL &&
+        tar zxvf "$HOME"/.cache/git.tar.gz -C "$HOME"/.cache &&
+        cd "$HOME"/.cache/git-2.31.4 &&
+        ./configure --prefix="$HOME/.local" &&
+        make -j 10 && make install &&
+        echo && echo "${ESC}[33mexport HOMEBREW_GIT_PATH=\$(which git)${ESC}[m"
+    elif [ "$2 " = "curl " ]; then
+        mkdir -p "$HOME"/.cache &&
+        git clone --depth 1 git@github.com:curl/curl.git "$HOME"/.cache/curl &&
+        cd "$HOME"/.cache/curl &&
+        autoreconf -fi &&
+        ./configure --prefix="$HOME"/.local --with-openssl &&
+        make -j 10 && make install &&
+        cd - &&
+        echo && echo "${ESC}[33mexport HOMEBREW_CURL_PATH=\$(which curl)${ESC}[m"
+    elif [ "$2 " = "ruby " ]; then
+        brew edit ruby
+        # "--eneble-shared" <- delete this line
+        brew install ruby
+    elif [ "$2 " = "xz " ]; then
+        brew install binutils
+        brew install gcc@9
+    fi
+
+else
+    ~/.homebrew/bin/brew "$@"
+fi

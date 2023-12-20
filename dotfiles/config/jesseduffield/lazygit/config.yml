@@ -1,0 +1,15 @@
+gui:
+  showIcons: true
+  mouseEvents: false
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+keybinding:
+  universal:
+    scrollUpMain: "k"
+    scrollDownMain: "j"
+    prevItem-alt: "<up>"
+    nextItem-alt: "<down>"

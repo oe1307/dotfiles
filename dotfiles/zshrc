@@ -1,0 +1,102 @@
+#!/bin/zsh
+
+# LD_RUN_PATH
+export LD_RUN_PATH=$LD_RUN_PATH:/usr/local/cuda/targets/x86_64-linux/lib/
+export LD_RUN_PATH=$LD_RUN_PATH:/opt/gurobi/linux64/lib
+export LD_RUN_PATH=$HOME/.homebrew/lib:$LD_RUN_PATH
+export LD_RUN_PATH=$HOME/.local/lib:$LD_RUN_PATH
+
+# PATH
+export PATH=$PATH:/opt/gurobi/linux64/bin
+export PATH=$PATH:/usr/local/cuda/bin
+export PATH=$HOME/.homebrew/sbin:$PATH
+export PATH=$HOME/.homebrew/bin:$PATH
+export PATH=$HOME/.homebrew/opt/curl/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# XDG
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_CONFIG_HOME=$HOME/.config
+export HISTFILE=$HOME/.local/state/zsh_history
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+export SCREENRC=$HOME/.config/screen/screenrc
+
+# plugin
+source $HOME/.config/ssh/workspace
+source $HOME/.config/git/git-prompt.sh
+source $HOME/.homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if which direnv >/dev/null 2>&1; then eval "$(direnv hook zsh)"; fi
+if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
+export SHELL=$HOME/.homebrew/bin/zsh
+export PROMPT="%f%F{green}%n@%m%f:"'%F{red}$(__git_ps1 "(%s)")'"%F{blue}%~%f"$'\n'"$ "
+export ESC=$(printf '\033')
+export GREP_OPTIONS=--color=auto
+export HOMEBREW_CACHE=$HOME/.homebrew/cache
+export HOMEBREW_GIT_PATH=$HOME/.homebrew/bin/git
+export HOMEBREW_CURL_PATH=$HOME/.homebrew/bin/curl
+export DIRENV_LOG_FORMAT=""
+export GUROBI_HOME=/opt/gurobi/linux64
+export GRB_LICENSE_FILE=/opt/gurobi/linux64/gurobi.lic
+export LIBRARY_PATH=/opt/intel/oneapi/mkl/latest/lib/intel64
+export BAT_THEME="Visual Studio Dark+"
+export LESSHISTFILE=-
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
+export APPLE_SSH_ADD_BEHAVIOR=macos
+
+# settings
+HISTSIZE=100000
+SAVEHIST=100000
+setopt prompt_subst
+setopt +o nonomatch
+setopt share_history
+setopt append_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_no_store
+autoload -U compinit
+
+# formatter/linter
+alias flake8="flake8 --ignore=E203,E402,W503 --max-line-length=88"
+alias isort="isort --profile=black"
+alias mypy="mypy --strict --ignore-missing-imports"
+alias stylua="stylua --indent-type Spaces"
+alias clang-format="clang-format -i"
+alias cpplint="cpplint --quiet --filter=-legal/copyright,-whitespace/indent,-build/include,-readability/todo --counting=detailed"
+alias latexindent="latexindent -w -s -m -g /dev/null -l \$HOME/.config/latex/indent.yaml"
+alias prettier="prettier -w --prose-wrap always"
+
+# git
+alias gs="git status --ignored"
+alias gp="git pull"
+alias ga="git add"
+alias gP="git push"
+alias gS="git stash"
+alias gc="git commit"
+alias gC="git checkout"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git log"
+alias gt="git add --all && git commit -m update; git pull; git push"
+alias lg="lazygit"
+
+# plugin
+alias ls="exa -g --icons --sort Name"
+alias la="exa -a -g --icons --sort Name"
+alias ll="exa -l -a -g --icons --sort Name"
+alias cat="bat -p"
+alias top="htop"
+alias vim="nvim -O"
+alias git="_git"
+alias ssh="_ssh"
+alias diff="_diff"
+alias tmux="tmux new -As0"
+alias watch="watch -c "
+alias nvidia-smi="watch -n 1 nvidia-smi"
+alias screen="screen -xR"
+alias tree="tree --dirsfirst -C -I .git -I __pycache__ -I build -I '*.egg-info'"
+alias pip-reset="pip3 list --format freeze | grep -v -e pip3 -e setuptools | xargs pip3 uninstall -y"
+alias latexmk="latexmk -silent -f"
+alias pandoc="pandoc -V documentclass=ltjarticle --pdf-engine=lualatex -t pdf -o output.pdf"
