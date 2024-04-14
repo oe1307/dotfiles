@@ -30,9 +30,9 @@ elif [ "$1 " = "log " ]; then
             git push -u origin "$3" -f
         fi
     elif [ -z "$2" ]; then
-        git log
+        git log --abbrev-commit -p
     else
-        git log "$@"
+        git log "$@" --abbrev-commit -p
     fi
 else
     git "$@"
