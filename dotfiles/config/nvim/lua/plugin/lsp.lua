@@ -30,6 +30,9 @@ return {
                 end,
                 clangd = function()
                     require("lspconfig").clangd.setup({
+                        init_options = {
+                            compilationDatabasePath = ".build",
+                        },
                         capabilities = require("cmp_nvim_lsp").default_capabilities(),
                         cmd = { "clangd", "--offset-encoding=utf-16" },
                     })
