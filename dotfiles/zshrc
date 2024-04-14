@@ -9,6 +9,8 @@ export LD_RUN_PATH=$HOME/.local/lib:$LD_RUN_PATH
 # PATH
 export PATH=$PATH:/opt/gurobi/linux64/bin
 export PATH=$PATH:/usr/local/cuda/bin
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.homebrew/sbin:$PATH
 export PATH=$HOME/.homebrew/bin:$PATH
 export PATH=$HOME/.homebrew/opt/curl/bin:$PATH
@@ -39,7 +41,6 @@ export HOMEBREW_CURL_PATH=$HOME/.homebrew/bin/curl
 export DIRENV_LOG_FORMAT=""
 export GUROBI_HOME=/opt/gurobi/linux64
 export GRB_LICENSE_FILE=/opt/gurobi/linux64/gurobi.lic
-export LIBRARY_PATH=/opt/intel/oneapi/mkl/latest/lib/intel64
 export BAT_THEME="Visual Studio Dark+"
 export LESSHISTFILE=-
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border"
@@ -79,13 +80,14 @@ alias gC="git checkout"
 alias gb="git branch"
 alias gd="git diff"
 alias gl="git log"
-alias gt="git add --all && git commit -m update; git pull; git push"
+alias gt="git add --all && git commit -m update && git pull && git push"
 alias lg="lazygit"
 
 # plugin
-alias ls="exa -g --icons --sort Name"
-alias la="exa -a -g --icons --sort Name"
-alias ll="exa -l -a -g --icons --sort Name"
+alias mv="mv -i"
+alias ls="eza -g --icons --sort Name"
+alias la="eza -a -g --icons --sort Name"
+alias ll="eza -l -a -g --icons --sort Name"
 alias cat="bat -p"
 alias top="htop"
 alias vim="nvim -O"
@@ -96,7 +98,8 @@ alias tmux="tmux new -As0"
 alias watch="watch -c "
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias screen="screen -xR"
-alias tree="tree --dirsfirst -C -I .git -I __pycache__ -I build -I '*.egg-info'"
+alias tree="tree --dirsfirst -C -I .git -I .venv -I __pycache__ -I .build -I '*.egg-info' -I .mypy_cache"
 alias pip-reset="pip3 list --format freeze | grep -v -e pip3 -e setuptools | xargs pip3 uninstall -y"
 alias latexmk="latexmk -silent -f"
-alias pandoc="pandoc -V documentclass=ltjarticle --pdf-engine=lualatex -t pdf -o output.pdf"
+alias pandoc="pandoc -V geometry:margin=1in -V documentclass=ltjarticle --pdf-engine=lualatex -t pdf -o output.pdf --highlight-style=zenburn"
+alias bmake="cmake -S . -B .build -D CMAKE_BUILD_TYPE=Debug && cmake --build .build -j 10"

@@ -61,6 +61,7 @@ return {
     {
         -- status bar
         "nvim-lualine/lualine.nvim",
+        tag = "compat-nvim-0.6",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
