@@ -1,0 +1,94 @@
+#!/bin/bash
+
+cd $HOME/work
+
+# PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/sbin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/sbin:$PATH
+
+# settings
+source $HOME/.config/proxy/proxy.sh
+source $HOME/.config/git/git-prompt.sh
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_RUNTIME_DIR=$HOME/.local/run
+export XDG_CONFIG_HOME=$HOME/.config
+export HISTFILE=$HOME/.local/state/zsh_history
+export NPM_CONFIG_USERCONFIG=$HOME/.config/npm/npmrc
+export SCREENRC=$HOME/.config/screen/screenrc
+export ZSH_AUTO=$HOME/.local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_SYNTAX=$HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export AUTOPAIR=$HOME/.local/share/zsh-autopair/autopair.zsh
+export PROMPT="%f%F{green}%n@%m%f:"'%F{red}$(__git_ps1 "(%s)")'"%F{blue}%~%f"$'\n'"$ "
+export DIRENV_LOG_FORMAT=""
+export BAT_THEME="Visual Studio Dark+"
+export LESSHISTFILE=-
+export APPLE_SSH_ADD_BEHAVIOR=macos
+export EDITOR=nvim
+if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
+if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
+if [ -e "$AUTOPAIR" ]; then source $AUTOPAIR; else echo "autopair not found"; fi
+if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
+
+# options
+HISTSIZE=100000
+SAVEHIST=100000
+setopt prompt_subst
+setopt +o nonomatch
+setopt share_history
+setopt append_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_no_store
+autoload -U compinit
+
+# formatter/linter
+alias flake8="flake8 --ignore=E203,E402,W503 --max-line-length=88"
+alias isort="isort --profile=black"
+alias mypy="mypy --strict --ignore-missing-imports"
+alias stylua="stylua --indent-type Spaces"
+alias clang-format="clang-format -i"
+alias cpplint="cpplint --quiet --filter=-legal/copyright,-whitespace/indent,-build/include,-readability/todo --counting=detailed"
+alias latexindent="latexindent -w -s -m -g /dev/null -l \$HOME/.config/latex/indent.yaml"
+alias prettier="prettier -w --prose-wrap always"
+
+# git
+alias gs="git status --ignored"
+alias gp="git pull"
+alias ga="git add"
+alias gP="git push"
+alias gS="git stash push"
+alias gc="git commit"
+alias gC="git checkout"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git log"
+alias gt="git add --all && git commit -m update && git pull && git push"
+alias lg="lazygit"
+
+# plugin
+if hash direnv >/dev/null 2>&1; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
+if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
+if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
+if hash eza 2>/dev/null; then alias ll="eza -l -a -g --icons --sort Name"; else alias ll="ls -la"; fi
+if hash bat 2>/dev/null; then alias cat="bat -p"; else echo "bat not found"; fi
+if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
+if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
+if hash trash-put 2>/dev/null; then alias rm="trash-put"; else echo "trash-cli not found"; fi
+alias cdr="cd $HOME/work"
+alias mv="mv -i"
+alias grep="grep --color=auto"
+alias tmux="tmux new -As0"
+alias watch="watch -c "
+alias nvidia-smi="watch -n 1 nvidia-smi"
+alias screen="screen -xR"
+alias tr="tree --dirsfirst -C -I .git -I .venv -I __pycache__ -I .build -I '*.egg-info' -I .mypy_cache -I build"
+alias latexmk="latexmk -silent -f"
+alias pandoc="pandoc -V geometry:margin=1in -V documentclass=ltjarticle --pdf-engine=lualatex -t pdf -o output.pdf --highlight-style=zenburn"
+alias apt-list="apt list --installed | grep -v '\\[installed,automatic\\]' | grep -o '[a-zA-Z0-9+-.]*/' | sed -e 's;/;;' > sources.list"
+alias dh="docker history --no-trunc=true --format '{{.CreatedBy}}'"

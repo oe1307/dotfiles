@@ -1,0 +1,43 @@
+# utils
+.DS_Store
+.vscode
+.cache
+.build
+build
+*.zip
+*.tar.gz
+
+# python
+.envrc
+.venv
+__pycache__
+.ipynb_checkpoints
+*.ipynb
+*.egg-info
+*.pt
+*.npy
+*.pth
+*.pkl
+.ruff_cache
+
+# c++
+.ccls-cache
+compile_commands.json
+
+# tex
+*.bak
+
+# dotfiles
+*.lock.json
+dotfiles/config/htop
+dotfiles/config/iterm2/AppSupport
+dotfiles/config/raycast
+
+# secret files
+bin/call
+dotfiles/config/gh/hosts.yml
+dotfiles/config/github-copilot/hosts.json
+dotfiles/config/git/config
+dotfiles/config/proxy
+dotfiles/config/ssh
+ssh/key

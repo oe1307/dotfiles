@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -e /usr/bin/open ]; then
+    /usr/bin/open "$@"
+else
+    # open command for WSL
+    if [ $# != 1 ]; then
+        explorer.exe .
+    else
+        path_name=$(wslpath -w "$1")
+        if [ -e "$1" ]; then
+            cmd.exe /c start "${path_name}" 2>/dev/null
+        else
+            echo "open: $1 : No such file or directory"
+        fi
+    fi
+fi

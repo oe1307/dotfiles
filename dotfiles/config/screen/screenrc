@@ -1,0 +1,5 @@
+autodetach on
+
+# status line
+hardstatus alwayslastline
+caption always "%{= gK}  %H  %{= Kd} %-w %{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd} %+w%-= %{KG}"

@@ -1,0 +1,9 @@
+Include ~/.ssh/server/*
+
+ServerAliveInterval 15
+ServerAliveCountMax 3
+Compression yes
+ForwardAgent yes
+IdentitiesOnly yes
+AddKeysToAgent yes
+StrictHostKeyChecking no

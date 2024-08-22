@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# dotfiles
+DOTFILES=$(ls "$HOME/private/dotfiles")
+for file in $DOTFILES; do
+    ln -snvf "$HOME/private/dotfiles/$file" "$HOME/.$file"
+done
+mkdir -p "$HOME/.local/share"
+ln -snvf "$HOME/private/bin" "$HOME/.local/bin"
+ln -snvf "$HOME/private/dotfiles/config/ssh/" "$HOME/.ssh/server"
+
+# symbolic link
+if which brew >/dev/null 2>&1; then
+    ln -snvf "$(brew --prefix)/bin/python3" "$(brew --prefix)/bin/python"
+    ln -snvf "$(brew --prefix)/bin/pip3" "$(brew --prefix)/bin/pip"
+    ln -snvf "$(brew --prefix)/share/zsh-autosuggestions" "$HOME/.local/share/zsh-autosuggestions"
+    ln -snvf "$(brew --prefix)/share/zsh-syntax-highlighting" "$HOME/.local/share/zsh-syntax-highlighting"
+    ln -snvf "$(brew --prefix)/share/zsh-autopair" "$HOME/.local/share/zsh-autopair"
+fi

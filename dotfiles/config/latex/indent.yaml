@@ -1,0 +1,11 @@
+defaultIndent: "    "
+onlyOneBackUp: 1
+lookForAlignDelims:
+  tabular:
+    dontMeasure:
+      -
+        regex: \\multicolumn\{\d\}\{.\}\{.*?\}
+        applyTo: row
+      -
+        regex: \\cite\{.*?\}
+        applyTo: cell
