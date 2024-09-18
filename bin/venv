@@ -8,14 +8,16 @@ fi
 
 if [ -d .venv ]; then
     echo "venv already exists" &&
-    echo "source .venv/bin/activate" >.envrc &&
-    echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
-    direnv allow &&
-    .venv/bin/pip install -q -U pip
+        cp ~/.envrc .
+    echo "source .venv/bin/activate" >>.envrc &&
+        echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
+        direnv allow &&
+        .venv/bin/pip install -q -U pip
 else
     "python$version" -m venv .venv &&
-    echo "source .venv/bin/activate" >.envrc &&
-    echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
-    direnv allow &&
-    .venv/bin/pip install -q -U pip
+        cp ~/.envrc .
+    echo "source .venv/bin/activate" >>.envrc &&
+        echo "export PROMPT=(\$(python -V | sed -e 's/Python //'))\$PROMPT" >>.envrc &&
+        direnv allow &&
+        .venv/bin/pip install -q -U pip
 fi

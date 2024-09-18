@@ -20,6 +20,7 @@ return {
                     -- python
                     formatter.ruff,
                     linter.ruff,
+                    formatter.isort.with({ extra_args = { "--profile", "black" } }),
                     linter.mypy.with({ extra_args = { "--ignore-missing-imports" } }),
 
                     -- shell

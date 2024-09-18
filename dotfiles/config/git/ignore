@@ -29,9 +29,12 @@ compile_commands.json
 
 # dotfiles
 *.lock.json
+dotfiles/config/github-copilot/versions.json
 dotfiles/config/htop
 dotfiles/config/iterm2/AppSupport
+dotfiles/config/pulse
 dotfiles/config/raycast
+dotfiles/config/systemd
 
 # secret files
 bin/call

@@ -1,11 +1,12 @@
 #!/bin/bash
 
 # ssh-agent
-if [ -f $HOME/.local/state/ssh-agent ]; then
-    . $HOME/.local/state/ssh-agent > /dev/null
-fi
-if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
-    ssh-agent > $HOME/.local/state/ssh-agent && . $HOME/.local/state/ssh-agent > /dev/null
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    RUNNING_AGENT="$(ps -ax | grep 'ssh-agent -s' | grep - grep | wc -l | tr -d '[:space:]')"
+    if [ "$RUNNING_AGENT" = "0" ]; then
+        ssh-agent -s &>$HOME/.local/state/ssh-agent
+    fi
+    eval $(cat $HOME/.local/state/ssh-agent)
 fi
 
 # zsh
@@ -28,4 +29,3 @@ elif [ -f "/usr/bin/zsh" ]; then
 else
     echo "zsh not found"
 fi
-

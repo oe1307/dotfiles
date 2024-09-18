@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$(uname)" = 'Darwin' ] && [ "`networksetup -getcurrentlocation`" = "musashino" ]; then
+    export http_proxy=http://proxy-u.ecl.ntt.co.jp:8080/
+    export https_proxy=$http_proxy
+    export all_proxy=$http_proxy
+    git config --global http.proxy $http_proxy
+    git config --global https.proxy $https_proxy
+fi
