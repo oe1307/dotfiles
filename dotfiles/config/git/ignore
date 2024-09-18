@@ -43,4 +43,5 @@ dotfiles/config/github-copilot/hosts.json
 dotfiles/config/git/config
 dotfiles/config/proxy
 dotfiles/config/ssh
+dotfiles/config/containerd
 ssh/key
