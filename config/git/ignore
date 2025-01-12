@@ -1,0 +1,11 @@
+# utils
+.DS_Store
+.envrc
+.venv
+__pycache__
+*.egg-info
+*.lock.json
+
+# dotfiles
+htoprc
+raycast
