@@ -50,6 +50,17 @@ setopt hist_reduce_blanks
 setopt hist_no_store
 autoload -Uz compinit && compinit -d $HOME/.zcompcache/base
 
+# ssh-agent
+if [[ "$(uname)" = "Linux" ]]; then
+    if [ -f ~/.local/state/ssh-agent ]; then
+        . ~/.local/state/ssh-agent > /dev/null
+    fi
+    if [ -z "$SSH_AGENT_PID" ] || {! kill -0 $SSH_AGENT_PID 2>/dev/null}; then
+        ssh-agent > ~/.local/state/ssh-agent
+        . ~/.local/state/ssh-agent > /dev/null
+    fi
+fi
+
 # git
 alias gs="git status --ignored"
 alias gp="git pull"
@@ -65,6 +76,7 @@ alias gt="git add --all && git commit -m update && git pull && git push"
 alias lg="lazygit"
 
 # alias
+alias c="clear"
 alias cdr="cd $HOME/work"
 alias ..="cd .."
 alias ....="cd ../.."
