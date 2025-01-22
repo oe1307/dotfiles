@@ -39,6 +39,7 @@ if is_windows then
     config.default_prog = { "wsl" }
     config.font_size = 12.0
     config.keys = {
+        { key = "d", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
         { key = "^", mods = "CTRL", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
     }
 end
