@@ -28,6 +28,7 @@ export APPLE_SSH_ADD_BEHAVIOR=macos
 export EDITOR=nvim
 export FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 export PROXY_FILE=$HOME/.ssh/accounts/proxy/proxy.sh
+export NPM_CONFIG_USERCONFIG=$HOME/.config/node_js/npmrc
 if [ -e "$PROXY_FILE" ]; then source $PROXY_FILE; fi
 if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
