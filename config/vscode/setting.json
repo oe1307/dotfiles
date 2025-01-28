@@ -1,0 +1,6 @@
+{
+    "editor.renderWhitespace": "trailing",
+    "workbench.activityBar.location": "bottom",
+    "window.restoreWindows": "none",
+    "security.workspace.trust.enabled": false
+}
