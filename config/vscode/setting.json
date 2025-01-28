@@ -5,5 +5,6 @@
     "security.workspace.trust.enabled": false,
     "markdown.marp.themes": [
         "https://gist.githubusercontent.com/oe1307/ce4bde36db2624e3a7e29b620b911d66/raw/marp-theme-ntt.css"
-    ]
+    ],
+    "markdown.marp.html": "all",
 }
