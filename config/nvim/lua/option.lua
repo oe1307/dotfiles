@@ -21,7 +21,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim"
+vim.opt.undodir = vim.fs.normalize("~/.local/state/nvim")
 
 -- language
 vim.g.loaded_perl_provider = 0
