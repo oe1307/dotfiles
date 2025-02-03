@@ -1,5 +1,6 @@
 # utils
 .DS_Store
+build
 .envrc
 .venv
 __pycache__
