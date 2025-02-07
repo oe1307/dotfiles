@@ -9,12 +9,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         "--branch=stable",
         lazypath,
     })
-    vim.fn.system({
-        "npm",
-        "install",
-        "-g",
-        "neovim",
-    })
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
