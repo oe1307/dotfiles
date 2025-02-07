@@ -86,17 +86,15 @@ alias ....="cd ../.."
 alias ......="cd ../../.."
 alias mv="mv -i"
 alias grep="grep --color=auto"
-alias tmux="tmux new -As0"
 alias watch="watch -c "
 alias nvidia-smi="watch -n 1 nvidia-smi"
-alias screen="screen -xR"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
 if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
 if hash eza 2>/dev/null; then alias ll="eza -l -a -g --icons --sort Name"; else alias ll="ls -la"; fi
+if hash eza 2>/dev/null; then alias lt="eza -T --git-ignore --sort Name"; fi
 if hash bat 2>/dev/null; then alias cat="bat -p"; else echo "bat not found"; fi
 if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rm-improved not found"; fi
-if hash tree 2>/dev/null; then alias tr="tree --dirsfirst -C -I .git -I .venv -I __pycache__ -I .build -I '*.egg-info' -I .mypy_cache -I build"; fi
