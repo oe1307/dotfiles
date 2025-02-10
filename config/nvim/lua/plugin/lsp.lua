@@ -11,17 +11,9 @@ return {
             "williamboman/mason.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
-        build = function()
-            vim.cmd("!pip install --break-system-packages jedi-language-server")
-        end,
         config = function()
             require("mason").setup()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "jedi_language_server",
-                    "clangd",
-                },
-            })
+            require("mason-lspconfig").setup({})
             require("mason-lspconfig").setup_handlers({
                 function(server)
                     require("lspconfig")[server].setup({})

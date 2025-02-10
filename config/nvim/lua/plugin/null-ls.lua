@@ -21,44 +21,44 @@ return {
                     formatter.ruff,
                     linter.ruff,
                     formatter.isort.with({ extra_args = { "--profile", "black" } }),
-                    -- linter.mypy.with({ extra_args = { "--ignore-missing-imports" } }),
+                    linter.mypy.with({ extra_args = { "--ignore-missing-imports" } }),
 
                     -- shell
-                    -- formatter.shfmt.with({ extra_args = { "-i", "4" } }),
-                    -- formatter.beautysh,
+                    formatter.shfmt.with({ extra_args = { "-i", "4" } }),
+                    formatter.beautysh,
 
                     -- lua
-                    -- formatter.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
-                    -- linter.luacheck.with({ extra_args = { "--globals", "vim" } }),
+                    formatter.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
+                    linter.luacheck.with({ extra_args = { "--globals", "vim" } }),
 
                     -- cpp
-                    -- formatter.clang_format,
-                    -- linter.cpplint.with({
-                    --     args = { "--filter", "-legal/copyright,-whitespace/indent,-readability/todo", "$FILENAME" },
-                    -- }),
-                    -- linter.cmake_lint,
-                    -- formatter.cmake_format,
+                    formatter.clang_format,
+                    linter.cpplint.with({
+                        args = { "--filter", "-legal/copyright,-whitespace/indent,-readability/todo", "$FILENAME" },
+                    }),
+                    linter.cmake_lint,
+                    formatter.cmake_format,
 
                     -- json, yaml, html, markdown
-                    -- formatter.prettier.with({
-                    --     filetypes = { "html", "json", "yaml" },
-                    --     extra_args = { "--prose-wrap", "always" },
-                    -- }),
+                    formatter.prettier.with({
+                        filetypes = { "html", "json", "yaml" },
+                        extra_args = { "--prose-wrap", "always" },
+                    }),
 
                     -- tex
-                    -- formatter.latexindent.with({
-                    --     extra_args = { "-w", "-m", "-g", "/dev/null", "-l", "~/.config/latex/indent.yaml" },
-                    -- }),
+                    formatter.latexindent.with({
+                        extra_args = { "-w", "-m", "-g", "/dev/null", "-l", "~/.config/latex/indent.yaml" },
+                    }),
 
                     -- docker
-                    -- linter.hadolint.with({
-                    --     extra_args = { "--ignore", "DL3006", "--ignore", "DL3008", "--ignore", "DL3009" },
-                    -- }),
+                    linter.hadolint.with({
+                        extra_args = { "--ignore", "DL3006", "--ignore", "DL3008", "--ignore", "DL3009" },
+                    }),
 
                     -- others
-                    -- formatter.trim_whitespace,
-                    -- formatter.taplo,
-                    -- completion.vsnip,
+                    formatter.trim_whitespace,
+                    formatter.taplo,
+                    completion.vsnip,
                 },
             })
             require("mason-null-ls").setup()
