@@ -14,7 +14,7 @@ return {
         },
         config = function()
             require("noice").setup({
-                messages = { view_error = "messages" },
+                messages = { view_error = "messages", view_warn = "messages" },
             })
         end,
     },
