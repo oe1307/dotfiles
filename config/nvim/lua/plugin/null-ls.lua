@@ -13,7 +13,6 @@ return {
         config = function()
             local formatter = require("null-ls").builtins.formatting
             local linter = require("null-ls").builtins.diagnostics
-            local action = require("null-ls").builtins.code_actions
             local completion = require("null-ls").builtins.completion
             require("null-ls").setup({
                 sources = {
@@ -29,7 +28,6 @@ return {
 
                     -- lua
                     formatter.stylua.with({ extra_args = { "--indent-type", "Spaces" } }),
-                    linter.luacheck.with({ extra_args = { "--globals", "vim" } }),
 
                     -- cpp
                     formatter.clang_format,
