@@ -10,20 +10,20 @@ keymap.set("v", "+", "<C-a>gv")
 keymap.set("n", "-", "<C-x>")
 keymap.set("v", "-", "<C-x>gv")
 
--- delete keymap
+-- delete
 keymap.set("n", "d", "")
 keymap.set("n", "dd", "dd")
 keymap.set("n", "x", "")
 keymap.set("n", "<C-d>", "")
 
+-- delete word
+keymap.set("n", "dw", "daw")
+keymap.set("n", "xw", '"_daw')
+
 -- do not yank
 keymap.set("v", "x", '"_x')
 keymap.set("n", "xx", '"_dd')
 keymap.set("n", "X", '"_d$')
-
--- delete word
-keymap.set("n", "dw", "daw")
-keymap.set("n", "xw", '"_daw')
 
 -- select line
 keymap.set("v", "v", "V")
@@ -63,3 +63,6 @@ keymap.set("n", "<CR>", "j")
 -- keep indent
 keymap.set("n", "o", "o.<BS><esc>a")
 keymap.set("n", "O", "O.<BS><esc>a")
+
+-- previous file
+keymap.set("n", "Z", ":bp<Return>", { silent = true })
