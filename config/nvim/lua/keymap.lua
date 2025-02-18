@@ -48,7 +48,7 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- move window
 keymap.set("n", "<Space>", "<C-w>w")
-keymap.set("n", "<Shift-Space>", "<C-w>W")
+keymap.set("n", "<C-w>", "<C-w>W")
 
 -- replace
 keymap.set("n", "<C-c>", ":%s;;;g<Left><Left><Left>")
