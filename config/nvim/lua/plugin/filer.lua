@@ -30,14 +30,17 @@ return {
         },
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
+            local actions = require("telescope.actions")
             require("telescope").setup({
                 defaults = {
                     path_desplay = { "smart" },
                     mappings = {
                         i = {
-                            ["<esc>"] = "close",
-                            ["<C-p>"] = "close",
-                            ["<C-o>"] = "close",
+                            ["<esc>"] = actions.close,
+                            ["<Up>"] = actions.cycle_history_prev,
+                            ["<Down>"] = actions.cycle_history_next,
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
                         },
                     },
                 },
