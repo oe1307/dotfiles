@@ -2,12 +2,15 @@
     "editor.renderWhitespace": "trailing",
     "workbench.activityBar.location": "bottom",
     "window.restoreWindows": "none",
-    "files.autoSave": "onFocusChange",
-    "editor.minimap.enabled": false,
     "security.workspace.trust.enabled": false,
     "markdown.marp.themes": [
-        "https://gist.githubusercontent.com/oe1307/ce4bde36db2624e3a7e29b620b911d66/raw/marp-theme-ntt.css"
+        // "./marp-theme-ntt.css"
+        "https://gist.githubusercontent.com/oe1307/ce4bde36db2624e3a7e29b620b911d66/raw/marp-theme-ntt.css",
     ],
     "markdown.marp.html": "all",
-    "hediet.vscode-drawio.theme": "Kennedy",
+    "explorer.confirmDelete": false,
+    "hediet.vscode-drawio.resizeImages": null,
+    "git.openRepositoryInParentFolders": "never",
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
 }
