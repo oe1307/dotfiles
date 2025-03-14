@@ -51,7 +51,6 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_no_store
-autoload -Uz compinit && compinit -d $HOME/.zcompcache/base
 
 # ssh-agent
 if [[ "$(uname)" = "Linux" ]]; then
