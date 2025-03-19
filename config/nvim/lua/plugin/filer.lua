@@ -22,32 +22,6 @@ return {
         },
     },
     {
-        "nvim-telescope/telescope.nvim",
-        lazy = false,
-        keys = {
-            { "<C-p>", ":Telescope find_files<Return>", silent = true },
-            { "<C-o>", ":Telescope live_grep<Return>", silent = true },
-        },
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local actions = require("telescope.actions")
-            require("telescope").setup({
-                defaults = {
-                    path_desplay = { "smart" },
-                    mappings = {
-                        i = {
-                            ["<esc>"] = actions.close,
-                            ["<Left>"] = actions.cycle_history_prev,
-                            ["<Right>"] = actions.cycle_history_next,
-                            ["<Up>"] = actions.move_selection_previous,
-                            ["<Down>"] = actions.move_selection_next,
-                        },
-                    },
-                },
-            })
-        end,
-    },
-    {
         "akinsho/bufferline.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
