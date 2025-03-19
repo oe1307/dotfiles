@@ -1,5 +1,6 @@
 return {
     {
+        -- file explorer
         "nvim-neo-tree/neo-tree.nvim",
         lazy = false,
         keys = {
@@ -22,6 +23,7 @@ return {
         },
     },
     {
+        -- status line
         "akinsho/bufferline.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
@@ -50,6 +52,7 @@ return {
         end,
     },
     {
+        -- start screen
         "goolord/alpha-nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()

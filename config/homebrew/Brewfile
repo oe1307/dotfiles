@@ -9,7 +9,6 @@ brew "neovim"
 brew "node" # Copilot
 brew "python@3"
 brew "python@3.12"
-brew "ripgrep"
 brew "rm-improved"
 brew "starship"
 brew "watch"
