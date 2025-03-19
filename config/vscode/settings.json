@@ -4,7 +4,7 @@
     "window.restoreWindows": "none",
     "security.workspace.trust.enabled": false,
     "markdown.marp.themes": [
-        // "./marp-theme-ntt.css"
+        "./custom.css"
         "https://gist.githubusercontent.com/oe1307/ce4bde36db2624e3a7e29b620b911d66/raw/marp-theme-ntt.css",
     ],
     "markdown.marp.html": "all",
@@ -13,4 +13,10 @@
     "git.openRepositoryInParentFolders": "never",
     "markdown.preview.scrollEditorWithPreview": false,
     "markdown.preview.scrollPreviewWithEditor": false,
+    "window.menuBarVisibility": "compact",
+    "chat.commandCenter.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "window.commandCenter": false,
+    "editor.minimap.enabled": false,
 }
