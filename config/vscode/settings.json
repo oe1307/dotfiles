@@ -19,5 +19,7 @@
     "workbench.layoutControl.enabled": false,
     "window.commandCenter": false,
     "editor.minimap.enabled": false,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "extensions.ignoreRecommendations": true,
+    "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": false
 }
