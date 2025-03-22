@@ -10,6 +10,7 @@ export PATH=/home/linuxbrew/.linuxbrew/sbin:$PATH
 export PATH=$HOME/.homebrew/bin:$PATH
 export PATH=$HOME/.homebrew/sbin:$PATH
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/.local/share/npm/bin:$PATH
 
 # settings
 export XDG_DATA_HOME=$HOME/.local/share
