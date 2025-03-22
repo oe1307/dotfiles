@@ -6,7 +6,6 @@ local is_mac <const> = wezterm.target_triple:find("darwin") ~= nil
 
 config.enable_wayland = false
 config.audible_bell = "Disabled"
-config.use_ime = false
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
@@ -21,6 +20,7 @@ config.mouse_bindings = {
 }
 
 if is_mac then
+    config.use_ime = false
     config.font_size = 16.0
     config.keys = {
         { key = "¥", action = wezterm.action({ SendString = "\\" }) },
