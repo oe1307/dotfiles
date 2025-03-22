@@ -76,7 +76,7 @@ alias gd="git diff"
 alias gl="git log"
 alias lg="lazygit"
 if hash aic2 2>/dev/null; then alias gc="aic2 -y"; else alias gc="git commit"; fi
-if hash aic2 2>/dev/null; then alias gt="git add -a && aic2 -y && git pull && git push"; else alias gt="git add -a && git commit -m update && git pull && git push"; fi
+if hash aic2 2>/dev/null; then alias gt="git add -A && aic2 -y && git pull && git push"; else alias gt="git add -A && git commit -m update && git pull && git push"; fi
 
 # alias
 alias c="clear"
