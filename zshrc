@@ -98,4 +98,4 @@ if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rm-improved not found"; fi
 if hash python3 2>/dev/null; then alias py="python3"; else echo "python3 not found"; fi
-if hash aic2 2>/dev/null; then alias gc="aic2"; else alias gc="git commit"; fi
+if hash aic2 2>/dev/null; then alias gc="aic2 -y"; else alias gc="git commit"; fi
