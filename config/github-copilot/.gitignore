@@ -1,2 +1,2 @@
-hosts.json
-versions.json
+*
+!.gitignore
