@@ -11,8 +11,6 @@
     "explorer.confirmDelete": false,
     "hediet.vscode-drawio.resizeImages": null,
     "git.openRepositoryInParentFolders": "never",
-    "markdown.preview.scrollEditorWithPreview": false,
-    "markdown.preview.scrollPreviewWithEditor": false,
     "window.menuBarVisibility": "compact",
     "chat.commandCenter.enabled": false,
     "workbench.navigationControl.enabled": false,
@@ -21,5 +19,5 @@
     "editor.minimap.enabled": false,
     "files.autoSave": "onFocusChange",
     "extensions.ignoreRecommendations": true,
-    "markdown-preview-enhanced.hideDefaultVSCodeMarkdownPreviewButtons": false
+    "print.general.editorTitleMenu.showPrintIcon": false,
 }
