@@ -75,7 +75,7 @@ section.title::after {
 }
 
 section.slide {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/94f8ca1c8549227e4ab83c84391b9f14d3eb0fb1/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 810px 32px;
@@ -146,7 +146,7 @@ section.slide::after {
 }
 
 section.subtitle {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/94f8ca1c8549227e4ab83c84391b9f14d3eb0fb1/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 810px 32px;
@@ -172,7 +172,7 @@ section.subtitle footer {
 }
 
 section.last {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/94f8ca1c8549227e4ab83c84391b9f14d3eb0fb1/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 810px 32px;
