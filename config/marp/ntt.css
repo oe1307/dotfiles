@@ -1,38 +1,9 @@
 /* @theme ntt */
 
-/* SETUP
+/*
+SETUP
 1. Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resources/DFonts/meiryo*.ttc
 2. Install Segoe UI font: https://www.cufonfonts.com/font/segoe-ui-4
-*/
-
-/* USAGE
----
-marp: true
-theme: ntt
-paginate: true
-title: title
-math: mathjax
-footer: © NTT CORPORATION 2025
----
-
-<!--class: title-->
-# タイトル
-<!-- カンペ -->
-
----
-
-<!--class: slide-->
-# スライド1
-
----
-
-<!--class: last-->
-# Your Value Partner
-
----
-
-<!--class: slide-->
-# スライド3
 */
 
 section {
