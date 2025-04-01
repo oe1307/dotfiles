@@ -31,6 +31,9 @@ return {
                     formatter.isort.with({ extra_args = { "--profile", "black" } }),
                     linter.mypy.with({ extra_args = { "--ignore-missing-imports" } }),
 
+                    -- rust
+                    formatter.rustfmt,
+
                     -- shell
                     formatter.shfmt.with({ extra_args = { "-i", "4" } }),
                     formatter.beautysh,
