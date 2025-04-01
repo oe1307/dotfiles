@@ -13,8 +13,10 @@
     "files.autoSave": "onFocusChange",
     "extensions.ignoreRecommendations": true,
     "chat.commandCenter.enabled": false,
-
+    
     "//": "markdown",
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
     "markdown.marp.themes": [
         "./custom.css",
         "https://gist.githubusercontent.com/oe1307/ce4bde36db2624e3a7e29b620b911d66/raw/marp-theme-ntt.css",
