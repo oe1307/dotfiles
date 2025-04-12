@@ -17,9 +17,11 @@ return {
             local lsp = require("lspconfig")
             local formatter = require("null-ls").builtins.formatting
             local linter = require("null-ls").builtins.diagnostics
-            local completion = require("null-ls").builtins.completion
 
-            lsp.pyright.setup({})
+            lsp.pyright.setup({
+                capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            })
+
             require("null-ls").setup({
                 sources = {
                     -- python
