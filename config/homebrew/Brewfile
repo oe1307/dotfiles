@@ -21,11 +21,8 @@ cask "appcleaner"
 cask "box-drive"
 cask "font-hack-nerd-font"
 cask "google-chrome"
-cask "keyboardcleantool"
 cask "raycast"
 cask "visual-studio-code"
-cask "webex"
 cask "wezterm"
-mas "Ethernet Menubar", id: 1549412235
 mas "Pure Paste", id: 1611378436
 mas "RunCat", id: 1429033973
