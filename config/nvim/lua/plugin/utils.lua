@@ -62,7 +62,19 @@ return {
         end,
     },
     {
-        "hrsh7th/vim-vsnip",
-        dependencies = "hrsh7th/vim-vsnip-integ",
+        -- git signs
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+            vim.opt.signcolumn = "auto"
+        end,
+    },
+    {
+        -- git diff
+        "dinhhuy258/git.nvim",
+        keys = { { "gd", ":GitDiff<Return>", silent = true } },
+        config = function()
+            require("git").setup({ default_mappings = false })
+        end,
     },
 }

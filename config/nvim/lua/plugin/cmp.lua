@@ -1,5 +1,6 @@
 return {
     {
+        -- GitHub Copilot
         "github/copilot.vim",
         lazy = false,
         config = function()
@@ -8,14 +9,15 @@ return {
             vim.g.copilot_filetypes = { gitcommit = true }
             vim.keymap.set(
                 "i",
-                "<C-l>",
+                "<C-Enter>",
                 'copilot#Accept("<CR>")',
                 { silent = true, expr = true, replace_keycodes = false }
             )
-            vim.keymap.set("i", "<C-k>", "<Plug>(copilot-next)", { silent = true })
+            vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)", { silent = true })
         end,
     },
     {
+        -- nvim-cmp
         "hrsh7th/nvim-cmp",
         dependencies = {
             "neovim/nvim-lspconfig",
@@ -25,8 +27,7 @@ return {
             "hrsh7th/cmp-cmdline",
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
-            "onsails/lspkind-nvim",
-            "hrsh7th/cmp-nvim-lsp-document-symbol",
+            "hrsh7th/vim-vsnip-integ",
         },
         config = function()
             local cmp = require("cmp")
@@ -46,19 +47,10 @@ return {
                     { name = "buffer" },
                     { name = "path" },
                 }),
-                formatting = {
-                    format = require("lspkind").cmp_format({
-                        mode = "text",
-                        maxwidth = 50,
-                        ellipsis_char = "...",
-                    }),
-                },
             })
             cmp.setup.cmdline({ "/", "?" }, {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp_document_symbol" },
-                }, {
                     { name = "buffer" },
                 }),
             })

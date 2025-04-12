@@ -23,26 +23,16 @@ return {
         },
     },
     {
-        -- status line
-        "akinsho/bufferline.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("bufferline").setup({
-                options = { mode = "tabs" },
-            })
-        end,
-    },
-    {
         -- status bar
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
-                options = { theme = "wombat" },
+                options = { theme = "wombat", globalstatus = true },
                 sections = {
                     lualine_a = { "mode" },
-                    lualine_b = { { "filename", path = 1 } },
+                    lualine_b = { { "filename", path = 3 } },
                     lualine_c = { "diagnostics" },
                     lualine_x = {},
                     lualine_y = {},
