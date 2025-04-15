@@ -9,11 +9,11 @@ return {
             vim.g.copilot_filetypes = { gitcommit = true }
             vim.keymap.set(
                 "i",
-                "<C-Enter>",
+                "<C-L>",
                 'copilot#Accept("<CR>")',
                 { silent = true, expr = true, replace_keycodes = false }
             )
-            vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)", { silent = true })
+            vim.keymap.set("i", "<C-K>", "<Plug>(copilot-next)", { silent = true })
         end,
     },
     {
