@@ -4,7 +4,7 @@ return {
         lazy = false,
         keys = {
             { "K", vim.lsp.buf.definition, silent = true },
-            { "ff", ":lua require('conform').format()<Enter>", desc = "Format" },
+            { "ff", ":lua require('conform').format()<Enter>", silent = true },
         },
         dependencies = {
             "neovim/nvim-lspconfig",
@@ -24,7 +24,7 @@ return {
             -- formatter
             formatter.setup({
                 formatters_by_ft = {
-                    python = { "black", "isort" },
+                    python = { "ruff_format", "isort" },
                     lua = { "stylua" },
                     ["*"] = { "trim_whitespace" },
                 },
