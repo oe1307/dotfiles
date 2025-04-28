@@ -23,7 +23,6 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export ZSH_AUTO=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_SYNTAX=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOPAIR=$(brew --prefix)/share/zsh-autopair/autopair.zsh
-export DIRENV_LOG_FORMAT=""
 export BAT_THEME="Visual Studio Dark+"
 export APPLE_SSH_ADD_BEHAVIOR=macos
 export EDITOR=nvim
