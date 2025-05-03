@@ -40,6 +40,5 @@
     "markdown.marp.html": "all",
     "hediet.vscode-drawio.resizeImages": null,
     "markdown-preview-github-styles.colorTheme": "light",
-    "markdown.extension.print.includeVscodeStylesheets": false,
     "//": "end",
 }
