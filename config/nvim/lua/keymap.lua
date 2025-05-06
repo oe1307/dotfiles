@@ -55,7 +55,7 @@ keymap.set("n", "<C-c>", ":%s;;;g<Left><Left><Left>")
 keymap.set("v", "<C-c>", ":s;;;g<Left><Left><Left>")
 
 -- quit
-keymap.set("n", "<C-q>", ":q<Return>", { silent = true })
+keymap.set("n", "<C-q>", ":qa<Return>", { silent = true })
 
 -- ignore <CR>
 keymap.set("n", "<CR>", "j")
