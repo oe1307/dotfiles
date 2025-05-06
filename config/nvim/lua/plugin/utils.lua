@@ -53,25 +53,6 @@ return {
         "mg979/vim-visual-multi",
     },
     {
-        -- auto save
-        "Pocco81/auto-save.nvim",
-        config = function()
-            require("auto-save").setup({
-                execution_message = { message = "" },
-                condition = function(buf)
-                    local utils = require("auto-save.utils.data")
-                    if
-                        vim.fn.getbufvar(buf, "&modifiable") == 1
-                        and utils.not_in(vim.fn.getbufvar(buf, "&filetype"), { "lua" })
-                    then
-                        return true
-                    end
-                    return false
-                end,
-            })
-        end,
-    },
-    {
         -- git signs
         "lewis6991/gitsigns.nvim",
         config = function()
