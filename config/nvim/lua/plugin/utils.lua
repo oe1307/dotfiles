@@ -54,11 +54,21 @@ return {
     },
     {
         -- auto save
-        "907th/vim-auto-save",
+        "Pocco81/auto-save.nvim",
         config = function()
-            vim.g.auto_save = 1
-            vim.g.auto_save_silent = 1
-            vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
+            require("auto-save").setup({
+                execution_message = { message = "" },
+                condition = function(buf)
+                    local utils = require("auto-save.utils.data")
+                    if
+                        vim.fn.getbufvar(buf, "&modifiable") == 1
+                        and utils.not_in(vim.fn.getbufvar(buf, "&filetype"), { "lua" })
+                    then
+                        return true
+                    end
+                    return false
+                end,
+            })
         end,
     },
     {
