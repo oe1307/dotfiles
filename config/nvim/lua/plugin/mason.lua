@@ -7,6 +7,7 @@ return {
             { "ff", ":lua require('conform').format()<Enter>", silent = true },
         },
         dependencies = {
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
             "neovim/nvim-lspconfig",
             "stevearc/conform.nvim",
             "mfussenegger/nvim-lint",
@@ -38,6 +39,17 @@ return {
             vim.diagnostic.config({ virtual_text = false })
             linter.flake8 = { cmd = { "flake8" } }
             linter.mypy = { cmd = { "mypy" } }
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    "pyright",
+                    "ruff",
+                    "isort",
+                    "stylua",
+                    "flake8",
+                    "mypy",
+                },
+                auto_update = true,
+            })
         end,
     },
 }
