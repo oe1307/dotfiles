@@ -1,8 +1,7 @@
 {
     "editor.renderWhitespace": "trailing",
-    "workbench.activityBar.location": "bottom",
+    "workbench.activityBar.location": "hidden",
     "window.restoreWindows": "none",
-    "window.commandCenter": false,
     "security.workspace.trust.enabled": false,
     "window.menuBarVisibility": "compact",
     "explorer.confirmDelete": false,
@@ -19,6 +18,9 @@
     "editor.cursorBlinking": "solid",
     "editor.renderLineHighlight": "none",
     "editor.lineNumbers": "off",
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false,
+    "chat.commandCenter.enabled": false,
     "editor.showFoldingControls": "never",
     "window.title": " ",
     "editor.cursorStyle": "block",
@@ -26,6 +28,7 @@
     "extensions.ignoreRecommendations": true,
     "breadcrumbs.enabled": false,
     "editor.glyphMargin": false,
+    "workbench.startupEditor": "none",
 
     "//": "browser",
     "workbench.externalBrowser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
@@ -40,5 +43,5 @@
     "markdown.marp.html": "all",
     "hediet.vscode-drawio.resizeImages": null,
     "markdown-preview-github-styles.colorTheme": "light",
-    "//": "end",
+    "//": "end"
 }
