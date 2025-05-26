@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function()
-        vim.keymap.set("n", "<C-r>", ":term python %<Enter>")
+        vim.keymap.set("n", "R", ":term python %<Enter>")
     end,
 })
 
