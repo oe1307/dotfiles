@@ -26,6 +26,7 @@ export ZSH_SYNTAX=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-high
 export ZSH_AUTOPAIR=$(brew --prefix)/share/zsh-autopair/autopair.zsh
 export BAT_THEME="Visual Studio Dark+"
 export APPLE_SSH_ADD_BEHAVIOR=macos
+export MATPLOTLIBRC=$HOME/.cache/matplotlib
 export EDITOR=nvim
 export FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 export PROXY_FILE=$HOME/.ssh/accounts/proxy/proxy.sh
