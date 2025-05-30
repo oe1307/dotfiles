@@ -17,6 +17,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_RUNTIME_DIR=$HOME/.local/run
 export XDG_CONFIG_HOME=$HOME/.config
+export LESSHISTFILE=$HOME/.local/state/lesshst
 export HISTFILE=$HOME/.local/state/zsh_history
 export SCREENRC=$HOME/.config/screen/screenrc
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
