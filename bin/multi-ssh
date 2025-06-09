@@ -5,7 +5,7 @@ SERVER_LIST="$(ls ~/.ssh/server)"
 if [ -z "$1" ]; then
     echo
     for config in $SERVER_LIST; do
-        grep -o '^Host [0-9a-z.-]*' <"$HOME/.ssh/server/$config" | sort | sed -e "s/Host//" | tr -d "\n"
+        grep -o '^Host [0-9a-zA-Z.-]*' <"$HOME/.ssh/server/$config" | sort | sed -e "s/Host//" | tr -d "\n"
         echo
     done
 else
