@@ -1,6 +1,7 @@
 brew "bat"
 brew "cmake"
 brew "direnv"
+brew "eddieantonio/eddieantonio/imgcat"
 brew "eza"
 brew "git-delta"
 brew "htop"
