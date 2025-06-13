@@ -8,6 +8,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function()
-        vim.keymap.set("n", "<C-s>", "obreakpoint()<esc>", { silent = true })
+        vim.keymap.set("n", "<C-s>", "obreakpoint()<esc><Down>", { silent = true })
     end,
 })
