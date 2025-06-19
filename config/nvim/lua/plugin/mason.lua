@@ -20,7 +20,17 @@ return {
             local linter = require("lint")
 
             -- lsp
-            lsp.pyright.setup({})
+            lsp.pyright.setup({
+                settings = {
+                    python = {
+                        analysis = {
+                            diagnosticSeverityOverrides = {
+                                reportCallIssue = "none",
+                            },
+                        },
+                    },
+                },
+            })
 
             -- formatter
             formatter.setup({
