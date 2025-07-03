@@ -4,12 +4,16 @@ theme: ntt
 paginate: true
 title: title
 math: mathjax
-footer: © NTT CORPORATION 2025
+footer: © NTT, Inc. 2025
 ---
 
 <!--class: title-->
 
-# タイトル
+# 表紙タイトル2行まで
+
+## サブタイトルやプレゼンター名など二次情報
+
+### 2025年 7月 1日
 
 <!-- カンペ -->
 
