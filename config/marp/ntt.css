@@ -33,46 +33,53 @@ section.title {
 }
 
 section.title h1 {
-  font-family: "Number","Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 44pt;
   position: absolute;
-  bottom: 165px;
-  left: 75px;
+  bottom: 178px;
+  left: 118px;
 }
 
 section.title h2 {
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 18pt;
+  font-weight: normal;
   position: absolute;
-  bottom: 70px;
-  left: 67px;
+  bottom: 140px;
+  left: 118px;
 }
 
 section.title h3 {
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
-  font-size: 18pt;
+  font-size: 12pt;
+  font-weight: normal;
   position: absolute;
-  bottom: 40px;
-  left: 67px;
+  bottom: 70px;
+  left: 118px;
 }
 
 section.title footer {
-  color: #fff;
+  font-family: "Arial";
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  bottom: 25px;
+  left: 118px;
 }
 
-section.title::after {
+/* section.title::after {
   color: #fff;
-}
+} */
 
 section.slide {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 810px 32px;
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   font-size: 20pt;
   color: #000;
   padding-left: 41px;
@@ -86,7 +93,7 @@ section.slide strong {
 }
 
 section.slide h1 {
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 30pt;
   position: absolute;
@@ -147,7 +154,7 @@ section.subtitle {
 }
 
 section.subtitle h1 {
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 40pt;
   position: absolute;
@@ -191,7 +198,7 @@ section.last::after {
 }
 
 section.overslide h1{
-  font-family: "Meiryo";
+  font-family: "Number", "Meiryo";
   color: #006cb9;
   background-color: #fff;
   font-size: 27pt;
