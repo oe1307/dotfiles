@@ -6,6 +6,19 @@ SETUP
 2. Install Segoe UI font: https://www.cufonfonts.com/font/segoe-ui-4
 */
 
+@font-face {
+  font-family: "Number";
+  src: local("Arial");
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A; /* 0-9 */
+}
+
+@font-face {
+  font-family: "Number";
+  src: local("Arial Bold");
+  font-weight: bold;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A; /* 0-9 */
+}
+
 section {
   width: 25.4cm;
   height: 14.29cm;
@@ -20,12 +33,12 @@ section.title {
 }
 
 section.title h1 {
-  font-family: "Meiryo";
+  font-family: "Number","Meiryo";
   color: #006cb9;
   font-size: 44pt;
   position: absolute;
-  bottom: 148px;
-  left: 68px;
+  bottom: 165px;
+  left: 75px;
 }
 
 section.title h2 {
