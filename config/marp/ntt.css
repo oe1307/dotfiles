@@ -15,8 +15,8 @@ section {
 section.title {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
-  background-size: 180px;
-  background-position: 60px 52px;
+  background-size: 197px;
+  background-position: 42px 36px;
 }
 
 section.title h1 {
@@ -34,6 +34,15 @@ section.title h2 {
   font-size: 18pt;
   position: absolute;
   bottom: 70px;
+  left: 67px;
+}
+
+section.title h3 {
+  font-family: "Meiryo";
+  color: #006cb9;
+  font-size: 18pt;
+  position: absolute;
+  bottom: 40px;
   left: 67px;
 }
 
