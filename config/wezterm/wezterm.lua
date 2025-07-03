@@ -11,6 +11,7 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.color_scheme = "iTerm2 Smoooooth"
 config.inactive_pane_hsb = { brightness = 0.3 }
+config.notification_handling = "AlwaysShow"
 config.mouse_bindings = {
     {
         event = { Drag = { streak = 1, button = "Left" } },
