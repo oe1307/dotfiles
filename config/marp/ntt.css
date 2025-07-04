@@ -74,51 +74,6 @@ section.title::after {
   display: none !important;
 }
 
-section.slide {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: 820px 27px;
-  font-family: "Number", "Meiryo";
-  font-size: 20pt;
-  color: #000;
-  padding-left: 41px;
-  padding-right: 41px;
-  padding-top: 91px;
-  line-height: 200%;
-}
-
-section.slide h1 {
-  font-family: "Number", "Meiryo";
-  color: #006cb9;
-  font-size: 28pt;
-  position: absolute;
-  top: 0px;
-  left: 42px;
-}
-
-section.slide strong {
-  font-size: 120%;
-}
-
-section.slide footer {
-  font-family: "Arial";
-  color: #7f7f7f;
-  font-size: 9pt;
-  position: absolute;
-  bottom: 4px;
-  left: 42px;
-}
-
-section.slide::after {
-  font-family: "Arial";
-  color: #006cb9;
-  font-size: 14pt;
-  position: absolute;
-  right: -1px;
-  bottom: 4px;
-}
-
 section.subtitle {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
@@ -154,31 +109,98 @@ section.subtitle::after {
   bottom: 20px;
 }
 
-section.last {
+section.slide {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
-  background-position: 810px 32px;
-}
-
-section.last h1 {
-  color: #006cb9;
-  font-size: 50pt;
-  font-family: "Segoe UI";
-  font-style: italic;
-  text-align: center;
+  background-position: 820px 27px;
+  font-family: "Number", "Meiryo";
+  font-size: 18pt;
+  color: #000;
   position: absolute;
-  left: 188px;
-  top: 172px;
+  padding-left: 41px;
+  padding-right: 41px;
+  padding-top: 95px;
+  line-height: 144%;
 }
 
-section.last footer {
-  color: #fff;
+section.slide h1 {
+  font-family: "Number", "Meiryo";
+  color: #006cb9;
+  font-size: 28pt;
+  position: absolute;
+  top: 10px;
+  left: 42px;
 }
 
-section.last::after {
-  color: #fff;
+section.slide strong {
+  font-size: 120%;
 }
+
+section.slide footer {
+  font-family: "Arial";
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  bottom: 14px;
+  left: 42px;
+}
+
+section.slide::after {
+  font-family: "Arial";
+  color: #006cb9;
+  font-size: 14pt;
+  position: absolute;
+  right: -1px;
+  bottom: 13px;
+}
+
+section.end1 {
+  color: #006cb9;
+  font-size: 36pt;
+  font-family: "Arial";
+  font-weight: bold;
+  text-align: center;
+  padding-top: 147px;
+  padding-left: 41px;
+  padding-right: 41px;
+  line-height: 150%;
+}
+
+section.end1 footer {
+  content: '' !important;
+  display: none !important;
+}
+
+section.end1::after {
+  content: '' !important;
+  display: none !important;
+}
+
+section.end2 {
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-repeat: no-repeat;
+  background-size: 488px;
+  background-position: center;
+}
+
+section.end2 footer {
+  content: '' !important;
+  display: none !important;
+}
+
+section.end2::after {
+  content: '' !important;
+  display: none !important;
+}
+
+
+
+
+
+
+
+
 
 section.overslide h1{
   font-family: "Number", "Meiryo";
@@ -204,6 +226,13 @@ section.overslide::after {
   color: #fff;
   font-size: 0.1pt;
 }
+
+
+
+
+
+
+
 
 a:link {
   font-family: "Times New Roman";
