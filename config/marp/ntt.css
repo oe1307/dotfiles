@@ -123,7 +123,7 @@ section.subtitle {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
-  background-position: 810px 32px;
+  background-position: 820px 27px;
   color: #fff;
 }
 
@@ -132,17 +132,26 @@ section.subtitle h1 {
   color: #006cb9;
   font-size: 40pt;
   position: absolute;
-  left: 40px;
-  top: 203px;
+  left: 42px;
+  top: 192px;
 }
 
 section.subtitle footer {
-  font-family: "Segoe UI";
-  color: #000;
-  font-size: 8pt;
+  font-family: "Arial";
+  color: #7f7f7f;
+  font-size: 9pt;
   position: absolute;
-  left: 41px;
-  bottom: 3px;
+  bottom: 25px;
+  left: 42px;
+}
+
+section.subtitle::after {
+  font-family: "Arial";
+  color: #006cb9;
+  font-size: 14pt;
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
 }
 
 section.last {
