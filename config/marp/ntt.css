@@ -2,21 +2,20 @@
 
 /*
 SETUP
-1. Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resources/DFonts/meiryo*.ttc
-2. Install Segoe UI font: https://www.cufonfonts.com/font/segoe-ui-4
+Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resources/DFonts/meiryo*.ttc
 */
 
 @font-face {
   font-family: "Number";
   src: local("Arial");
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A; /* 0-9 */
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 
 @font-face {
   font-family: "Number";
   src: local("Arial Bold");
   font-weight: bold;
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A; /* 0-9 */
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 
 section {
@@ -70,15 +69,16 @@ section.title footer {
   left: 118px;
 }
 
-/* section.title::after {
-  color: #fff;
-} */
+section.title::after {
+  content: '' !important;
+  display: none !important;
+}
 
 section.slide {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
-  background-position: 810px 32px;
+  background-position: 820px 27px;
   font-family: "Number", "Meiryo";
   font-size: 20pt;
   color: #000;
@@ -88,61 +88,35 @@ section.slide {
   line-height: 200%;
 }
 
+section.slide h1 {
+  font-family: "Number", "Meiryo";
+  color: #006cb9;
+  font-size: 28pt;
+  position: absolute;
+  top: 0px;
+  left: 42px;
+}
+
 section.slide strong {
   font-size: 120%;
 }
 
-section.slide h1 {
-  font-family: "Number", "Meiryo";
-  color: #006cb9;
-  font-size: 30pt;
-  position: absolute;
-  top: -7px;
-  left: 40px;
-}
-
-.compact {
-  line-height: 130%;
-}
-
-section.slide img[src*="#center"] {
-  display: block;
-  margin: auto;
-}
-
-.flex {
-  display: flex;
-  gap: 1em;
-}
-.sa {
-  justify-content: space-around;
-}
-.fw div {
-  flex: var(--fw);
-}
-
-a:link {
-  font-family: "Times New Roman";
-  color: #2694c9;
-  font-size: 16pt;
-  text-decoration: underline;
-}
-
 section.slide footer {
-  font-family: "Segoe UI";
-  color: #000;
-  font-size: 8pt;
+  font-family: "Arial";
+  color: #7f7f7f;
+  font-size: 9pt;
   position: absolute;
-  left: 41px;
-  bottom: -16px;
+  bottom: 4px;
+  left: 42px;
 }
 
 section.slide::after {
-  font-family: "Segoe UI";
-  font-size: 12pt;
+  font-family: "Arial";
   color: #006cb9;
+  font-size: 14pt;
   position: absolute;
-  right: -33px;
+  right: -1px;
+  bottom: 4px;
 }
 
 section.subtitle {
@@ -220,4 +194,26 @@ section.overslide footer{
 section.overslide::after {
   color: #fff;
   font-size: 0.1pt;
+}
+
+a:link {
+  font-family: "Times New Roman";
+  color: #2694c9;
+  font-size: 16pt;
+  text-decoration: underline;
+}
+
+.compact {
+  line-height: 130%;
+}
+
+.flex {
+  display: flex;
+  gap: 1em;
+}
+.sa {
+  justify-content: space-around;
+}
+.fw div {
+  flex: var(--fw);
 }
