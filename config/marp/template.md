@@ -4,7 +4,7 @@ theme: ntt
 paginate: true
 title: title
 math: mathjax
-footer: © NTT, Inc. 2025
+footer: © NTT, Inc.&ensp;2025
 ---
 
 <!--class: title-->
@@ -19,9 +19,11 @@ footer: © NTT, Inc. 2025
 
 ---
 
+---
+
 <!--class: slide-->
 
-# スライド1
+# 目次
 
 ---
 
