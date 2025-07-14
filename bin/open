@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -e /usr/bin/open ]; then
+if [ "$(uname)" == 'Darwin' ]; then
     /usr/bin/open "$@"
 else
     # open command for WSL
