@@ -56,11 +56,11 @@ setopt hist_no_store
 # ssh-agent
 if [[ "$(uname)" = "Linux" ]]; then
     if [ -f ~/.local/state/ssh-agent ]; then
-        . ~/.local/state/ssh-agent > /dev/null
+        . ~/.local/state/ssh-agent > >( while IFS= read -r _; do :; done )
     fi
     if [ -z "$SSH_AGENT_PID" ] || {! kill -0 $SSH_AGENT_PID 2>/dev/null}; then
         ssh-agent > ~/.local/state/ssh-agent
-        . ~/.local/state/ssh-agent > /dev/null
+        . ~/.local/state/ssh-agent > >( while IFS= read -r _; do :; done )
     fi
 fi
 
