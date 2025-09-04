@@ -6,7 +6,7 @@ if [ -n "$1" ]; then
     version=$1
 fi
 
-if [ -d .envrc ]; then
+if [ -f .envrc ]; then
     "python$version" -m venv .venv
     direnv allow &&
         .venv/bin/pip install -q -U pip
