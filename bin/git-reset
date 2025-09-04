@@ -12,4 +12,5 @@ else
     git commit -m "initial commit" &&
     git remote add origin "$URL" &&
     git push -u origin "$BRANCH" -f
+    git pull
 fi
