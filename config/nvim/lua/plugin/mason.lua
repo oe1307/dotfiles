@@ -53,7 +53,6 @@ return {
             require("tiny-inline-diagnostic").setup()
             vim.diagnostic.config({ virtual_text = false })
             linter.flake8 = { cmd = { "flake8" } }
-            linter.mypy = { cmd = { "mypy" } }
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "pyright",
@@ -61,7 +60,6 @@ return {
                     "isort",
                     "stylua",
                     "flake8",
-                    "mypy",
                 },
                 auto_update = true,
             })
