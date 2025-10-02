@@ -39,6 +39,11 @@ return {
                     lua = { "stylua" },
                     ["*"] = { "trim_whitespace" },
                 },
+                formatters = {
+                    isort = {
+                        prepend_args = { "--profile", "black" },
+                    },
+                },
             })
             formatter.formatters.stylua = {
                 prepend_args = { "--indent-type", "Spaces" },
