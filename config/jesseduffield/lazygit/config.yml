@@ -1,12 +1,10 @@
 gui:
   showIcons: true
   mouseEvents: false
-
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 keybinding:
   universal:
     scrollUpMain: "k"
