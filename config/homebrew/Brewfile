@@ -1,14 +1,12 @@
-# build-essential
-brew "cmake"
-brew "node"
-
-# plugin
 brew "bat"
+brew "cmake"
 brew "direnv"
 brew "eza"
 brew "git-delta"
 brew "htop"
 brew "lazygit"
+brew "node"
+brew "marp-cli"
 brew "neovim"
 brew "python@3"
 brew "rip2"
