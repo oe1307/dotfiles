@@ -5,53 +5,38 @@ SETUP
 Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resources/DFonts/meiryo*.ttc
 */
 
-@font-face {
-  font-family: "Number";
-  src: local("Arial");
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "Number";
-  src: local("Arial Bold");
-  font-weight: bold;
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
-}
-
 section {
+  font-family: Arial, "メイリオ", Meiryo, sans-serif;
   width: 25.4cm;
   height: 14.29cm;
   background-color: #fff;
 }
 
 section.title {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-title-logo.svg);
   background-repeat: no-repeat;
-  background-size: 197px;
-  background-position: 42px 36px;
+  background-size: 197px, 780px;
+  background-position: 42px 28px, 190px -5px;
 }
 
 section.title h1 {
-  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 44pt;
   position: absolute;
-  bottom: 178px;
+  bottom: 195px;
   left: 118px;
 }
 
 section.title h2 {
-  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 18pt;
   font-weight: normal;
   position: absolute;
-  bottom: 140px;
+  bottom: 160px;
   left: 118px;
 }
 
 section.title h3 {
-  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 12pt;
   font-weight: normal;
@@ -61,7 +46,6 @@ section.title h3 {
 }
 
 section.title footer {
-  font-family: "Arial";
   color: #7f7f7f;
   font-size: 9pt;
   position: absolute;
@@ -74,47 +58,11 @@ section.title::after {
   display: none !important;
 }
 
-section.subtitle {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: 820px 27px;
-  color: #fff;
-}
-
-section.subtitle h1 {
-  font-family: "Number", "Meiryo";
-  color: #006cb9;
-  font-size: 40pt;
-  position: absolute;
-  left: 42px;
-  top: 192px;
-}
-
-section.subtitle footer {
-  font-family: "Arial";
-  color: #7f7f7f;
-  font-size: 9pt;
-  position: absolute;
-  bottom: 25px;
-  left: 42px;
-}
-
-section.subtitle::after {
-  font-family: "Arial";
-  color: #006cb9;
-  font-size: 14pt;
-  position: absolute;
-  right: 40px;
-  bottom: 20px;
-}
-
 section.slide {
   background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 820px 27px;
-  font-family: "Number", "Meiryo";
   font-size: 18pt;
   color: #000;
   position: absolute;
@@ -125,11 +73,10 @@ section.slide {
 }
 
 section.slide h1 {
-  font-family: "Number", "Meiryo";
   color: #006cb9;
   font-size: 28pt;
   position: absolute;
-  top: 10px;
+  top: 8px;
   left: 42px;
 }
 
@@ -138,27 +85,56 @@ section.slide strong {
 }
 
 section.slide footer {
-  font-family: "Arial";
   color: #7f7f7f;
   font-size: 9pt;
   position: absolute;
-  bottom: 14px;
-  left: 42px;
+  left: 25px;
+  bottom: 4px;
 }
 
 section.slide::after {
-  font-family: "Arial";
   color: #006cb9;
   font-size: 14pt;
   position: absolute;
-  right: -1px;
-  bottom: 13px;
+  right: -21px;
+  bottom: 4px;
+}
+
+section.subtitle {
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-title-logo.svg);
+  background-repeat: no-repeat;
+  background-size: 100px, 780px;
+  background-position: 39px 27px, 190px -5px;
+  color: #fff;
+}
+
+section.subtitle h1 {
+  color: #006cb9;
+  font-size: 40pt;
+  position: absolute;
+  left: 42px;
+  top: 192px;
+}
+
+section.subtitle footer {
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  left: 25px;
+  bottom: 14px;
+}
+
+section.subtitle::after {
+  color: #006cb9;
+  font-size: 14pt;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 section.end1 {
   color: #006cb9;
   font-size: 36pt;
-  font-family: "Arial";
   font-weight: bold;
   text-align: center;
   padding-top: 147px;
@@ -194,16 +170,7 @@ section.end2::after {
   display: none !important;
 }
 
-
-
-
-
-
-
-
-
 section.overslide h1{
-  font-family: "Number", "Meiryo";
   color: #006cb9;
   background-color: #fff;
   font-size: 27pt;
@@ -213,7 +180,6 @@ section.overslide h1{
 }
 
 section.overslide footer{
-  font-family: "Segoe UI";
   color: #000;
   background-color: #fff;
   font-size: 8.1pt;
@@ -226,13 +192,6 @@ section.overslide::after {
   color: #fff;
   font-size: 0.1pt;
 }
-
-
-
-
-
-
-
 
 a:link {
   font-family: "Times New Roman";
