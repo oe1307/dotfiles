@@ -1,22 +1,5 @@
 return {
     {
-        -- GitHub Copilot
-        "github/copilot.vim",
-        lazy = false,
-        config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.g.copilot_assume_mapped = true
-            vim.g.copilot_filetypes = { gitcommit = true }
-            vim.keymap.set(
-                "i",
-                "<C-L>",
-                'copilot#Accept("<CR>")',
-                { silent = true, expr = true, replace_keycodes = false }
-            )
-            vim.keymap.set("i", "<C-K>", "<Plug>(copilot-next)", { silent = true })
-        end,
-    },
-    {
         -- nvim-cmp
         "hrsh7th/nvim-cmp",
         dependencies = {
