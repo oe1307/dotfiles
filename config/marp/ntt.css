@@ -200,6 +200,10 @@ a:link {
   text-decoration: underline;
 }
 
+.gray {
+  color: #bbb;
+}
+
 .compact {
   line-height: 130%;
 }
