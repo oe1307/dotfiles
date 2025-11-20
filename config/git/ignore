@@ -7,18 +7,8 @@ __pycache__
 *.egg-info
 *.lock*
 target
+marp*.html
 
 # dotfiles
 htoprc
 raycast
-
-# tex
-*.aux
-*.bbl
-*.blg
-*.dvi
-*.fdb_latexmk
-*.fls
-*.log
-*.pdf
-*Notes.bib
