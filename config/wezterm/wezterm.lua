@@ -16,7 +16,6 @@ config.mouse_bindings = {
         action = wezterm.action.DisableDefaultAssignment,
     },
 }
-
 config.use_ime = false
 config.font_size = 16.0
 config.keys = {
