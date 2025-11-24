@@ -1,8 +1,5 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local is_windows <const> = wezterm.target_triple:find("windows") ~= nil
-local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
-local is_mac <const> = wezterm.target_triple:find("darwin") ~= nil
 
 config.enable_wayland = false
 config.audible_bell = "Disabled"
@@ -20,29 +17,18 @@ config.mouse_bindings = {
     },
 }
 
-if is_mac then
-    config.use_ime = false
-    config.font_size = 16.0
-    config.keys = {
-        { key = "¥", action = wezterm.action({ SendString = "\\" }) },
-        { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-        { key = "^", mods = "CMD", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-        { key = "+", mods = "CMD|SHIFT", action = wezterm.action.IncreaseFontSize },
-        { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
-        { key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
-        { key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
-        { key = "LeftArrow", mods = "CMD", action = wezterm.action({ SendString = "\x01" }) },
-        { key = "RightArrow", mods = "CMD", action = wezterm.action({ SendString = "\x05" }) },
-    }
-end
-if is_windows then
-    -- ! edit in powershell
-    config.default_prog = { "wsl" }
-    config.font_size = 12.0
-    config.keys = {
-        { key = "d", mods = "CTRL|SHIFT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-        { key = "^", mods = "CTRL", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-    }
-end
+config.use_ime = false
+config.font_size = 16.0
+config.keys = {
+    { key = "¥", action = wezterm.action({ SendString = "\\" }) },
+    { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+    { key = "^", mods = "CMD", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+    { key = "+", mods = "CMD|SHIFT", action = wezterm.action.IncreaseFontSize },
+    { key = "-", mods = "CMD", action = wezterm.action.DecreaseFontSize },
+    { key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+    { key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+    { key = "LeftArrow", mods = "CMD", action = wezterm.action({ SendString = "\x01" }) },
+    { key = "RightArrow", mods = "CMD", action = wezterm.action({ SendString = "\x05" }) },
+}
 
 return config
