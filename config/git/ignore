@@ -7,7 +7,7 @@ __pycache__
 *.egg-info
 *.lock*
 target
-marp*.html
+marp.html
 
 # dotfiles
 htoprc
