@@ -1,5 +1,4 @@
 require("option")
 require("autocmd")
 require("keymap")
-require("runner")
 require("plugin")
