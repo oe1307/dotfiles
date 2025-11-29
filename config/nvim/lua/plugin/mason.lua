@@ -19,17 +19,7 @@ return {
             local linter = require("lint")
 
             -- lsp
-            vim.lsp.pyright.setup({
-                settings = {
-                    python = {
-                        analysis = {
-                            diagnosticSeverityOverrides = {
-                                reportCallIssue = "none",
-                            },
-                        },
-                    },
-                },
-            })
+            vim.lsp.enable("pyright")
 
             -- formatter
             formatter.setup({
