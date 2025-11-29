@@ -16,6 +16,7 @@ vim.opt.cindent = true
 vim.opt.path:append({ "**" })
 vim.opt.diffopt:append({ "vertical" })
 vim.opt.diffopt:append("context:1000000")
+vim.opt.clipboard:append({ "unnamedplus" })
 
 -- backup
 vim.opt.writebackup = false

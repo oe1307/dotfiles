@@ -15,15 +15,11 @@ keymap.set("n", "d", "")
 keymap.set("n", "dd", "dd")
 keymap.set("n", "x", "")
 keymap.set("n", "<C-d>", "")
-
--- delete word
-keymap.set("n", "dw", "daw")
-keymap.set("n", "xw", '"_daw')
-
--- do not yank
 keymap.set("v", "x", '"_x')
 keymap.set("n", "xx", '"_dd')
 keymap.set("n", "X", '"_d$')
+keymap.set("n", "dw", "daw")
+keymap.set("n", "xw", '"_daw')
 
 -- select line
 keymap.set("v", "v", "V")
@@ -48,7 +44,7 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- move window
 keymap.set("n", "<Space>", "<C-w>w")
-keymap.set("n", "<C-w>", "<C-w>W")
+keymap.set("n", "<S-Space>", "<C-w>W")
 
 -- replace
 keymap.set("n", "<C-c>", ":%s;;;g<Left><Left><Left>")
@@ -56,9 +52,6 @@ keymap.set("v", "<C-c>", ":s;;;g<Left><Left><Left>")
 
 -- quit
 keymap.set("n", "<C-q>", ":qa<Return>", { silent = true })
-
--- ignore <CR>
-keymap.set("n", "<CR>", "j")
 
 -- keep indent
 keymap.set("n", "o", "o.<BS><esc>a")
