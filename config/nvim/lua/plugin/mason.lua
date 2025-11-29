@@ -15,12 +15,11 @@ return {
         },
         config = function()
             require("mason").setup()
-            local lsp = require("lspconfig")
             local formatter = require("conform")
             local linter = require("lint")
 
             -- lsp
-            lsp.pyright.setup({
+            vim.lsp.pyright.setup({
                 settings = {
                     python = {
                         analysis = {
