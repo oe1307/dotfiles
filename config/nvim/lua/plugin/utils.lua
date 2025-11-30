@@ -19,11 +19,13 @@ return {
         end,
     },
     {
-        -- colorscheme
-        "Mofiqul/vscode.nvim",
+        "navarasu/onedark.nvim",
         config = function()
-            require("vscode").setup({ transparent = true })
-            require("vscode").load()
+            require("onedark").setup({
+                style = "darker",
+                transparent = true,
+            })
+            require("onedark").load()
         end,
     },
     {
