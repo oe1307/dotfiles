@@ -16,7 +16,6 @@ return {
             "Exafunction/windsurf.nvim",
         },
         config = function()
-            require("codeium").setup({})
             local cmp = require("cmp")
             cmp.setup({
                 snippet = {
