@@ -19,6 +19,7 @@ return {
         end,
     },
     {
+        -- color scheme
         "navarasu/onedark.nvim",
         config = function()
             require("onedark").setup({
@@ -79,6 +80,7 @@ return {
                 highlight = { enable = true },
                 indent = { enable = true },
                 autotag = { enable = true },
+                ensure_installed = { "python" },
             })
         end,
     },
