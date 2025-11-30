@@ -1,19 +1,10 @@
 return {
     {
-        "Exafunction/windsurf.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = function()
-            require("codeium").setup({})
-        end,
-    },
-    {
         -- nvim-cmp
         "hrsh7th/nvim-cmp",
         dependencies = {
             "neovim/nvim-lspconfig",
+            "nvim-lua/plenary.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -22,8 +13,10 @@ return {
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
             "hrsh7th/vim-vsnip-integ",
+            "Exafunction/windsurf.nvim",
         },
         config = function()
+            require("codeium").setup({})
             local cmp = require("cmp")
             cmp.setup({
                 snippet = {
@@ -37,8 +30,8 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "vsnip" },
-                }, {
                     { name = "buffer" },
+                    { name = "codeium" },
                 }),
             })
             cmp.setup.cmdline({ "/", "?" }, {
