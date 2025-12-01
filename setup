@@ -8,8 +8,3 @@ ln -snvf "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ln -snvf "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
 ln -snvf "$HOME/dotfiles/profile" "$HOME/.profile"
 ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
-
-if [ -e "$HOME/.ssh/accounts/github-copilot/hosts.json" ]; then
-    mkdir -p $HOME/.config/github-copilot
-    ln -snvf "$HOME/.ssh/accounts/github-copilot" "$HOME/.config/github-copilot"
-fi
