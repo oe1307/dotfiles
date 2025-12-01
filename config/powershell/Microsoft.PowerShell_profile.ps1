@@ -1,7 +1,7 @@
-# set this file in $PROFILE
-
-Import-Module PSReadLine
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
+
 Set-Alias vim nvim
 
-$ENV:Path="C:\Program Files\LLVM\bin;"+$ENV:Path
+del alias:gp -Force
+function git-pull { git pull $args }
+Set-Alias -Name gp -Value git-pull
