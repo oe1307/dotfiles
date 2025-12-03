@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>phrase</key>
+		<string>革デG</string>
+		<key>shortcut</key>
+		<string>かくで</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>先デ研</string>
+		<key>shortcut</key>
+		<string>せんで</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>次の文章を英語に翻訳して欲しいです．</string>
+		<key>shortcut</key>
+		<string>つぎ</string>
+	</dict>
+</array>
+</plist>
