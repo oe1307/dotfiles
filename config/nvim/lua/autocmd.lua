@@ -32,8 +32,6 @@ vim.api.nvim_create_autocmd("FileType", {
         end
         local command_args = {
             vim.fn.expand("%"),
-            "-o",
-            os.getenv("HOME") .. "/.cache/marp.html",
             "-p",
             "--theme",
             vim.fn.expand("~/dotfiles/config/marp/ntt.css"),
