@@ -59,3 +59,20 @@ keymap.set("n", "O", "O.<BS><esc>a")
 
 -- previous file
 keymap.set("n", "Z", ":bp<Return>", { silent = true })
+
+-- marp
+vim.keymap.set("n", "R", function()
+    local command_args = {
+        vim.fn.expand("%"),
+        "-p",
+        "--theme",
+        vim.fn.expand("~/dotfiles/config/marp/ntt.css"),
+    }
+    vim.loop.spawn("marp", {
+        args = command_args,
+        cwd = vim.fn.fnamemodify(vim.fn.expand("%"), ":h"),
+    }, function(exit_code, signal)
+        if exit_code ~= 0 then
+        end
+    end)
+end, { silent = true })
