@@ -13,6 +13,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.screencapture location -string /Users/issa/Downloads
     defaults write com.apple.screencapture type -string "png"
     defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-    defaults write -g KeyRepeat -int 1
-    defaults write -g InitialKeyRepeat -int 10
+    defaults write com.apple.finder ShowPathbar -bool true
+    defaults write com.apple.finder _FXSortFoldersFirst -bool true
 fi
