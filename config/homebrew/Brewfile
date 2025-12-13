@@ -6,6 +6,7 @@ brew "eza"
 brew "git-delta"
 brew "htop"
 brew "lazygit"
+brew "mas"
 brew "neovim"
 brew "python@3"
 brew "rip2"
@@ -18,13 +19,13 @@ brew "zsh-syntax-highlighting"
 cask "font-hack-nerd-font"
 
 if OS.mac?
-  brew "marp-cli"
-  cask "box-drive"
-  cask "drawio"
-  cask "google-chrome"
-  cask "microsoft-powerpoint"
-  cask "raycast"
-  cask "wezterm"
-  mas "Pure Paste", id: 1611378436
+brew "marp-cli"
+cask "box-drive"
+cask "drawio"
+cask "google-chrome"
+cask "microsoft-powerpoint"
+cask "raycast"
+cask "wezterm"
+mas "Pure Paste", id: 1611378436
 elsif OS.linux?
 end
