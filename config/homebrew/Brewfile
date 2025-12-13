@@ -25,5 +25,6 @@ if OS.mac?
   cask "microsoft-powerpoint"
   cask "raycast"
   cask "wezterm"
+  mas "Pure Paste", id: 1611378436
 elsif OS.linux?
 end
