@@ -1,0 +1,16 @@
+# utils
+.DS_Store
+build
+.envrc
+.venv
+__pycache__
+*.egg-info
+*.lock*
+target
+_marp.html
+*.dtmp
+*.bkp
+
+# dotfiles
+htoprc
+raycast
