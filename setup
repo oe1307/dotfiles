@@ -11,7 +11,7 @@ ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
 
 # accounts
 mkdir -p "$HOME/.config/github-copilot"
-ln -snvf "$HOME/.ssh/accounts/copilot.json" "$HOME/.config/github-copilot/app.json"
+ln -snvf "$HOME/.ssh/accounts/copilot.json" "$HOME/.config/github-copilot/apps.json"
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then
