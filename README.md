@@ -5,7 +5,6 @@
 
 <div align="center">
 <img src="https://img.shields.io/github/license/oe1307/dotfiles?logo=open-source-initiative&logoColor=green">
-<img src="https://img.shields.io/badge/python-3.11-blue.svg">
 <img src="https://img.shields.io/github/last-commit/oe1307/dotfiles?logo=git&logoColor=white">
 <img src="https://img.shields.io/github/issues/oe1307/dotfiles?logo=github&logoColor=white">
 <img src="https://img.shields.io/github/issues-pr/oe1307/dotfiles?logo=github&logoColor=white">
