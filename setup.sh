@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# dotfiles
 mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
     ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
