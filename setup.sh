@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # dotfiles
 mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
@@ -12,8 +14,8 @@ ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
 mkdir -p "$HOME/.config/github-copilot"
 ln -snvf "$HOME/.ssh/accounts/copilot.json" "$HOME/.config/github-copilot/apps.json"
 
-# macOS settings
 if [ "$(uname)" = "Darwin" ]; then
+    # macOS settings
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
@@ -25,7 +27,8 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.finder _FXSortFoldersFirst -bool true
     defaults write -g KeyRepeat -int 2
     defaults write -g InitialKeyRepeat -int 15
+
+    # cloud storage
+    ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
 fi
 
-# cloud storage
-ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
