@@ -12,11 +12,13 @@ config.inactive_pane_hsb = { brightness = 0.3 }
 config.notification_handling = "AlwaysShow"
 config.mouse_bindings = {
     {
+        -- Disable move window
         event = { Drag = { streak = 1, button = "Left" } },
         mods = "CMD",
         action = wezterm.action.DisableDefaultAssignment,
     },
     {
+        -- Disable open url
         event = { Up = { streak = 1, button = "Left" } },
         mods = "NONE",
         action = wezterm.action.DisableDefaultAssignment,
