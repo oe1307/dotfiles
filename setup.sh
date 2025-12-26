@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # dotfiles
 mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
@@ -28,3 +26,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write -g KeyRepeat -int 2
     defaults write -g InitialKeyRepeat -int 15
 fi
+
+# cloud storage
+ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
