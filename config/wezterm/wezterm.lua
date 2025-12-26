@@ -1,13 +1,8 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-local os = wezterm.target_triple
-if os:find('windows') then
-    config.default_prog = { 'pwsh.exe' }
-elseif os:find('apple') then
-    config.font_size = 16.0
-end
-
+config.use_ime = false
+config.font_size = 16.0
 config.audible_bell = "Disabled"
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.window_decorations = "RESIZE"
@@ -21,8 +16,12 @@ config.mouse_bindings = {
         mods = "CMD",
         action = wezterm.action.DisableDefaultAssignment,
     },
+    {
+        event = { Up = { streak = 1, button = "Left" } },
+        mods = "NONE",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
 }
-config.use_ime = false
 config.keys = {
     { key = "¥", action = wezterm.action({ SendString = "\\" }) },
     { key = "d", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
