@@ -1,0 +1,35 @@
+# vim:ft=ruby
+
+brew "bat"
+brew "direnv"
+brew "eza"
+brew "git-delta"
+brew "htop"
+brew "ipython"
+brew "lazygit"
+brew "neovim"
+brew "poppler"
+brew "rip2"
+brew "starship"
+brew "tree-sitter-cli"
+brew "yazi"
+brew "zsh"
+brew "zsh-autopair"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+cask "font-hack-nerd-font"
+
+if OS.mac?
+brew "marp-cli"
+brew "mas"
+cask "box-drive"
+cask "google-chrome"
+cask "microsoft-powerpoint"
+cask "raycast"
+cask "spotify"
+cask "wezterm"
+mas "Pure Paste", id: 1611378436
+elsif OS.linux?
+brew "node"
+end

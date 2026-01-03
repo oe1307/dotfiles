@@ -1,0 +1,19 @@
+#!/bin/bash
+
+version=3
+
+if [ -n "$1" ]; then
+    version=$1
+fi
+
+if [ -d .venv ]; then
+    echo "venv already exists"
+    echo "source .venv/bin/activate" >>.envrc &&
+        direnv allow &&
+        .venv/bin/pip install -q -U pip
+else
+    "python$version" -m venv .venv
+    echo "source .venv/bin/activate" >>.envrc &&
+        direnv allow &&
+        .venv/bin/pip install -q -U pip ipython
+fi
