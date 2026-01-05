@@ -74,7 +74,7 @@ alias nvidia-smi="watch -n 1 nvidia-smi"
 alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile && brew cleanup"
 alias bbd="mkdir -p $HOME/.cache/homebrew && brew bundle dump -f --file $HOME/.cache/homebrew/Brewfile && diff $HOME/.cache/homebrew/Brewfile $HOME/.config/homebrew/Brewfile"
-if hash yazi 2>/dev/null; then alias y="source $HOME/dotfiles/bin/yazi-cli"; else echo "yazi not found"; fi
+if hash yazi 2>/dev/null; then alias y="yazi"; else echo "yazi not found"; fi
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
