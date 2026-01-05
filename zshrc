@@ -66,6 +66,7 @@ alias gt="git add -A && gc -v -t ~/.config/git/commit.txt && git pull && git pus
 
 # alias
 alias c="clear"
+alias cdr="cd $HOME/work"
 alias mv="mv -i"
 alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
@@ -73,7 +74,7 @@ alias nvidia-smi="watch -n 1 nvidia-smi"
 alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile && brew cleanup"
 alias bbd="mkdir -p $HOME/.cache/homebrew && brew bundle dump -f --file $HOME/.cache/homebrew/Brewfile && diff $HOME/.cache/homebrew/Brewfile $HOME/.config/homebrew/Brewfile"
-if hash yazi 2>/dev/null; then alias cd="source $HOME/dotfiles/bin/yazi-cli"; else echo "yazi not found"; fi
+if hash yazi 2>/dev/null; then alias y="source $HOME/dotfiles/bin/yazi-cli"; else echo "yazi not found"; fi
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
