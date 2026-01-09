@@ -4,6 +4,7 @@ build
 .envrc
 .venv
 __pycache__
+__marimo__
 *.egg-info
 *.lock*
 target
