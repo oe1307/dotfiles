@@ -1,5 +1,3 @@
-# vim:ft=ruby
-
 brew "bat"
 brew "direnv"
 brew "eza"
@@ -8,10 +6,10 @@ brew "htop"
 brew "ipython"
 brew "lazygit"
 brew "neovim"
+brew "node"
 brew "rip2"
 brew "starship"
 brew "tree-sitter-cli"
-brew "yazi"
 brew "zsh"
 brew "zsh-autopair"
 brew "zsh-autosuggestions"
@@ -25,11 +23,9 @@ brew "mas"
 cask "box-drive"
 cask "google-chrome"
 cask "microsoft-powerpoint"
-brew "poppler"
 cask "raycast"
 cask "spotify"
 cask "wezterm"
 mas "Pure Paste", id: 1611378436
 elsif OS.linux?
-brew "node"
 end
