@@ -71,8 +71,8 @@ alias mv="mv -i"
 alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
 alias nvidia-smi="watch -n 1 nvidia-smi"
-alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
-alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile && brew cleanup"
+alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile.rb && brew upgrade"
+alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile.rb && brew cleanup"
 alias bbd="brew bundle dump -f --file $HOME/.cache/Brewfile && diff $HOME/.cache/Brewfile $HOME/.config/homebrew/Brewfile.rb"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
