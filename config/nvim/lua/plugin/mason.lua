@@ -23,7 +23,7 @@ return {
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     -- python
-                    "pyright",
+                    "basedpyright",
                     "ruff",
                     "isort",
                     "flake8",
