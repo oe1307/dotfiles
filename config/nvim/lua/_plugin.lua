@@ -5,15 +5,10 @@ return {
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
+            { "rcarriga/nvim-notify", opts = { background_colour = "#000000" } },
         },
-        keys = { { "nh", ":Noice history<Return>", silent = true } },
-        config = function()
-            require("noice").setup({
-                lsp = { override = { ["cmp.entry.get_documentation"] = true } },
-            })
-            require("notify").setup({ background_colour = "#000000" })
-        end,
+        keys = { { "?", ":Noice history<Return>", silent = true, noremap = true } },
+        opts = { lsp = { override = { ["cmp.entry.get_documentation"] = true } } },
     },
     {
         -- colorscheme
@@ -21,15 +16,7 @@ return {
         lazy = false,
         config = function()
             require("vscode").setup({ transparent = true })
-            require("vscode").load()
-        end,
-    },
-    {
-        -- comment out
-        "numToStr/Comment.nvim",
-        event = "BufReadPost",
-        config = function()
-            require("Comment").setup()
+            vim.cmd.colorscheme("vscode")
         end,
     },
     {
@@ -37,44 +24,24 @@ return {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup()
-        end,
-    },
-    {
-        -- auto pairs
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup({ map_bs = false })
-        end,
+        opts = {},
     },
     {
         -- multiple cursors
         "mg979/vim-visual-multi",
-        keys = { "<C-n>", mode = { "n" } },
+        keys = { { "<C-n>", mode = { "n" } } },
     },
     {
         -- git signs
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require("gitsigns").setup()
-            vim.opt.signcolumn = "auto"
-        end,
     },
     {
         -- git diff
         "dinhhuy258/git.nvim",
         event = "VeryLazy",
-        keys = {
-            { "gd", ":GitDiff<Return>", silent = true },
-            { "gs", ":Git status -s<Return>", silent = true },
-            { "gt", ":Git add -A && git commit -m update && git pull && git push<Return>", silent = true },
-        },
-        config = function()
-            require("git").setup({ default_mappings = false })
-        end,
+        keys = { { "gd", ":GitDiff<Return>", silent = true } },
+        opts = { default_mappings = false },
     },
     {
         -- syntax highlighting
@@ -84,7 +51,6 @@ return {
             require("nvim-treesitter").install({ "python" })
         end,
         config = function()
-            require("nvim-treesitter").setup({})
             vim.api.nvim_create_autocmd("FileType", {
                 group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
                 callback = function()
@@ -115,39 +81,44 @@ return {
     {
         -- focus mode
         "tadaa/vimade",
-        opts = {
-            recipe = { "default", { animate = true } },
-            fadelevel = 0.7,
-        },
-    },
-    {
-        -- custom diagnostic display
-        "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("tiny-inline-diagnostic").setup()
-            vim.diagnostic.config({ virtual_text = false })
-        end,
+        opts = { recipe = { "default", { animate = true } }, fadelevel = 0.7 },
     },
     {
         -- formatter
         "stevearc/conform.nvim",
-        keys = {
-            { "ff", ":lua require('conform').format()<Enter>", silent = true },
+        keys = { { "ff", ":lua require('conform').format()<Enter>", silent = true } },
+        opts = {
+            formatters_by_ft = {
+                python = { "ruff_format", "isort" },
+                lua = { "stylua" },
+                ["*"] = { "trim_whitespace" },
+            },
+            formatters = {
+                isort = { prepend_args = { "--profile", "black" } },
+                stylua = { prepend_args = { "--indent-type", "Spaces" } },
+            },
         },
+    },
+    {
+        -- language server
+        "neovim/nvim-lspconfig",
+        keys = { { "K", vim.lsp.buf.definition, silent = true } },
+        dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
-            require("conform").setup({
-                formatters_by_ft = {
-                    python = { "ruff_format", "isort" },
-                    lua = { "stylua" },
-                    ["*"] = { "trim_whitespace" },
-                },
-                formatters = {
-                    isort = {
-                        prepend_args = { "--profile", "black" },
-                    },
-                    stylua = {
-                        prepend_args = { "--indent-type", "Spaces" },
+            vim.lsp.enable({ "pyright", "lua_ls" })
+            local cap = require("cmp_nvim_lsp").default_capabilities()
+            vim.lsp.config("pyright", { capabilities = cap })
+            vim.lsp.config(
+                "lua_ls",
+                { capabilities = cap, settings = { Lua = { diagnostics = { globals = { "vim" } } } } }
+            )
+            vim.diagnostic.config({
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "",
+                        [vim.diagnostic.severity.WARN] = "",
+                        [vim.diagnostic.severity.HINT] = "󰌶",
+                        [vim.diagnostic.severity.INFO] = "",
                     },
                 },
             })
@@ -156,39 +127,39 @@ return {
     {
         -- linter
         "mfussenegger/nvim-lint",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            local linter = require("lint")
-            linter.flake8 = { cmd = { "flake8" } }
+            local lint = require("lint")
+            lint.linters_by_ft = {
+                python = { "flake8" },
+            }
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+                callback = function()
+                    lint.try_lint()
+                end,
+            })
         end,
     },
     {
-        -- language server
-        "neovim/nvim-lspconfig",
-        keys = {
-            { "K", vim.lsp.buf.definition, silent = true },
-        },
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-        },
+        -- custom diagnostic display
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy",
         config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            vim.lsp.config("pyright", {
-                capabilities = capabilities,
-            })
-            vim.lsp.config("emmylua_ls", {
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        diagnostics = {
-                            globals = { "vim" },
-                        },
-                    },
+            require("tiny-inline-diagnostic").setup({
+                options = {
+                    use_icons_from_diagnostic = true,
+                    multilines = { enabled = true },
+                    enable_on_insert = true,
+                    enable_on_select = true,
+                    show_all_diags_on_cursorline = true,
+                    show_diags_only_under_cursor = true,
                 },
             })
-            vim.lsp.enable({ "pyright", "emmylua_ls" })
+            vim.diagnostic.config({ virtual_text = false })
         end,
     },
     {
+        -- GitHub Copilot
         "github/copilot.vim",
         lazy = false,
         config = function()
@@ -238,7 +209,7 @@ return {
                 }),
             })
 
-            cmp.setup.cmdline({ "/", "?" }, {
+            cmp.setup.cmdline("/", {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
                     { name = "buffer" },

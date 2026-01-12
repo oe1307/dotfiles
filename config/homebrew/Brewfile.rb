@@ -38,5 +38,5 @@ brew "flake8"
 
 # lua
 brew "stylua"
-brew "emmylua_ls"
+brew "lua-language-server"
 
