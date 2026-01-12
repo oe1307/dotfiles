@@ -113,6 +113,7 @@ return {
         end,
     },
     {
+        -- focus mode
         "tadaa/vimade",
         opts = {
             recipe = { "default", { animate = true } },
@@ -120,6 +121,7 @@ return {
         },
     },
     {
+        -- custom diagnostic display
         "rachartier/tiny-inline-diagnostic.nvim",
         event = "VeryLazy",
         config = function()
