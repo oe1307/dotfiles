@@ -19,6 +19,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
+    defaults write -g com.apple.sound.beep.volume -float 0.0
     defaults write com.apple.screencapture location -string /Users/issa/Downloads
     defaults write com.apple.LaunchServices LSQuarantine -bool false
     defaults write com.apple.screencapture type -string "png"
