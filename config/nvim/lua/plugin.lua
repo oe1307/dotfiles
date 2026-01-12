@@ -11,11 +11,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({
-    { import = "plugin/cmp" },
-    { import = "plugin/mason" },
-    { import = "plugin/utils" },
+require("lazy").setup({ 
+    { import = "_plugin" }
 }, {
     lockfile = vim.fn.stdpath("data") .. "lazy-lock.json",
     rocks = { enabled = false },
 })
+

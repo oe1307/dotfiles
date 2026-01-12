@@ -3,7 +3,6 @@ brew "direnv"
 brew "eza"
 brew "git-delta"
 brew "htop"
-brew "ipython"
 brew "lazygit"
 brew "neovim"
 brew "node"
@@ -29,3 +28,15 @@ cask "wezterm"
 mas "Pure Paste", id: 1611378436
 elsif OS.linux?
 end
+
+# python
+brew "ipython"
+brew "pyright"
+brew "ruff"
+brew "isort"
+brew "flake8"
+
+# lua
+brew "stylua"
+brew "emmylua_ls"
+
