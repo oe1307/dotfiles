@@ -1,3 +1,5 @@
+# . "$HOME\dotfiles\config\powershell\profile.ps1"
+
 cd $HOME/work
 
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
