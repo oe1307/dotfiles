@@ -53,3 +53,11 @@ keymap.set("n", "O", "O.<BS><esc>a")
 
 -- previous file
 keymap.set("n", "Z", ":bp<Return>", { silent = true })
+
+-- python keymap
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.keymap.set("n", "<C-s>", "jObreakpoint()<esc>h", { noremap = true, silent = true })
+    end,
+})
