@@ -8,14 +8,6 @@ Set-Alias -Name la -Value ls
 Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
 
-function ssh {
-    param(
-        [Parameter(ValueFromRemainingArguments = $true)]
-        $Args
-    )
-    & ssh.exe @Args 2>$null
-}
-
 function cd-home { cd ~ }
 Set-Alias -Name cdr -Value cd-home
 
