@@ -17,7 +17,6 @@ brew "zsh-syntax-highlighting"
 cask "font-hack-nerd-font"
 
 if OS.mac?
-brew "marp-cli"
 brew "mas"
 cask "box-drive"
 cask "google-chrome"
