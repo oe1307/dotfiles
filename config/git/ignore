@@ -12,6 +12,7 @@ _marp.html
 _marp.pdf
 *.dtmp
 *.bkp
+~$*.pptx
 
 # dotfiles
 htoprc
