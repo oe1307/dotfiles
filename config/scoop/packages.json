@@ -1,0 +1,40 @@
+{
+    "apps": [
+        {
+            "Name": "7zip",
+            "Updated": "2026-01-13T18:47:32.4744063+09:00",
+            "Version": "25.01",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "git",
+            "Updated": "2026-01-13T18:50:01.9275031+09:00",
+            "Version": "2.52.0",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "marp",
+            "Updated": "2026-01-13T18:46:31.881823+09:00",
+            "Version": "4.2.3",
+            "Info": "",
+            "Source": "main"
+        },
+        {
+            "Name": "nmap",
+            "Updated": "2026-01-15T09:59:16.6556837+09:00",
+            "Version": "7.98",
+            "Info": "",
+            "Source": "main"
+        }
+    ],
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2026-01-15T09:42:40+09:00",
+            "Manifests": 1418
+        }
+    ]
+}
