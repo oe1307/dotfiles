@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # dotfiles
 mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
