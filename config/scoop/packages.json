@@ -1,15 +1,108 @@
 {
+    "apps": [
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "7zip",
+            "Version": "25.01",
+            "Updated": "2026-01-17T10:35:33.6718177+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "aria2",
+            "Version": "1.37.0-1",
+            "Updated": "2026-01-17T11:33:27.8647178+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "delta",
+            "Version": "0.18.2",
+            "Updated": "2026-01-17T12:03:03.3369676+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "git",
+            "Version": "2.52.0",
+            "Updated": "2026-01-17T10:36:13.811172+09:00"
+        },
+        {
+            "Source": "extras",
+            "Info": "",
+            "Name": "googlechrome",
+            "Version": "144.0.7559.60",
+            "Updated": "2026-01-17T10:39:14.9862466+09:00"
+        },
+        {
+            "Source": "nerd-fonts",
+            "Info": "",
+            "Name": "Hack-NF-Mono",
+            "Version": "3.4.0",
+            "Updated": "2026-01-17T11:20:57.638634+09:00"
+        },
+        {
+            "Source": "extras",
+            "Info": "",
+            "Name": "lazygit",
+            "Version": "0.58.1",
+            "Updated": "2026-01-17T11:33:09.7132458+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "marp",
+            "Version": "4.2.3",
+            "Updated": "2026-01-17T11:14:34.1625162+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "neovim",
+            "Version": "0.11.5",
+            "Updated": "2026-01-17T11:18:17.4071601+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "nmap",
+            "Version": "7.98",
+            "Updated": "2026-01-17T11:15:14.2823257+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "nodejs-lts",
+            "Version": "24.13.0",
+            "Updated": "2026-01-17T12:50:50.7291722+09:00"
+        },
+        {
+            "Source": "extras",
+            "Info": "",
+            "Name": "obsidian",
+            "Version": "1.11.4",
+            "Updated": "2026-01-17T11:16:06.0372923+09:00"
+        },
+        {
+            "Source": "main",
+            "Info": "",
+            "Name": "pwsh",
+            "Version": "7.5.4",
+            "Updated": "2026-01-17T10:52:41.3183694+09:00"
+        }
+    ],
     "buckets": [
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2026-01-15T09:42:40+09:00",
+            "Updated": "2026-01-17T17:30:04+09:00",
             "Manifests": 1418
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2026-01-15T09:42:16+09:00",
+            "Updated": "2026-01-17T17:30:00+09:00",
             "Manifests": 2254
         },
         {
@@ -17,50 +110,6 @@
             "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
             "Updated": "2026-01-14T19:31:41+09:00",
             "Manifests": 367
-        }
-    ],
-    "apps": [
-        {
-            "Info": "",
-            "Name": "7zip",
-            "Updated": "2026-01-13T18:47:32.4744063+09:00",
-            "Version": "25.01",
-            "Source": "main"
-        },
-        {
-            "Info": "",
-            "Name": "git",
-            "Updated": "2026-01-13T18:50:01.9275031+09:00",
-            "Version": "2.52.0",
-            "Source": "main"
-        },
-        {
-            "Info": "",
-            "Name": "Hack-NF-Mono",
-            "Updated": "2026-01-15T10:20:20.0810682+09:00",
-            "Version": "3.4.0",
-            "Source": "nerd-fonts"
-        },
-        {
-            "Info": "",
-            "Name": "marp",
-            "Updated": "2026-01-13T18:46:31.881823+09:00",
-            "Version": "4.2.3",
-            "Source": "main"
-        },
-        {
-            "Info": "",
-            "Name": "nmap",
-            "Updated": "2026-01-15T09:59:16.6556837+09:00",
-            "Version": "7.98",
-            "Source": "main"
-        },
-        {
-            "Info": "",
-            "Name": "obsidian",
-            "Updated": "2026-01-15T10:40:28.2348764+09:00",
-            "Version": "1.11.4",
-            "Source": "extras"
         }
     ]
 }
