@@ -7,6 +7,8 @@ export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 export PATH=$HOME/.homebrew/bin:$PATH
 export PATH=$HOME/.homebrew/sbin:$PATH
+export PATH=$HOME/../linuxbrew/.linuxbrew/bin:$PATH
+export PATH=$HOME/../linuxbrew/.linuxbrew/sbin:$PATH
 
 # settings
 export COLORTERM=truecolor
