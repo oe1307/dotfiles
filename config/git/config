@@ -52,5 +52,9 @@
 [diff]
     colorMoved = default
 
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+    insteadOf = https://gist.github.com
+
 [credential]
     helper = store --file ~/.ssh/credentials
