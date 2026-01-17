@@ -7,6 +7,7 @@ Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
 Set-Alias -Name vim -Value nvim
 Set-Alias -Name lg -Value lazygit
+Set-Alias -Name which -Value where.exe
 
 function cd-home { cd ~ }
 Set-Alias -Name cdr -Value cd-home

@@ -1,7 +1,6 @@
 -- user interface
 vim.opt.mouse = ""
 vim.opt.smartindent = true
-vim.opt.shell = "zsh"
 vim.o.shellcmdflag = "-l -c"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
