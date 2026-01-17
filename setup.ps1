@@ -1,6 +1,13 @@
 New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE) | Out-Null
 Set-Content -Path $PROFILE -Value ". `"$HOME\dotfiles\config\powershell\profile.ps1`""
 
+# ssh keys
+$path = "C:\Users\issa\.ssh\key\github.pem"
+(Get-Content -Raw $path) -replace "`r`n","`n" | Set-Content -NoNewline $path
+cd "C:\Users\issa\.ssh"
+git ignore "key/github.pem"
+cd -
+
 # dotfiles
 New-Item -ItemType Directory -Force -Path "$HOME\.config" | Out-Null
 $baseTarget = Join-Path $HOME "dotfiles\config"
