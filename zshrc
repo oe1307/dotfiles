@@ -53,15 +53,15 @@ setopt hist_no_store
 alias gs="git status -s --ignored"
 alias gp="git pull"
 alias ga="git add"
-alias gP="git push"
+alias gf="git push"
 alias gS="git stash push"
 alias gc="git commit"
-alias gC="git checkout"
+alias go="git checkout"
 alias gb="git branch"
 alias gd="git diff"
 alias gl="git log"
 alias lg="lazygit"
-alias gt="git add -A && gc -v -t ~/.config/git/commit.txt && git pull && git push"
+alias gt="ga -A && gc -v -t ~/.config/git/commit.txt && gp && gf"
 
 # alias
 alias c="clear"

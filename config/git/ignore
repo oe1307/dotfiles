@@ -19,3 +19,4 @@ htoprc
 github-copilot/versions.json
 config/yazi/flavors
 config/yazi/package.toml
+config/scoop/config.json

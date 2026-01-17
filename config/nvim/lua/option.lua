@@ -17,15 +17,7 @@ vim.opt.path:append({ "**" })
 vim.opt.diffopt:append({ "vertical" })
 vim.opt.diffopt:append("context:1000000")
 vim.opt.report = 100000
-
--- clipboard
-local is_mac = vim.fn.has("mac")
-local is_linux = vim.fn.has("unix")
-if is_mac == 1 then
-    vim.opt.clipboard:append({ "unnamedplus" })
-elseif is_linux == 1 then
-    vim.opt.clipboard = {}
-end
+vim.opt.clipboard:append({ "unnamedplus" })
 
 -- backup
 vim.opt.writebackup = false

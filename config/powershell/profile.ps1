@@ -31,6 +31,9 @@ Set-Alias -Name gc -Value git-commit
 function git-push { git push $args }
 Set-Alias -Name gf -Value git-push
 
+function git-update { git add -A && git commit -v -t $HOME/.config/git/commit.txt && git pull && git push }
+Set-Alias -Name gt -Value git-update
+
 function sudo {
     param(
         [Parameter(ValueFromRemainingArguments = $true)]
