@@ -7,8 +7,6 @@ export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 export PATH=$HOME/.homebrew/bin:$PATH
 export PATH=$HOME/.homebrew/sbin:$PATH
-export PATH=$HOME/../linuxbrew/.linuxbrew/bin:$PATH
-export PATH=$HOME/../linuxbrew/.linuxbrew/sbin:$PATH
 
 # settings
 export COLORTERM=truecolor
@@ -72,7 +70,7 @@ alias mv="mv -i"
 alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
 alias nvidia-smi="watch -n 1 nvidia-smi"
-alias venv="python -m venv .venv && source .venv/bin/activate > .envrc && direnv allow ."
+alias venv="python -m venv .venv && echo 'source .venv/bin/activate' > .envrc && direnv allow ."
 alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile.rb && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile.rb && brew cleanup"
 alias bbd="brew bundle dump -f --file $HOME/.cache/Brewfile && diff $HOME/.cache/Brewfile $HOME/.config/homebrew/Brewfile.rb"
