@@ -1,5 +1,3 @@
-# . "$HOME\dotfiles\config\powershell\profile.ps1"
-
 cd $HOME/work
 
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
@@ -7,6 +5,8 @@ Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 Set-Alias -Name la -Value ls
 Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
+Set-Alias -Name vim -Value nvim
+Set-Alias -Name lg -Value lazygit
 
 function cd-home { cd ~ }
 Set-Alias -Name cdr -Value cd-home
@@ -30,6 +30,27 @@ Set-Alias -Name gc -Value git-commit
 
 function git-push { git push $args }
 Set-Alias -Name gf -Value git-push
+
+function sudo {
+    param(
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]] $Command
+    )
+
+    if (-not $Command -or $Command.Count -eq 0) {
+        Start-Process powershell -Verb RunAs
+        return
+    }
+
+    $cmdText  = $Command -join ' '
+    $bytes    = [Text.Encoding]::Unicode.GetBytes($cmdText)
+    $encoded  = [Convert]::ToBase64String($bytes)
+
+    Start-Process pwsh -Verb RunAs -ArgumentList @(
+        '-NoExit', '-NoProfile', '-ExecutionPolicy', 'Bypass',
+        '-EncodedCommand', $encoded
+    )
+}
 
 function prompt() {
   $username = $env:UserName
