@@ -21,7 +21,6 @@ brew "mas"
 cask "box-drive"
 cask "google-chrome"
 cask "microsoft-powerpoint"
-cask "obsidian"
 cask "raycast"
 cask "spotify"
 cask "wezterm"
@@ -39,4 +38,3 @@ brew "flake8"
 # lua
 brew "stylua"
 brew "lua-language-server"
-

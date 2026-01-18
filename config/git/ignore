@@ -1,22 +1,17 @@
 # utils
 .DS_Store
-build
 .envrc
 .venv
 __pycache__
 __marimo__
 *.egg-info
 *.lock*
-target
 _marp.html
 _marp.pdf
-*.dtmp
-*.bkp
+_marp.pptx
 ~$*.pptx
-.obsidian
 
 # dotfiles
-htoprc
 github-copilot/versions.json
 config/yazi/flavors
 config/yazi/package.toml

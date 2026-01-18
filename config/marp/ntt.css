@@ -7,8 +7,8 @@ Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resou
 
 section {
   font-family: Arial, "メイリオ", Meiryo, sans-serif;
-  width: 25.4cm;
-  height: 14.29cm;
+  width: 960px;
+  height: 540px;
   background-color: #fff;
 }
 
