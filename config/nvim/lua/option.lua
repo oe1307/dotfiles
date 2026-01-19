@@ -29,3 +29,11 @@ vim.opt.undodir = vim.fs.normalize("~/.local/state/nvim")
 -- language
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.expandtab = false
+  end,
+})
+
