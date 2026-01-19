@@ -78,13 +78,6 @@
             "Updated": "2026-01-17T12:50:50.7291722+09:00"
         },
         {
-            "Source": "extras",
-            "Info": "",
-            "Name": "obsidian",
-            "Version": "1.11.4",
-            "Updated": "2026-01-17T11:16:06.0372923+09:00"
-        },
-        {
             "Source": "main",
             "Info": "",
             "Name": "pwsh",
