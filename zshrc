@@ -66,6 +66,7 @@ alias gt="ga -A && gc -v -t ~/.config/git/commit.txt && gp && gf"
 # alias
 alias c="clear"
 alias cdr="cd $HOME/work"
+alias diff="delta"
 alias mv="mv -i"
 alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
