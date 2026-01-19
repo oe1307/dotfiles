@@ -16,7 +16,7 @@ del alias:gp -Force
 function git-pull { git pull $args }
 Set-Alias -Name gp -Value git-pull
 
-function git-status { git status $args }
+function git-status { git status -s --ignored $args }
 Set-Alias -Name gs -Value git-status
 
 function git-diff { git diff $args }
