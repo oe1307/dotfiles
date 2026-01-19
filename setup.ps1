@@ -2,9 +2,9 @@ New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE) | Out-Null
 Set-Content -Path $PROFILE -Value ". `"$HOME\dotfiles\config\powershell\profile.ps1`""
 
 # ssh keys
-$path = "C:\Users\issa\.ssh\key\github.pem"
+$path = "$HOME\.ssh\key\github.pem"
 (Get-Content -Raw $path) -replace "`r`n","`n" | Set-Content -NoNewline $path
-cd "C:\Users\issa\.ssh"
+cd "$HOME\.ssh"
 git ignore "key/github.pem"
 cd -
 
