@@ -1,102 +1,116 @@
 {
     "apps": [
         {
-            "Source": "main",
-            "Info": "",
             "Name": "7zip",
-            "Version": "25.01",
-            "Updated": "2026-01-17T10:35:33.6718177+09:00"
-        },
-        {
+            "Updated": "2026-01-13T18:47:32.4744063+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "25.01"
+        },
+        {
             "Name": "aria2",
-            "Version": "1.37.0-1",
-            "Updated": "2026-01-17T11:33:27.8647178+09:00"
-        },
-        {
+            "Updated": "2026-01-19T14:07:20.3444242+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "1.37.0-1"
+        },
+        {
+            "Name": "dark",
+            "Updated": "2026-01-19T14:49:47.1666388+09:00",
+            "Source": "main",
+            "Info": "",
+            "Version": "3.14.1"
+        },
+        {
             "Name": "delta",
-            "Version": "0.18.2",
-            "Updated": "2026-01-17T12:03:03.3369676+09:00"
-        },
-        {
+            "Updated": "2026-01-16T12:53:29.6602792+09:00",
             "Source": "main",
             "Info": "",
-            "Name": "git",
-            "Version": "2.52.0",
-            "Updated": "2026-01-17T10:36:13.811172+09:00"
+            "Version": "0.18.2"
         },
         {
+            "Name": "git",
+            "Updated": "2026-01-13T18:50:01.9275031+09:00",
+            "Source": "main",
+            "Info": "",
+            "Version": "2.52.0"
+        },
+        {
+            "Name": "googlechrome",
+            "Updated": "2026-01-19T09:45:03.4389544+09:00",
             "Source": "extras",
             "Info": "",
-            "Name": "googlechrome",
-            "Version": "144.0.7559.60",
-            "Updated": "2026-01-17T10:39:14.9862466+09:00"
+            "Version": "144.0.7559.60"
         },
         {
+            "Name": "Hack-NF-Mono",
+            "Updated": "2026-01-15T10:20:20.0810682+09:00",
             "Source": "nerd-fonts",
             "Info": "",
-            "Name": "Hack-NF-Mono",
-            "Version": "3.4.0",
-            "Updated": "2026-01-17T11:20:57.638634+09:00"
+            "Version": "3.4.0"
         },
         {
+            "Name": "lazygit",
+            "Updated": "2026-01-19T14:15:31.1255597+09:00",
             "Source": "extras",
             "Info": "",
-            "Name": "lazygit",
-            "Version": "0.58.1",
-            "Updated": "2026-01-17T11:33:09.7132458+09:00"
+            "Version": "0.58.1"
         },
         {
-            "Source": "main",
-            "Info": "",
             "Name": "marp",
-            "Version": "4.2.3",
-            "Updated": "2026-01-17T11:14:34.1625162+09:00"
-        },
-        {
+            "Updated": "2026-01-13T18:46:31.881823+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "4.2.3"
+        },
+        {
             "Name": "neovim",
-            "Version": "0.11.5",
-            "Updated": "2026-01-17T11:18:17.4071601+09:00"
-        },
-        {
+            "Updated": "2026-01-19T14:10:59.1269702+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "0.11.5"
+        },
+        {
             "Name": "nmap",
-            "Version": "7.98",
-            "Updated": "2026-01-17T11:15:14.2823257+09:00"
-        },
-        {
+            "Updated": "2026-01-15T09:59:16.6556837+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "7.98"
+        },
+        {
             "Name": "nodejs-lts",
-            "Version": "24.13.0",
-            "Updated": "2026-01-17T12:50:50.7291722+09:00"
-        },
-        {
+            "Updated": "2026-01-19T14:18:47.688802+09:00",
             "Source": "main",
             "Info": "",
+            "Version": "24.13.0"
+        },
+        {
+            "Name": "powertoys",
+            "Updated": "2026-01-19T14:52:07.3072223+09:00",
+            "Source": "extras",
+            "Info": "",
+            "Version": "0.96.1"
+        },
+        {
             "Name": "pwsh",
-            "Version": "7.5.4",
-            "Updated": "2026-01-17T10:52:41.3183694+09:00"
+            "Updated": "2026-01-19T14:23:22.8801793+09:00",
+            "Source": "main",
+            "Info": "",
+            "Version": "7.5.4"
         }
     ],
     "buckets": [
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2026-01-17T17:30:04+09:00",
-            "Manifests": 1418
+            "Updated": "2026-01-19T09:47:44+09:00",
+            "Manifests": 1419
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2026-01-17T17:30:00+09:00",
-            "Manifests": 2254
+            "Updated": "2026-01-19T13:40:55+09:00",
+            "Manifests": 2257
         },
         {
             "Name": "nerd-fonts",
