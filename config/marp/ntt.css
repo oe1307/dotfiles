@@ -13,7 +13,7 @@ section {
 }
 
 section.title {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-title-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/title-logo.svg);
   background-repeat: no-repeat;
   background-size: 197px, 780px;
   background-position: 42px 28px, 190px -5px;
@@ -59,7 +59,7 @@ section.title::after {
 }
 
 section.slide {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg);
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 820px 27px;
@@ -101,7 +101,7 @@ section.slide::after {
 }
 
 section.subtitle {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-title-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg), url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/title-logo.svg);
   background-repeat: no-repeat;
   background-size: 100px, 780px;
   background-position: 39px 27px, 190px -5px;
@@ -154,7 +154,7 @@ section.end1::after {
 }
 
 section.end2 {
-  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/ntt-logo.svg);
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg);
   background-repeat: no-repeat;
   background-size: 488px;
   background-position: center;
