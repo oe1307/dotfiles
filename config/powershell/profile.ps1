@@ -9,8 +9,8 @@ Set-Alias -Name vim -Value nvim
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name which -Value where.exe
 
-function cd-home { cd ~ }
-Set-Alias -Name cdr -Value cd-home
+function cd-work { cd ~/work }
+Set-Alias -Name cdr -Value cd-work
 
 del alias:gp -Force
 function git-pull { git pull $args }
