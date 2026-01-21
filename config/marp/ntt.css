@@ -189,3 +189,10 @@ a:link {
   display: flex;
   gap: 1em;
 }
+
+.split .vline{
+  background: #696969;
+  width: 1px;
+  align-self: stretch;
+}
+
