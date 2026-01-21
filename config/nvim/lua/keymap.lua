@@ -54,6 +54,15 @@ keymap.set("n", "O", "O.<BS><esc>a")
 -- previous file
 keymap.set("n", "Z", ":bp<Return>", { silent = true })
 
+-- wrap navigation
+vim.keymap.set("n", "<Down>", function()
+    return vim.v.count == 0 and "gj" or "j"
+end, { expr = true, silent = true })
+
+vim.keymap.set("n", "<Up>", function()
+    return vim.v.count == 0 and "gk" or "k"
+end, { expr = true, silent = true })
+
 -- python keymap
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
