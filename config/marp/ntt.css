@@ -170,29 +170,6 @@ section.end2::after {
   display: none !important;
 }
 
-section.overslide h1{
-  color: #006cb9;
-  background-color: #fff;
-  font-size: 27pt;
-  position: absolute;
-  top: -7px;
-  left: 38px;
-}
-
-section.overslide footer{
-  color: #000;
-  background-color: #fff;
-  font-size: 8.1pt;
-  position: absolute;
-  left: 38.5px;
-  bottom: 3px;
-}
-
-section.overslide::after {
-  color: #fff;
-  font-size: 0.1pt;
-}
-
 a:link {
   font-family: "Times New Roman";
   color: #2694c9;
@@ -208,13 +185,7 @@ a:link {
   line-height: 130%;
 }
 
-.flex {
+.split {
   display: flex;
   gap: 1em;
-}
-.sa {
-  justify-content: space-around;
-}
-.fw div {
-  flex: var(--fw);
 }
