@@ -17,6 +17,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
+    defaults write -g com.apple.trackpad.scaling -int 3
     defaults write -g com.apple.sound.beep.volume -float 0.0
     defaults write com.apple.screencapture location -string /Users/issa/Downloads
     defaults write com.apple.LaunchServices LSQuarantine -bool false
@@ -26,6 +27,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.finder _FXSortFoldersFirst -bool true
     defaults write -g KeyRepeat -int 2
     defaults write -g InitialKeyRepeat -int 15
+    /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
     # cloud storage
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
