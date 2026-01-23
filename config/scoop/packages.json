@@ -1,122 +1,122 @@
 {
+    "buckets": [
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main",
+            "Updated": "2026-01-23T13:33:35+09:00",
+            "Manifests": 1422
+        },
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2026-01-23T13:34:18+09:00",
+            "Manifests": 2257
+        },
+        {
+            "Name": "mo-san",
+            "Source": "https://github.com/mo-san/scoop-bucket",
+            "Updated": "2026-01-22T09:43:58+09:00",
+            "Manifests": 133
+        }
+    ],
     "apps": [
         {
             "Name": "7zip",
-            "Updated": "2026-01-13T18:47:32.4744063+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T13:49:38.3920281+09:00",
             "Info": "",
             "Version": "25.01"
         },
         {
             "Name": "aria2",
-            "Updated": "2026-01-19T14:07:20.3444242+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T13:50:42.3533302+09:00",
             "Info": "",
             "Version": "1.37.0-1"
         },
         {
             "Name": "dark",
-            "Updated": "2026-01-19T14:49:47.1666388+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:07:13.1207149+09:00",
             "Info": "",
             "Version": "3.14.1"
         },
         {
             "Name": "delta",
-            "Updated": "2026-01-16T12:53:29.6602792+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:07:18.8876452+09:00",
             "Info": "",
             "Version": "0.18.2"
         },
         {
+            "Name": "font-hackgen-console-nf",
+            "Source": "mo-san",
+            "Updated": "2026-01-23T14:51:11.7523073+09:00",
+            "Info": "",
+            "Version": "2.10.0"
+        },
+        {
             "Name": "git",
-            "Updated": "2026-01-13T18:50:01.9275031+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T13:50:31.1574686+09:00",
             "Info": "",
             "Version": "2.52.0"
         },
         {
             "Name": "googlechrome",
-            "Updated": "2026-01-19T09:45:03.4389544+09:00",
             "Source": "extras",
+            "Updated": "2026-01-23T13:55:55.5133716+09:00",
             "Info": "",
-            "Version": "144.0.7559.60"
-        },
-        {
-            "Name": "Hack-NF-Mono",
-            "Updated": "2026-01-15T10:20:20.0810682+09:00",
-            "Source": "nerd-fonts",
-            "Info": "",
-            "Version": "3.4.0"
+            "Version": "144.0.7559.97"
         },
         {
             "Name": "lazygit",
-            "Updated": "2026-01-19T14:15:31.1255597+09:00",
             "Source": "extras",
+            "Updated": "2026-01-23T14:07:43.3002407+09:00",
             "Info": "",
             "Version": "0.58.1"
         },
         {
             "Name": "marp",
-            "Updated": "2026-01-13T18:46:31.881823+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:08:01.9435138+09:00",
             "Info": "",
             "Version": "4.2.3"
         },
         {
             "Name": "neovim",
-            "Updated": "2026-01-19T14:10:59.1269702+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:08:22.22882+09:00",
             "Info": "",
             "Version": "0.11.5"
         },
         {
             "Name": "nmap",
-            "Updated": "2026-01-15T09:59:16.6556837+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:08:46.0280888+09:00",
             "Info": "",
             "Version": "7.98"
         },
         {
             "Name": "nodejs-lts",
-            "Updated": "2026-01-19T14:18:47.688802+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:09:13.2786568+09:00",
             "Info": "",
             "Version": "24.13.0"
         },
         {
             "Name": "powertoys",
-            "Updated": "2026-01-19T14:52:07.3072223+09:00",
             "Source": "extras",
+            "Updated": "2026-01-23T14:11:57.2506719+09:00",
             "Info": "",
-            "Version": "0.96.1"
+            "Version": "0.97.0"
         },
         {
             "Name": "pwsh",
-            "Updated": "2026-01-19T14:23:22.8801793+09:00",
             "Source": "main",
+            "Updated": "2026-01-23T14:12:28.514744+09:00",
             "Info": "",
             "Version": "7.5.4"
-        }
-    ],
-    "buckets": [
-        {
-            "Name": "main",
-            "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2026-01-19T09:47:44+09:00",
-            "Manifests": 1419
-        },
-        {
-            "Name": "extras",
-            "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2026-01-19T13:40:55+09:00",
-            "Manifests": 2257
-        },
-        {
-            "Name": "nerd-fonts",
-            "Source": "https://github.com/matthewjberger/scoop-nerd-fonts",
-            "Updated": "2026-01-14T19:31:41+09:00",
-            "Manifests": 367
         }
     ]
 }
