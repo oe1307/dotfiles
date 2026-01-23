@@ -134,7 +134,7 @@ return {
             local flake8 = lint.linters.flake8
             flake8.args = flake8.args or {}
             vim.list_extend(flake8.args, { "--max-line-length", "88" })
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
                 callback = function()
                     lint.try_lint()
                 end,
