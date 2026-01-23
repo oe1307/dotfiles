@@ -14,6 +14,7 @@ ln -snvf "$HOME/.ssh/accounts/copilot.json" "$HOME/.config/github-copilot/apps.j
 
 if [ "$(uname)" = "Darwin" ]; then
     # macOS settings
+    defaults write com.apple.stage-manager enabled -bool false
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
