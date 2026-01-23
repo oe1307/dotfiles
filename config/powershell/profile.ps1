@@ -1,5 +1,7 @@
 cd $HOME/work
 
+$env:XDG_CONFIG_HOME = "$HOME\.config"
+
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 
 Set-Alias -Name la -Value ls
@@ -31,9 +33,6 @@ Set-Alias -Name gc -Value git-commit
 
 function git-push { git push $args }
 Set-Alias -Name gf -Value git-push
-
-function git-update { git add -A && git commit -v -t $HOME/.config/git/commit.txt && git pull && git push }
-Set-Alias -Name gt -Value git-update
 
 function sudo {
     param(

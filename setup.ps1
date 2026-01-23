@@ -4,9 +4,6 @@ Set-Content -Path $PROFILE -Value ". `"$HOME\dotfiles\config\powershell\profile.
 # ssh keys
 $path = "$HOME\.ssh\key\github.pem"
 (Get-Content -Raw $path) -replace "`r`n","`n" | Set-Content -NoNewline $path
-cd "$HOME\.ssh"
-git ignore "key/github.pem"
-cd -
 
 # dotfiles
 New-Item -ItemType Directory -Force -Path "$HOME\.config" | Out-Null
