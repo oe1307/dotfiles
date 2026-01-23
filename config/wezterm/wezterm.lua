@@ -2,9 +2,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.use_ime = false
-config.font_size = 16.0
+config.font_size = 18.0
 config.audible_bell = "Disabled"
-config.font = wezterm.font("Hack Nerd Font Mono")
+config.font = wezterm.font("HackGen Console NF")
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.color_scheme = "iTerm2 Smoooooth"

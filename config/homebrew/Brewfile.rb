@@ -1,4 +1,5 @@
 brew "bat"
+brew "cmake"
 brew "direnv"
 brew "eza"
 brew "git-delta"
@@ -14,7 +15,7 @@ brew "zsh-autopair"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
-cask "font-hack-nerd-font"
+cask "font-hackgen-nerd"
 
 if OS.mac?
 brew "marp-cli"

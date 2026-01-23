@@ -27,7 +27,10 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.finder _FXSortFoldersFirst -bool true
     defaults write -g KeyRepeat -int 2
     defaults write -g InitialKeyRepeat -int 15
+    defaults write com.apple.dock tilesize -int 16
+    defaults write com.apple.dock autohide -bool true
     /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
+    hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000000}]}'
 
     # cloud storage
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
