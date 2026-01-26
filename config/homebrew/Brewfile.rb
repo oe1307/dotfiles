@@ -34,7 +34,6 @@ end
 # python
 brew "ipython"
 brew "pyright"
-brew "pytest"
 brew "ruff"
 brew "isort"
 brew "flake8"
