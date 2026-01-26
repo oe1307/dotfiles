@@ -27,6 +27,7 @@ export EDITOR=nvim
 export FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 export NPM_CONFIG_USERCONFIG=$HOME/.config/node_js/npmrc
 export IPYTHONDIR=$HOME/.cache/ipython
+export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
 if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
 if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
