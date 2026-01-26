@@ -76,6 +76,7 @@ alias venv="python -m venv .venv && echo 'source .venv/bin/activate' > .envrc &&
 alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile.rb && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $HOME/.config/homebrew/Brewfile.rb && brew cleanup"
 alias bbd="brew bundle dump -f --file $HOME/.cache/Brewfile && diff $HOME/.cache/Brewfile $HOME/.config/homebrew/Brewfile.rb"
+alias checkpy="pyright . && ruff format . && isort . --profile=black && flake8 **/*.py --max-line-length=88"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
