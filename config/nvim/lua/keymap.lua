@@ -67,6 +67,6 @@ end, { expr = true, silent = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function()
-        vim.keymap.set("n", "<C-s>", "jObreakpoint()<esc>h", { noremap = true, silent = true })
+        vim.keymap.set("n", "<C-s>", "obreakpoint()<esc>h", { noremap = true, silent = true })
     end,
 })
