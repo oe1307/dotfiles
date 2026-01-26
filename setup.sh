@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # dotfiles
 mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
@@ -29,6 +31,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write -g InitialKeyRepeat -int 15
     defaults write com.apple.dock tilesize -int 16
     defaults write com.apple.dock autohide -bool true
+    defaults write com.apple.screencapture show-thumbnail -bool false
     /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
     hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000000}]}'
 
