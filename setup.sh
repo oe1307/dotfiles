@@ -32,6 +32,11 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.dock tilesize -int 16
     defaults write com.apple.dock autohide -bool true
     defaults write com.apple.screencapture show-thumbnail -bool false
+    defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
+    defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 0
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+    defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
     /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
     hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000000}]}'
 
