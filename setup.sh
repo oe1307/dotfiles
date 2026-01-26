@@ -10,10 +10,6 @@ ln -snvf "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
 ln -snvf "$HOME/dotfiles/profile" "$HOME/.profile"
 ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
 
-# accounts
-mkdir -p "$HOME/.config/github-copilot"
-ln -snvf "$HOME/.ssh/accounts/copilot.json" "$HOME/.config/github-copilot/apps.json"
-
 if [ "$(uname)" = "Darwin" ]; then
     # macOS settings
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true

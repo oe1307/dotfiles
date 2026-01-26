@@ -1,5 +1,5 @@
 [include]
-    path = ~/.ssh/accounts/git-user.conf
+    path = ~/.ssh/git-user.conf
 
 [init]
     defaultBranch = main
