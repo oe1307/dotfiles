@@ -21,6 +21,7 @@ if OS.mac?
 brew "marp-cli"
 brew "mas"
 cask "box-drive"
+cask "codex"
 cask "google-chrome"
 cask "microsoft-powerpoint"
 cask "raycast"
