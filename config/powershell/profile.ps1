@@ -14,6 +14,9 @@ Set-Alias -Name which -Value where.exe
 function cd-work { cd ~/work }
 Set-Alias -Name cdr -Value cd-work
 
+finction ls-tree { eza -T --git-ignore --sort Name }
+Set-Alias -Name lt -Value ls-tree
+
 del alias:gp -Force
 function git-pull { git pull $args }
 Set-Alias -Name gp -Value git-pull
