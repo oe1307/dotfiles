@@ -41,3 +41,7 @@ brew "flake8"
 # lua
 brew "stylua"
 brew "lua-language-server"
+
+# verilog
+brew "icarus-verilog"
+cask "gtkwave"
