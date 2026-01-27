@@ -1,5 +1,9 @@
 import json
 
+import os
+
+os.system("scoop export > packages.json")
+
 packages = json.load(open("packages.json"))
 
 for bucket in packages.get("buckets", []):

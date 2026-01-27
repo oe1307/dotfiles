@@ -31,6 +31,10 @@
       "Source": "main"
     },
     {
+      "Name": "dark",
+      "Source": "main"
+    },
+    {
       "Name": "delta",
       "Source": "main"
     },
@@ -80,6 +84,14 @@
     },
     {
       "Name": "pwsh",
+      "Source": "main"
+    },
+    {
+      "Name": "python",
+      "Source": "main"
+    },
+    {
+      "Name": "tree-sitter",
       "Source": "main"
     }
   ]
