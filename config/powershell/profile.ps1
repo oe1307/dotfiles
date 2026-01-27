@@ -14,7 +14,11 @@ Set-Alias -Name which -Value where.exe
 function cd-work { cd ~/work }
 Set-Alias -Name cdr -Value cd-work
 
-finction ls-tree { eza -T --git-ignore --sort Name }
+del alias:ls -Force
+function ls-eza { eza -g --icons --sort Name }
+Set-Alias -Name ls -Value ls-eza
+
+function ls-tree { eza -T --git-ignore --sort Name }
 Set-Alias -Name lt -Value ls-tree
 
 del alias:gp -Force
