@@ -4,22 +4,36 @@ $env:XDG_CONFIG_HOME = "$HOME\.config"
 
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 
-Set-Alias -Name la -Value ls
 Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
-Set-Alias -Name vim -Value nvim
 Set-Alias -Name lg -Value lazygit
 Set-Alias -Name which -Value where.exe
 
+del alias:diff -Force
+Set-Alias -Name diff -Value delta
+
 function cd-work { cd ~/work }
 Set-Alias -Name cdr -Value cd-work
+
+del alias:cat -Force
+function bat-cat { bat -p  --theme "Visual Studio Dark+" $args }
+Set-Alias -Name cat -Value bat-cat
 
 del alias:ls -Force
 function ls-eza { eza -g --icons --sort Name }
 Set-Alias -Name ls -Value ls-eza
 
+function ls-all { eza -a -g --icons --sort Name }
+Set-Alias -Name la -Value ls-all
+
+function ls-list { eza -l -a -g --icons --sort Name }
+Set-Alias -Name ll -Value ls-all
+
 function ls-tree { eza -T --git-ignore --sort Name }
 Set-Alias -Name lt -Value ls-tree
+
+function nvim-multi { nvim -O $args }
+Set-Alias -Name vim -Value nvim-multi
 
 del alias:gp -Force
 function git-pull { git pull $args }
@@ -35,14 +49,11 @@ function git-add { git add $args }
 Set-Alias -Name ga -Value git-add
 
 del alias:gc -Force
-function git-commit { git commit $args }
+function git-commit { git commit -v -t ~/.config/git/commit.txt $args }
 Set-Alias -Name gc -Value git-commit
 
 function git-push { git push $args }
 Set-Alias -Name gf -Value git-push
-
-# function git-update { git add -A | git commit -v -t $HOME/.config/git/commit.txt | git pull | git push }
-# Set-Alias -Name gt -Value git-update
 
 function sudo {
     param(
