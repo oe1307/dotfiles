@@ -10,8 +10,12 @@ ln -snvf "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
 ln -snvf "$HOME/dotfiles/profile" "$HOME/.profile"
 ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
 
+# account
+mkdir -p $HOME/.config/codex
+ln -snvf $HOME/.ssh/codex.json $HOME/.config/codex/auth.json
+
+# macOS settings
 if [ "$(uname)" = "Darwin" ]; then
-    # macOS settings
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
@@ -35,8 +39,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
     /usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:64:enabled false" ~/Library/Preferences/com.apple.symbolichotkeys.plist
     hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000000}]}'
-
-    # cloud storage
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
 fi
 
