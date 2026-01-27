@@ -3,13 +3,13 @@
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main",
-            "Updated": "2026-01-23T13:33:35+09:00",
+            "Updated": "2026-01-27T17:31:30+09:00",
             "Manifests": 1422
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2026-01-23T13:34:18+09:00",
+            "Updated": "2026-01-27T18:09:28+09:00",
             "Manifests": 2257
         },
         {
@@ -22,101 +22,122 @@
     "apps": [
         {
             "Name": "7zip",
-            "Source": "main",
-            "Updated": "2026-01-23T13:49:38.3920281+09:00",
             "Info": "",
-            "Version": "25.01"
+            "Source": "main",
+            "Version": "25.01",
+            "Updated": "2026-01-23T13:49:38.3920281+09:00"
         },
         {
             "Name": "aria2",
-            "Source": "main",
-            "Updated": "2026-01-23T13:50:42.3533302+09:00",
             "Info": "",
-            "Version": "1.37.0-1"
+            "Source": "main",
+            "Version": "1.37.0-1",
+            "Updated": "2026-01-23T13:50:42.3533302+09:00"
         },
         {
-            "Name": "dark",
-            "Source": "main",
-            "Updated": "2026-01-23T14:07:13.1207149+09:00",
+            "Name": "bat",
             "Info": "",
-            "Version": "3.14.1"
+            "Source": "main",
+            "Version": "0.26.1",
+            "Updated": "2026-01-27T19:19:41.5383737+09:00"
         },
         {
             "Name": "delta",
-            "Source": "main",
-            "Updated": "2026-01-23T14:07:18.8876452+09:00",
             "Info": "",
-            "Version": "0.18.2"
+            "Source": "main",
+            "Version": "0.18.2",
+            "Updated": "2026-01-23T14:07:18.8876452+09:00"
+        },
+        {
+            "Name": "eza",
+            "Info": "",
+            "Source": "main",
+            "Version": "0.23.4",
+            "Updated": "2026-01-27T12:00:07.6818834+09:00"
         },
         {
             "Name": "font-hackgen-console-nf",
-            "Source": "mo-san",
-            "Updated": "2026-01-23T14:51:11.7523073+09:00",
             "Info": "",
-            "Version": "2.10.0"
+            "Source": "mo-san",
+            "Version": "2.10.0",
+            "Updated": "2026-01-23T14:51:11.7523073+09:00"
+        },
+        {
+            "Name": "font-hackgen-console-nf-j",
+            "Info": "",
+            "Source": "mo-san",
+            "Version": "2.10.0",
+            "Updated": "2026-01-23T15:00:03.1448387+09:00"
         },
         {
             "Name": "git",
-            "Source": "main",
-            "Updated": "2026-01-23T13:50:31.1574686+09:00",
             "Info": "",
-            "Version": "2.52.0"
+            "Source": "main",
+            "Version": "2.52.0",
+            "Updated": "2026-01-23T13:50:31.1574686+09:00"
         },
         {
             "Name": "googlechrome",
-            "Source": "extras",
-            "Updated": "2026-01-23T13:55:55.5133716+09:00",
             "Info": "",
-            "Version": "144.0.7559.97"
+            "Source": "extras",
+            "Version": "144.0.7559.97",
+            "Updated": "2026-01-23T13:55:55.5133716+09:00"
+        },
+        {
+            "Name": "iverilog",
+            "Info": "",
+            "Source": "main",
+            "Version": "12-20220611",
+            "Updated": "2026-01-27T11:50:15.8332277+09:00"
         },
         {
             "Name": "lazygit",
-            "Source": "extras",
-            "Updated": "2026-01-23T14:07:43.3002407+09:00",
             "Info": "",
-            "Version": "0.58.1"
+            "Source": "extras",
+            "Version": "0.58.1",
+            "Updated": "2026-01-23T14:07:43.3002407+09:00"
         },
         {
             "Name": "marp",
-            "Source": "main",
-            "Updated": "2026-01-23T14:08:01.9435138+09:00",
             "Info": "",
-            "Version": "4.2.3"
+            "Source": "main",
+            "Version": "4.2.3",
+            "Updated": "2026-01-23T14:08:01.9435138+09:00"
         },
         {
             "Name": "neovim",
-            "Source": "main",
-            "Updated": "2026-01-23T14:08:22.22882+09:00",
             "Info": "",
-            "Version": "0.11.5"
+            "Source": "main",
+            "Version": "0.11.5",
+            "Updated": "2026-01-23T14:08:22.22882+09:00"
         },
         {
             "Name": "nmap",
-            "Source": "main",
-            "Updated": "2026-01-23T14:08:46.0280888+09:00",
             "Info": "",
-            "Version": "7.98"
+            "Source": "main",
+            "Version": "7.98",
+            "Updated": "2026-01-23T14:08:46.0280888+09:00"
         },
         {
             "Name": "nodejs-lts",
-            "Source": "main",
-            "Updated": "2026-01-23T14:09:13.2786568+09:00",
             "Info": "",
-            "Version": "24.13.0"
+            "Source": "main",
+            "Version": "24.13.0",
+            "Updated": "2026-01-23T14:09:13.2786568+09:00"
         },
         {
             "Name": "powertoys",
-            "Source": "extras",
-            "Updated": "2026-01-23T14:11:57.2506719+09:00",
             "Info": "",
-            "Version": "0.97.0"
+            "Source": "extras",
+            "Version": "0.97.0",
+            "Updated": "2026-01-23T14:11:57.2506719+09:00"
         },
         {
             "Name": "pwsh",
-            "Source": "main",
-            "Updated": "2026-01-23T14:12:28.514744+09:00",
             "Info": "",
-            "Version": "7.5.4"
+            "Source": "main",
+            "Version": "7.5.4",
+            "Updated": "2026-01-23T14:12:28.514744+09:00"
         }
     ]
 }
