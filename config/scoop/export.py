@@ -15,6 +15,10 @@ for app in packages.get("apps", []):
     app.pop("Updated", None)
     app.pop("Info", None)
 packages["apps"].sort(key=lambda x: x.get("Name", ""))
+packages["apps"] = [
+    {"Name": app.get("Name", ""), "Source": app.get("Source", "")}
+    for app in packages.get("apps", [])
+]
 
 packages = {
     "buckets": packages.get("buckets", []),
