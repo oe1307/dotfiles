@@ -1,8 +1,7 @@
 import json
+import subprocess
 
-import os
-
-os.system("scoop export > packages.json")
+subprocess.call("scoop export > packages.json")
 
 packages = json.load(open("packages.json"))
 
@@ -15,7 +14,7 @@ for app in packages.get("apps", []):
     app.pop("Version", None)
     app.pop("Updated", None)
     app.pop("Info", None)
-packages["apps"].sort(key=lambda x: x["Name"])
+packages["apps"].sort(key=lambda x: (x.get("Name", ""), x.get("Source", "")))
 
 packages = {
     "buckets": packages.get("buckets", []),
