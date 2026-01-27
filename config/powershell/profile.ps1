@@ -20,16 +20,16 @@ function bat-cat { bat -p  --theme "Visual Studio Dark+" $args }
 Set-Alias -Name cat -Value bat-cat
 
 del alias:ls -Force
-function ls-eza { eza -g --icons --sort Name }
+function ls-eza { eza -g --icons --sort Name $args }
 Set-Alias -Name ls -Value ls-eza
 
-function ls-all { eza -a -g --icons --sort Name }
+function ls-all { eza -a -g --icons --sort Name $args }
 Set-Alias -Name la -Value ls-all
 
-function ls-list { eza -l -a -g --icons --sort Name }
+function ls-list { eza -l -a -g --icons --sort Name $args }
 Set-Alias -Name ll -Value ls-all
 
-function ls-tree { eza -T --git-ignore --sort Name }
+function ls-tree { eza -T --git-ignore --sort Name $args }
 Set-Alias -Name lt -Value ls-tree
 
 function nvim-multi { nvim -O $args }
@@ -49,7 +49,7 @@ function git-add { git add $args }
 Set-Alias -Name ga -Value git-add
 
 del alias:gc -Force
-function git-commit { git commit -v -t ~/.config/git/commit.txt $args }
+function git-commit { git commit -v -t C:\Users\issa\.config\git\commit.txt $args }
 Set-Alias -Name gc -Value git-commit
 
 function git-push { git push $args }
