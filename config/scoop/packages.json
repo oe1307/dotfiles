@@ -1,6 +1,10 @@
 {
   "buckets": [
     {
+      "Name": "crystal-preview",
+      "Source": "https://github.com/neatorobito/scoop-crystal"
+    },
+    {
       "Name": "extras",
       "Source": "https://github.com/ScoopInstaller/Extras"
     },
@@ -93,6 +97,10 @@
     {
       "Name": "tree-sitter",
       "Source": "main"
+    },
+    {
+      "Name": "vs_2022_cpp_build_tools",
+      "Source": "crystal-preview"
     }
   ]
 }
