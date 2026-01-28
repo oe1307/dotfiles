@@ -23,6 +23,8 @@ brew "mas"
 cask "box-drive"
 cask "codex"
 cask "google-chrome"
+cask "gtkwave"
+brew "icarus-verilog"
 cask "microsoft-powerpoint"
 cask "raycast"
 cask "spotify"
@@ -41,7 +43,3 @@ brew "flake8"
 # lua
 brew "stylua"
 brew "lua-language-server"
-
-# verilog
-brew "icarus-verilog"
-cask "gtkwave"
