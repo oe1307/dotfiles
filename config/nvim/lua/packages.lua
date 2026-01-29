@@ -24,7 +24,17 @@ return {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = "nvim-lua/plenary.nvim",
-        opts = {},
+        opts = {
+            keywords = {
+                FIX = { icon = "" },
+                TODO = { icon = "" },
+                HACK = { icon = "" },
+                WARN = { icon = "" },
+                PERF = { icon = "" },
+                NOTE = { icon = "" },
+                TEST = { icon = "⏲" },
+            },
+        },
     },
     {
         -- multiple cursors

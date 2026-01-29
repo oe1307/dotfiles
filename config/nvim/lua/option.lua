@@ -1,6 +1,7 @@
 -- user interface
 vim.opt.mouse = ""
 vim.opt.smartindent = true
+vim.opt.ambiwidth = "double"
 vim.o.shellcmdflag = "-l -c"
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
