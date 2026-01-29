@@ -1,7 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.use_ime = false
 config.font_size = 18.0
 config.audible_bell = "Disabled"
 config.font = wezterm.font("HackGen Console NF")
@@ -35,5 +34,59 @@ config.keys = {
     { key = "LeftArrow", mods = "CMD", action = wezterm.action({ SendString = "\x01" }) },
     { key = "RightArrow", mods = "CMD", action = wezterm.action({ SendString = "\x05" }) },
 }
+
+local function state_path()
+    local xdg = os.getenv("XDG_CONFIG_HOME")
+    local home = os.getenv("HOME")
+    local base = xdg or (home and (home .. "/.config")) or "."
+    return base .. "/wezterm/use_ime_state"
+end
+
+local function read_state()
+    local f = io.open(state_path(), "r")
+    if not f then
+        return nil
+    end
+    local s = f:read("*l")
+    f:close()
+    return s
+end
+
+local function write_state(v)
+    local f = io.open(state_path(), "w")
+    if not f then
+        return
+    end
+    f:write(v and "1" or "0")
+    f:close()
+end
+
+do
+    local s = read_state()
+    if s == "1" then
+        config.use_ime = true
+    elseif s == "0" then
+        config.use_ime = false
+    else
+        config.use_ime = true
+    end
+end
+
+wezterm.on("toggle-ime", function(window, pane)
+    local current = window:effective_config().use_ime
+    local nextv = not current
+    write_state(nextv)
+    local overrides = window:get_config_overrides() or {}
+    overrides.use_ime = nextv
+    window:set_config_overrides(overrides)
+    window:toast_notification("WezTerm", "日本語: " .. tostring(overrides.use_ime), nil, 2500)
+end)
+
+config.keys = config.keys or {}
+table.insert(config.keys, {
+    key = "I",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.EmitEvent("toggle-ime"),
+})
 
 return config
