@@ -72,6 +72,15 @@ do
     end
 end
 
+wezterm.on("gui-startup", function(cmd)
+    write_state(false)
+    local tab, pane, mux_window = wezterm.mux.spawn_window(cmd or {})
+    local window = mux_window:gui_window()
+    local overrides = window:get_config_overrides() and (window:get_config_overrides() or {}) or {}
+    overrides.use_ime = false
+    window:set_config_overrides(overrides)
+end)
+
 wezterm.on("toggle-ime", function(window, pane)
     local current = window:effective_config().use_ime
     local nextv = not current

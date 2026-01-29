@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+source $HOME/.ssh/proxy.sh
+
 cd $HOME/work
 
 # PATH
@@ -70,6 +72,7 @@ alias diff="delta"
 alias mv="mv -i"
 alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
+alias iverilog="iverilog -g2012"
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias venv="python -m venv .venv && echo 'source .venv/bin/activate' > .envrc && direnv allow ."
 alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile.rb && brew upgrade"
@@ -87,4 +90,3 @@ if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash ipython 2>/dev/null; then alias python="ipython"; else echo "ipython not found"; fi
-if hash iverilog 2>/dev/null; then alias iverilog="iverilog -g2012"; else echo "iverilog not found"; fi
