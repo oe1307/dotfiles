@@ -37,6 +37,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
     defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+    defaults write com.microsoft.Powerpoint NSUserKeyEquivalents -dict-add "数式" "^e"
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
 fi
 
