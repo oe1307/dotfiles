@@ -55,11 +55,11 @@ keymap.set("n", "O", "O.<BS><esc>a")
 keymap.set("n", "Z", ":bp<Return>", { silent = true })
 
 -- wrap navigation
-vim.keymap.set("n", "<Down>", function()
+vim.keymap.set({"n", "v"}, "<Down>", function()
     return vim.v.count == 0 and "gj" or "j"
 end, { expr = true, silent = true })
 
-vim.keymap.set("n", "<Up>", function()
+vim.keymap.set({"n", "v"}, "<Up>", function()
     return vim.v.count == 0 and "gk" or "k"
 end, { expr = true, silent = true })
 
