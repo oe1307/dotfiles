@@ -64,6 +64,7 @@ alias gd="git diff"
 alias gl="git log"
 alias lg="lazygit"
 alias gt="ga -A && gc -v -t ~/.config/git/commit.txt && gp && gf"
+alias gtc="ga -A && gc -m update && gp && gf"
 
 # alias
 alias c="clear"
