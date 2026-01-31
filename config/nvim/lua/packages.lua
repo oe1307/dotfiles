@@ -58,7 +58,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         build = function()
-            require("nvim-treesitter").install({ "python", "ssh-config", "systemverilog" })
+            require("nvim-treesitter").install({ "python", "html", "ssh-config", "systemverilog" })
         end,
         config = function()
             vim.api.nvim_create_autocmd("FileType", {

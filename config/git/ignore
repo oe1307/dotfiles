@@ -6,9 +6,9 @@ __pycache__
 __marimo__
 *.egg-info
 *.lock*
-_marp.html
-_marp.pdf
-_marp.pptx
+_marp*.html
+_marp*.pdf
+_marp*.pptx
 ~$*.pptx
 
 # dotfiles
