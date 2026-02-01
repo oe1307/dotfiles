@@ -30,6 +30,7 @@ cask "raycast"
 cask "spotify"
 cask "wezterm"
 mas "Pure Paste", id: 1611378436
+mas "Xcode", id: 497799835
 elsif OS.linux?
 end
 
