@@ -91,6 +91,8 @@ return {
             formatters_by_ft = {
                 python = { "ruff_format", "isort" },
                 lua = { "stylua" },
+                verilog = { "verible" },
+                systemverilog = { "verible" },
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
@@ -105,13 +107,14 @@ return {
         keys = { { "K", vim.lsp.buf.definition, silent = true } },
         dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
-            vim.lsp.enable({ "pyright", "lua_ls" })
+            vim.lsp.enable({ "pyright", "lua_ls", "verible" })
             local cap = require("cmp_nvim_lsp").default_capabilities()
             vim.lsp.config("pyright", { capabilities = cap })
             vim.lsp.config(
                 "lua_ls",
                 { capabilities = cap, settings = { Lua = { diagnostics = { globals = { "vim" } } } } }
             )
+            vim.lsp.config("verible", { capabilities = cap })
             vim.diagnostic.config({
                 signs = {
                     text = {
@@ -130,10 +133,13 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lint = require("lint")
-            lint.linters_by_ft = { python = { "flake8" } }
-            local flake8 = lint.linters.flake8
-            flake8.args = flake8.args or {}
-            vim.list_extend(flake8.args, { "--max-line-length", "88" })
+            lint.linters_by_ft = {
+                python = { "flake8" },
+                verilog = { "verible_verilog_lint" },
+                systemverilog = { "verible_verilog_lint" },
+            }
+            vim.list_extend(lint.linters.flake8.args or {}, { "--max-line-length", "88" })
+            lint.linters.verible_verilog_lint = { cmd = "verible-verilog-lint", ignore_exitcode = true }
             vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
                 callback = function()
                     lint.try_lint()
