@@ -135,11 +135,8 @@ return {
             local lint = require("lint")
             lint.linters_by_ft = {
                 python = { "flake8" },
-                verilog = { "verible_verilog_lint" },
-                systemverilog = { "verible_verilog_lint" },
             }
             vim.list_extend(lint.linters.flake8.args or {}, { "--max-line-length", "88" })
-            lint.linters.verible_verilog_lint = { cmd = "verible-verilog-lint", ignore_exitcode = true }
             vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
                 callback = function()
                     lint.try_lint()
