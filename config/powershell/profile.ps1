@@ -49,7 +49,7 @@ function git-add { git add $args }
 Set-Alias -Name ga -Value git-add
 
 del alias:gc -Force
-function git-commit { git commit -v -t C:\Users\issa\.config\git\commit.txt $args }
+function git-commit { git commit -v -t $HOME\.config\git\commit.txt $args }
 Set-Alias -Name gc -Value git-commit
 
 function git-push { git push $args }

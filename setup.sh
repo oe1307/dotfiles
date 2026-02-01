@@ -21,7 +21,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
     defaults write -g com.apple.trackpad.scaling -int 3
     defaults write -g com.apple.sound.beep.volume -float 0.0
-    defaults write com.apple.screencapture location -string /Users/issa/Downloads
+    defaults write com.apple.screencapture location -string $HOME/Downloads
     defaults write com.apple.LaunchServices LSQuarantine -bool false
     defaults write com.apple.screencapture type -string "png"
     defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -39,5 +39,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
     defaults write com.microsoft.Powerpoint NSUserKeyEquivalents -dict-add "数式" "^e"
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
+    sudo xcode-select -r
 fi
 
