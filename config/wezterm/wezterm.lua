@@ -88,7 +88,7 @@ wezterm.on("toggle-ime", function(window, pane)
     local overrides = window:get_config_overrides() or {}
     overrides.use_ime = nextv
     window:set_config_overrides(overrides)
-    window:toast_notification("WezTerm", "日本語: " .. tostring(overrides.use_ime), nil, 2500)
+    -- window:toast_notification("WezTerm", "日本語: " .. tostring(overrides.use_ime), nil, 2500)
 end)
 
 config.keys = config.keys or {}
