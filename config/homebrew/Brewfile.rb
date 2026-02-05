@@ -1,8 +1,3 @@
-tap "chipsalliance/verible"
-tap "randomplum/gtkwave"
-brew "chipsalliance/verible/verible"
-brew "randomplum/gtkwave/gtkwave"
-
 brew "bat"
 brew "cmake"
 brew "direnv"
@@ -26,15 +21,12 @@ if OS.mac?
 brew "marp-cli"
 brew "mas"
 cask "box-drive"
-cask "codex"
 cask "google-chrome"
-brew "icarus-verilog"
 cask "microsoft-powerpoint"
 cask "raycast"
 cask "spotify"
 cask "wezterm"
 mas "Pure Paste", id: 1611378436
-mas "Xcode", id: 497799835
 elsif OS.linux?
 end
 
