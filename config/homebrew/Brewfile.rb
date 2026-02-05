@@ -26,7 +26,9 @@ cask "microsoft-powerpoint"
 cask "raycast"
 cask "spotify"
 cask "wezterm"
+mas "Ethernet Status", id: 1186187538
 mas "Pure Paste", id: 1611378436
+mas "Windows App", id: 1295203466
 elsif OS.linux?
 end
 
