@@ -29,6 +29,7 @@ cask "wezterm"
 mas "Ethernet Status", id: 1186187538
 mas "Pure Paste", id: 1611378436
 mas "Windows App", id: 1295203466
+mas "Xcode", id: 497799835
 elsif OS.linux?
 end
 
@@ -42,3 +43,7 @@ brew "flake8"
 # lua
 brew "stylua"
 brew "lua-language-server"
+
+# verilog
+tap "chipsalliance/verible"
+brew "chipsalliance/verible/verible"
