@@ -181,10 +181,6 @@ a:link {
   color: #bbb;
 }
 
-.compact {
-  line-height: 130%;
-}
-
 .split {
   display: flex;
   gap: 1em;
