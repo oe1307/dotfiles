@@ -7,7 +7,12 @@ Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
 Set-Alias -Name lg -Value lazygit
+
+del alias:where -Force
 Set-Alias -Name which -Value where.exe
+
+del alias:rm -Force
+Set-Alias -Name rm -Value rip
 
 del alias:diff -Force
 Set-Alias -Name diff -Value delta
