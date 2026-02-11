@@ -15,6 +15,10 @@
     {
       "Name": "mo-san",
       "Source": "https://github.com/mo-san/scoop-bucket"
+    },
+    {
+      "Name": "motty",
+      "Source": "https://github.com/motty-mio2/scoop-bucket/"
     }
   ],
   "apps": [
@@ -97,6 +101,10 @@
     {
       "Name": "tree-sitter",
       "Source": "main"
+    },
+    {
+      "Name": "verible",
+      "Source": "motty"
     },
     {
       "Name": "vs_2022_cpp_build_tools",
