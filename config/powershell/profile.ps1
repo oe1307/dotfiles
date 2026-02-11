@@ -33,7 +33,7 @@ function ls-all { eza -a -g --icons --sort Name $args }
 Set-Alias -Name la -Value ls-all
 
 function ls-list { eza -l -a -g --icons --sort Name $args }
-Set-Alias -Name ll -Value ls-all
+Set-Alias -Name ll -Value ls-list
 
 function ls-tree { eza -T --git-ignore --sort Name $args }
 Set-Alias -Name lt -Value ls-tree
