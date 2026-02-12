@@ -20,6 +20,7 @@ cask "font-hackgen-nerd"
 if OS.mac?
 brew "marp-cli"
 brew "mas"
+brew "podman"
 cask "box-drive"
 cask "google-chrome"
 cask "microsoft-powerpoint"
@@ -47,3 +48,5 @@ brew "lua-language-server"
 # verilog
 tap "chipsalliance/verible"
 brew "chipsalliance/verible/verible"
+tap "randomplum/gtkwave"
+brew "randomplum/gtkwave/gtkwave", args: ["HEAD"]
