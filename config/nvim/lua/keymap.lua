@@ -1,5 +1,8 @@
 local keymap = vim.keymap
 
+-- restart
+keymap.set("n", "<C-e>", ":edit<Return>", { silent = true })
+
 -- shortcut
 keymap.set("n", "<C-w>", ":w<Return>", { silent = true })
 keymap.set("n", "<C-q>", ":q<Return>", { silent = true })
