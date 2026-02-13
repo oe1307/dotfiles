@@ -1,7 +1,7 @@
 cd $HOME/work
 
 $env:XDG_CONFIG_HOME = "$HOME\.config"
-$env:GIT_SSH_COMMAND = "C:/Windows/System32/OpenSSH/ssh.exe -F $HOME/.ssh/config"
+$env:GIT_SSH_COMMAND = '"C:\Windows\System32\OpenSSH\ssh.exe" -F "$HOME\.ssh\config"'
 
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 
