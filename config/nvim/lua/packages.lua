@@ -93,6 +93,7 @@ return {
                 lua = { "stylua" },
                 verilog = { "verible" },
                 systemverilog = { "verible" },
+                markdown = { "prettier" },
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
