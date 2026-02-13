@@ -50,3 +50,6 @@ tap "chipsalliance/verible"
 brew "chipsalliance/verible/verible"
 tap "randomplum/gtkwave"
 brew "randomplum/gtkwave/gtkwave", args: ["HEAD"]
+
+# markdown
+brew "prettier"
