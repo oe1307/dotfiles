@@ -21,13 +21,14 @@ if OS.mac?
 brew "marp-cli"
 brew "mas"
 cask "box-drive"
+cask "cmd-eikana"
 cask "docker-desktop"
 cask "google-chrome"
 cask "microsoft-powerpoint"
 cask "raycast"
 cask "spotify"
 cask "wezterm"
-mas "Ethernet Menubar", id 1549412235
+mas "Ethernet Menubar", id: 1549412235
 mas "Pure Paste", id: 1611378436
 mas "Xcode", id: 497799835
 elsif OS.linux?
