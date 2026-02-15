@@ -1,14 +1,16 @@
 #!/bin/zsh
 
 # dotfiles
-mkdir -p "$HOME/.config"
-for file in $(ls "$HOME/dotfiles/config"); do
-    ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
-done
 ln -snvf "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ln -snvf "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
 ln -snvf "$HOME/dotfiles/profile" "$HOME/.profile"
 ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
+mkdir -p "$HOME/.config"
+for file in $(ls "$HOME/dotfiles/config"); do
+    ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
+done
+mkdir -p "$HOME/.packages"
+ln -snvf "$HOME/dotfiles/packages/bin" "$HOME/.packages/bin"
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then

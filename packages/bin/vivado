@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run --platform=linux/amd64 --name vivado -it --rm --mount type=bind,source="$PWD",target="/home/user/" x64-linux:latest bash -lc "/home/user/Xilinx/Vivado/2024.1/bin/vivado -mode batch -notrace -source /home/user/exp/run_sim.tcl"
