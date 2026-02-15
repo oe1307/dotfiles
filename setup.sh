@@ -9,7 +9,7 @@ mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
     ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
 done
-mkdir -p "$HOME/.packages"
+mkdir -p "$HOME/.packages/share"
 ln -snvf "$HOME/dotfiles/packages/bin" "$HOME/.packages/bin"
 
 # macOS settings
