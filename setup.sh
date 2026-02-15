@@ -9,8 +9,11 @@ mkdir -p "$HOME/.config"
 for file in $(ls "$HOME/dotfiles/config"); do
     ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
 done
-mkdir -p "$HOME/.packages/share"
-ln -snvf "$HOME/dotfiles/packages/bin" "$HOME/.packages/bin"
+mkdir -p "$HOME/packages/share"
+mkdir -p "$HOME/packages/bin"
+for file in $(ls "$HOME/dotfiles/packages/bin"); do
+    ln -snvf "$HOME/dotfiles/packages/bin/$file" "$HOME/packages/bin/$file"
+done
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then
