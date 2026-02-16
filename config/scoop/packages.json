@@ -43,6 +43,10 @@
       "Source": "main"
     },
     {
+      "Name": "direnv",
+      "Source": "main"
+    },
+    {
       "Name": "eza",
       "Source": "main"
     },
@@ -67,6 +71,10 @@
       "Source": "main"
     },
     {
+      "Name": "msys2",
+      "Source": "main"
+    },
+    {
       "Name": "neovim",
       "Source": "main"
     },
@@ -76,6 +84,14 @@
     },
     {
       "Name": "nodejs-lts",
+      "Source": "main"
+    },
+    {
+      "Name": "ntop",
+      "Source": "main"
+    },
+    {
+      "Name": "openssh",
       "Source": "main"
     },
     {
@@ -92,6 +108,10 @@
     },
     {
       "Name": "rip",
+      "Source": "main"
+    },
+    {
+      "Name": "starship",
       "Source": "main"
     },
     {
