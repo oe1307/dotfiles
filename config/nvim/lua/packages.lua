@@ -94,6 +94,7 @@ return {
                 verilog = { "verible" },
                 systemverilog = { "verible" },
                 markdown = { "prettier" },
+                css = { "prettier" },
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
