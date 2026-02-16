@@ -33,6 +33,7 @@ export ZSH_SYNTAX=$HOME/packages/share/zsh-syntax-highlighting/zsh-syntax-highli
 export ZSH_AUTOPAIR=$HOME/packages/share/zsh-autopair/autopair.zsh
 export ZSH_CMP=$HOME/packages/share/zsh-completions
 export GIT_SSH_COMMAND='"/c/Windows/System32/OpenSSH/ssh.exe" -F "$HOME/.ssh/config"'
+alias open="explorer.exe"
 
 
 export LESSHISTFILE=$HOME/.local/state/lesshst
