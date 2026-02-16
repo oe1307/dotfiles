@@ -33,7 +33,6 @@ vim.g.loaded_ruby_provider = 0
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    vim.opt_local.expandtab = false
     vim.opt.wrap = true
   end,
 })
