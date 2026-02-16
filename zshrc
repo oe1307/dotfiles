@@ -32,6 +32,7 @@ export ZSH_AUTO=$HOME/packages/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_SYNTAX=$HOME/packages/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOPAIR=$HOME/packages/share/zsh-autopair/autopair.zsh
 export ZSH_CMP=$HOME/packages/share/zsh-completions
+export GIT_SSH_COMMAND='"/c/Windows/System32/OpenSSH/ssh.exe" -F "$HOME/.ssh/config"'
 
 
 export LESSHISTFILE=$HOME/.local/state/lesshst
