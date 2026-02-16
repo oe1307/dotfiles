@@ -11,41 +11,41 @@ export PATH=$HOME/.homebrew/bin:$PATH
 export PATH=$HOME/.homebrew/sbin:$PATH
 export PATH=$HOME/packages/bin:$PATH
 
+# base settings
+os="$(uname -s)"
+if [[ "$os" == CYGWIN* || "$os" == MINGW* || "$os" == MSYS* ]]; then
+    export XDG_CACHE_HOME=/c/Users/1001003167/.cache
+    export XDG_DATA_HOME=/c/Users/1001003167/.local/share
+    export XDG_STATE_HOME=/c/Users/1001003167/.local/state
+    export XDG_CONFIG_HOME=/c/Users/1001003167/.config
+    export ZSH_AUTO=$HOME/packages/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    export ZSH_SYNTAX=$HOME/packages/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export ZSH_AUTOPAIR=$HOME/packages/share/zsh-autopair/autopair.zsh
+    export ZSH_CMP=$HOME/packages/share/zsh-completions
+    export GIT_SSH_COMMAND='"/c/Windows/System32/OpenSSH/ssh.exe" -F "$HOME/.ssh/config"'
+    alias open="explorer.exe"
+else
+    export XDG_CACHE_HOME=$HOME/.cache
+    export XDG_DATA_HOME=$HOME/.local/share
+    export XDG_STATE_HOME=$HOME/.local/state
+    export XDG_CONFIG_HOME=$HOME/.config
+    export ZSH_AUTO=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    export ZSH_SYNTAX=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export ZSH_AUTOPAIR=$(brew --prefix)/share/zsh-autopair/autopair.zsh
+    export ZSH_CMP=$(brew --prefix)/share/zsh-completions
+fi
+
 # settings
-export COLORTERM=truecolor
-
-
-# export XDG_CACHE_HOME=$HOME/.cache
-# export XDG_DATA_HOME=$HOME/.local/share
-# export XDG_STATE_HOME=$HOME/.local/state
-# export XDG_CONFIG_HOME=$HOME/.config
-# export ZSH_AUTO=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# export ZSH_SYNTAX=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# export ZSH_AUTOPAIR=$(brew --prefix)/share/zsh-autopair/autopair.zsh
-# export ZSH_CMP=$(brew --prefix)/share/zsh-completions
-
-export XDG_CACHE_HOME=/c/Users/1001003167/.cache
-export XDG_DATA_HOME=/c/Users/1001003167/.local/share
-export XDG_STATE_HOME=/c/Users/1001003167/.local/state
-export XDG_CONFIG_HOME=/c/Users/1001003167/.config
-export ZSH_AUTO=$HOME/packages/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export ZSH_SYNTAX=$HOME/packages/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_AUTOPAIR=$HOME/packages/share/zsh-autopair/autopair.zsh
-export ZSH_CMP=$HOME/packages/share/zsh-completions
-export GIT_SSH_COMMAND='"/c/Windows/System32/OpenSSH/ssh.exe" -F "$HOME/.ssh/config"'
-alias open="explorer.exe"
-
-
-export LESSHISTFILE=$HOME/.local/state/lesshst
-export HISTFILE=$HOME/.local/state/zsh_history
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-export MPLCONFIGDIR=$XDG_CACHE_HOME/matplotlib
-export APPLE_SSH_ADD_BEHAVIOR=macos
 export EDITOR=nvim
-export NPM_CONFIG_USERCONFIG=$HOME/.config/node_js/npmrc
-export IPYTHONDIR=$HOME/.cache/ipython
+export COLORTERM=truecolor
+export APPLE_SSH_ADD_BEHAVIOR=macos
+export LESSHISTFILE=$XDG_STATE_HOME/lesshst
+export HISTFILE=$XDG_STATE_HOME/zsh_history
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+export MPLCONFIGDIR=$XDG_CACHE_HOME/matplotlib
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/node_js/npmrc
+export IPYTHONDIR=$XDG_CACHE_HOME/ipython
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
-
 if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
 if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
