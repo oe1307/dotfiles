@@ -22,6 +22,13 @@ keymap.set("n", "<Down>", "gj", { noremap = true, silent = true })
 keymap.set("n", "<Up>", "gk", { noremap = true, silent = true })
 keymap.set("n", "^", "g^", { noremap = true, silent = true })
 keymap.set("n", "4", "g$", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Down>", function()
+    return vim.v.count == 0 and "gj" or "j"
+end, { expr = true, silent = true })
+
+vim.keymap.set({ "n", "v" }, "<Up>", function()
+    return vim.v.count == 0 and "gk" or "k"
+end, { expr = true, silent = true })
 keymap.set("i", "<Up>", function()
   return vim.fn.pumvisible() == 1 and "<Up>" or "<C-o>gk"
 end, { noremap = true, silent = true, expr = true })
@@ -63,15 +70,6 @@ keymap.set("n", "O", "O.<BS><esc>a")
 
 -- previous file
 keymap.set("n", "Z", ":bp<Return>", { silent = true })
-
--- wrap navigation
-vim.keymap.set({ "n", "v" }, "<Down>", function()
-    return vim.v.count == 0 and "gj" or "j"
-end, { expr = true, silent = true })
-
-vim.keymap.set({ "n", "v" }, "<Up>", function()
-    return vim.v.count == 0 and "gk" or "k"
-end, { expr = true, silent = true })
 
 -- python keymap
 vim.api.nvim_create_autocmd("FileType", {
