@@ -41,6 +41,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.microsoft.Powerpoint NSUserKeyEquivalents -dict-add "数式" "^e"
     defaults write -g AppleEnableSwipeNavigateWithScrolls -bool false
     defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool true
+    defaults write com.apple.dock orientation -string left
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
 fi
 
