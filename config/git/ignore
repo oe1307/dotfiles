@@ -1,0 +1,19 @@
+# utils
+.DS_Store
+.envrc
+.venv
+__pycache__
+__marimo__
+*.egg-info
+*.lock*
+_marp*.html
+_marp*.pdf
+_marp*.pptx
+~$*.pptx
+
+# dotfiles
+github-copilot/versions.json
+config/yazi/flavors
+config/yazi/package.toml
+config/scoop/config.json
+config/wezterm/use_ime_state

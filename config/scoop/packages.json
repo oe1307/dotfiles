@@ -1,0 +1,134 @@
+{
+  "buckets": [
+    {
+      "Name": "crystal-preview",
+      "Source": "https://github.com/neatorobito/scoop-crystal"
+    },
+    {
+      "Name": "extras",
+      "Source": "https://github.com/ScoopInstaller/Extras"
+    },
+    {
+      "Name": "main",
+      "Source": "https://github.com/ScoopInstaller/Main"
+    },
+    {
+      "Name": "mo-san",
+      "Source": "https://github.com/mo-san/scoop-bucket"
+    },
+    {
+      "Name": "motty",
+      "Source": "https://github.com/motty-mio2/scoop-bucket/"
+    }
+  ],
+  "apps": [
+    {
+      "Name": "7zip",
+      "Source": "main"
+    },
+    {
+      "Name": "aria2",
+      "Source": "main"
+    },
+    {
+      "Name": "bat",
+      "Source": "main"
+    },
+    {
+      "Name": "dark",
+      "Source": "main"
+    },
+    {
+      "Name": "delta",
+      "Source": "main"
+    },
+    {
+      "Name": "direnv",
+      "Source": "main"
+    },
+    {
+      "Name": "eza",
+      "Source": "main"
+    },
+    {
+      "Name": "font-hackgen-console-nf",
+      "Source": "mo-san"
+    },
+    {
+      "Name": "git",
+      "Source": "main"
+    },
+    {
+      "Name": "googlechrome",
+      "Source": "extras"
+    },
+    {
+      "Name": "lazygit",
+      "Source": "extras"
+    },
+    {
+      "Name": "marp",
+      "Source": "main"
+    },
+    {
+      "Name": "msys2",
+      "Source": "main"
+    },
+    {
+      "Name": "neovim",
+      "Source": "main"
+    },
+    {
+      "Name": "nmap",
+      "Source": "main"
+    },
+    {
+      "Name": "nodejs-lts",
+      "Source": "main"
+    },
+    {
+      "Name": "ntop",
+      "Source": "main"
+    },
+    {
+      "Name": "openssh",
+      "Source": "main"
+    },
+    {
+      "Name": "powertoys",
+      "Source": "extras"
+    },
+    {
+      "Name": "pwsh",
+      "Source": "main"
+    },
+    {
+      "Name": "python",
+      "Source": "main"
+    },
+    {
+      "Name": "rip",
+      "Source": "main"
+    },
+    {
+      "Name": "starship",
+      "Source": "main"
+    },
+    {
+      "Name": "stylua",
+      "Source": "main"
+    },
+    {
+      "Name": "tree-sitter",
+      "Source": "main"
+    },
+    {
+      "Name": "verible",
+      "Source": "motty"
+    },
+    {
+      "Name": "vs_2022_cpp_build_tools",
+      "Source": "crystal-preview"
+    }
+  ]
+}

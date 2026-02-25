@@ -1,0 +1,37 @@
+format = """
+$username\
+$hostname\
+$directory\
+$python\
+$git_branch\
+$line_break\
+$character\
+"""
+
+[username]
+show_always = true
+style_user = "green"
+format = '[$user@]($style)'
+
+[hostname]
+ssh_only = false
+style = "green"
+format = '[$hostname]($style):'
+
+[directory]
+style = "bright-blue"
+truncation_length = 5
+format = '[$path]($style) '
+
+[git_branch]
+style = "red"
+format = '[ $branch(:$remote_branch)]($style) '
+
+[python]
+symbol = " "
+version_format = '${raw}'
+format = '[${symbol}(${version})]($style) '
+
+[character]
+success_symbol = '[\$](white)'
+error_symbol = '[\$](white)'
