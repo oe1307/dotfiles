@@ -19,11 +19,11 @@ cd $WORKDIR
 source $HOME/.ssh/bin/proxy.sh
 
 # PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=/opt/homebrew/sbin:$PATH
-export PATH=$HOME/.homebrew/bin:$PATH
-export PATH=$HOME/.homebrew/sbin:$PATH
-export PATH=$HOME/packages/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.homebrew/bin:$PATH"
+export PATH="$HOME/.homebrew/sbin:$PATH"
+export PATH="$HOME/packages/bin:$PATH"
 
 # settings
 export XDG_CACHE_HOME=$HOME/.cache
@@ -103,7 +103,7 @@ if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "
 if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
 if hash eza 2>/dev/null; then alias ll="eza -l -a -g --icons --sort Name"; else alias ll="ls -la"; fi
 if hash eza 2>/dev/null; then alias lt="eza -T --git-ignore --sort Name"; fi
-if hash bat 2>/dev/null; then alias cat="bat -p --theme 'Visual Studio Dark+'"; else echo "bat not found"; fi
+if hash bat 2>/dev/null; then alias cat="bat -p --paging=never --theme 'Visual Studio Dark+'"; else echo "bat not found"; fi
 if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi

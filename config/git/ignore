@@ -1,4 +1,5 @@
 # utils
+tmp*
 .DS_Store
 .envrc
 .venv
