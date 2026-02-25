@@ -71,10 +71,6 @@
       "Source": "main"
     },
     {
-      "Name": "msys2",
-      "Source": "main"
-    },
-    {
       "Name": "neovim",
       "Source": "main"
     },
