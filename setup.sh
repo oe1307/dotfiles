@@ -1,19 +1,18 @@
 #!/bin/zsh
 
 # dotfiles
-DOTFILES="$(dirname $0)"
-ln -snvf "$DOTFILES/zshrc" "$HOME/.zshrc"
-ln -snvf "$DOTFILES/bashrc" "$HOME/.bashrc"
-ln -snvf "$DOTFILES/profile" "$HOME/.profile"
-ln -snvf "$DOTFILES/hushlogin" "$HOME/.hushlogin"
+ln -snvf "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+ln -snvf "$HOME/dotfiles/bashrc" "$HOME/.bashrc"
+ln -snvf "$HOME/dotfiles/profile" "$HOME/.profile"
+ln -snvf "$HOME/dotfiles/hushlogin" "$HOME/.hushlogin"
 mkdir -p "$HOME/.config"
-for file in $(ls "$DOTFILES/config"); do
-    ln -snvf "$DOTFILES/config/$file" "$HOME/.config/$file"
+for file in $(ls "$HOME/dotfiles/config"); do
+    ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
 done
 mkdir -p "$HOME/packages/share"
 mkdir -p "$HOME/packages/bin"
-for file in $(ls "$DOTFILES/packages/bin"); do
-    ln -snvf "$DOTFILES/packages/bin/$file" "$HOME/packages/bin/$file"
+for file in $(ls "$HOME/dotfiles/packages/bin"); do
+    ln -snvf "$HOME/dotfiles/packages/bin/$file" "$HOME/packages/bin/$file"
 done
 
 # macOS settings
