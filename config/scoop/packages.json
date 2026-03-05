@@ -55,6 +55,10 @@
       "Source": "mo-san"
     },
     {
+      "Name": "gcc",
+      "Source": "main"
+    },
+    {
       "Name": "git",
       "Source": "main"
     },
