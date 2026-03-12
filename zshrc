@@ -1,6 +1,16 @@
 #!/bin/zsh
 
-# initial setup
+# proxy
+source $HOME/.ssh/bin/proxy.sh
+
+# PATH
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.homebrew/bin:$PATH"
+export PATH="$HOME/.homebrew/sbin:$PATH"
+export PATH="$HOME/packages/bin:$PATH"
+
+# setup
 os="$(uname -s)"
 if [[ "$os" == MSYS* ]]; then 
     export HOME=/c/Users/$(whoami)
@@ -14,16 +24,6 @@ else
     alias open="open"
 fi
 cd $WORKDIR
-
-# proxy
-source $HOME/.ssh/bin/proxy.sh
-
-# PATH
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="$HOME/.homebrew/bin:$PATH"
-export PATH="$HOME/.homebrew/sbin:$PATH"
-export PATH="$HOME/packages/bin:$PATH"
 
 # settings
 export XDG_CACHE_HOME=$HOME/.cache
