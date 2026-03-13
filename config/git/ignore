@@ -18,3 +18,18 @@ config/yazi/flavors
 config/yazi/package.toml
 config/scoop/config.json
 config/wezterm/use_ime_state
+
+# tex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.bib
+*.dvi
+*.pdf
+*.stdout
+.project-sync-state
+output.synctex.gz
