@@ -4,11 +4,12 @@
 source $HOME/.ssh/bin/proxy.sh
 
 # PATH
+export PATH="$HOME/packages/bin:$PATH"
+export PATH="$HOME/packages/zerobrew/prefix/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$HOME/.homebrew/bin:$PATH"
 export PATH="$HOME/.homebrew/sbin:$PATH"
-export PATH="$HOME/packages/bin:$PATH"
 
 # setup
 os="$(uname -s)"
@@ -30,6 +31,10 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CONFIG_HOME=$HOME/.config
+export ZEROBREW_BIN=$HOME/packages/bin
+export ZEROBREW_ROOT=/home/oe/packages/zerobrew
+export ZEROBREW_PREFIX=/home/oe/packages/zerobrew/prefix
+export PKG_CONFIG_PATH="$ZEROBREW_PREFIX/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
 export ZSH_AUTO=$ZSH_PLUGIN/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_SYNTAX=$ZSH_PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOPAIR=$ZSH_PLUGIN/zsh-autopair/autopair.zsh
