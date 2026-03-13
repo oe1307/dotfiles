@@ -102,6 +102,7 @@ alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
 alias bbd="brew bundle dump -f --file $XDG_CACHE_HOME/Brewfile && diff $XDG_CACHE_HOME/Brewfile $XDG_CONFIG_HOME/homebrew/Brewfile"
 alias checkpy="pyright . && ruff format . && isort . --profile=black && flake8 **/*.py --max-line-length=88"
+if hash latexmk 2>/dev/null; then eval "$(/usr/libexec/path_helper)"; fi
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
