@@ -93,9 +93,9 @@ alias grep="grep --color=auto -d skip"
 alias iverilog="iverilog -g2012"
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias venv="python -m venv .venv && echo 'source .venv/bin/activate' > .envrc && direnv allow ."
-alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile.rb && brew upgrade"
-alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile.rb && brew cleanup"
-alias bbd="brew bundle dump -f --file $XDG_CACHE_HOME/Brewfile && diff $XDG_CACHE_HOME/Brewfile $XDG_CONFIG_HOME/homebrew/Brewfile.rb"
+alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
+alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
+alias bbd="brew bundle dump -f --file $XDG_CACHE_HOME/Brewfile && diff $XDG_CACHE_HOME/Brewfile $XDG_CONFIG_HOME/homebrew/Brewfile"
 alias checkpy="pyright . && ruff format . && isort . --profile=black && flake8 **/*.py --max-line-length=88"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
