@@ -13,27 +13,30 @@ export PATH="$HOME/.homebrew/sbin:$PATH"
 
 # setup
 os="$(uname -s)"
-if [[ "$os" == MSYS* ]]; then 
+if [[ "$os" == MSYS* ]]; then
     export HOME=/c/Users/$(whoami)
     export WORKDIR=/home/$(whoami)
     export ZSH_PLUGIN=$HOME/packages/share
+    export ZEROBREW_BIN=$HOME/packages/bin
+    export ZEROBREW_ROOT=$HOME/packages/zerobrew
+    export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
     alias open="explorer.exe"
-else
-    export HOME=$HOME
+elif [[ "$os" == Darwin ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
-    alias open="open"
+elif [[ "$os" == Linux ]]; then
+    export WORKDIR=$HOME/work
+    export ZSH_PLUGIN=$(brew --prefix)/share
+    export ZEROBREW_BIN=$HOME/packages/bin
+    export ZEROBREW_ROOT=$HOME/packages/zerobrew
+    export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
 fi
-cd $WORKDIR
 
 # settings
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CONFIG_HOME=$HOME/.config
-export ZEROBREW_BIN=$HOME/packages/bin
-export ZEROBREW_ROOT=/home/oe/packages/zerobrew
-export ZEROBREW_PREFIX=/home/oe/packages/zerobrew/prefix
 export PKG_CONFIG_PATH="$ZEROBREW_PREFIX/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
 export ZSH_AUTO=$ZSH_PLUGIN/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_SYNTAX=$ZSH_PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -72,6 +75,7 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_no_store
+cd $WORKDIR
 
 # git
 alias gs="git status -s --ignored"
