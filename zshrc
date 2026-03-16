@@ -10,6 +10,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$HOME/.homebrew/bin:$PATH"
 export PATH="$HOME/.homebrew/sbin:$PATH"
+export PATH="/opt/zerobrew/bin:$PATH"
+export PATH="/opt/zerobrew/sbin:$PATH"
 
 # setup
 os="$(uname -s)"
@@ -106,7 +108,6 @@ alias bb="brew bundle --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
 alias bbd="brew bundle dump -f --file $XDG_CACHE_HOME/Brewfile && diff $XDG_CACHE_HOME/Brewfile $XDG_CONFIG_HOME/homebrew/Brewfile"
 alias checkpy="pyright . && ruff format . && isort . --profile=black && flake8 **/*.py --max-line-length=88"
-if hash latexmk 2>/dev/null; then eval "$(/usr/libexec/path_helper)"; fi
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
@@ -118,3 +119,4 @@ if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash ipython 2>/dev/null; then alias python="ipython"; else echo "ipython not found"; fi
+# if hash latexmk 2>/dev/null; then eval "$(/usr/libexec/path_helper)"; fi
