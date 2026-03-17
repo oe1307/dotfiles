@@ -26,6 +26,7 @@ if [[ "$os" == MSYS* ]]; then
 elif [[ "$os" == Darwin ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
+    export ZEROBREW_BIN=$HOME/packages/bin
 elif [[ "$os" == Linux ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
