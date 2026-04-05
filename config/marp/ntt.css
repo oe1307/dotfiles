@@ -1,0 +1,203 @@
+/* @theme ntt */
+
+/*
+SETUP
+Install Meiryo font: open /Applications/Microsoft\ PowerPoint.app/Contents/Resources/DFonts/meiryo*.ttc
+*/
+
+section {
+  font-family: Arial, "メイリオ", Meiryo, sans-serif;
+  width: 960px;
+  height: 540px;
+  background-color: #fff;
+}
+
+section.title {
+  background-image:
+    url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg),
+    url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/title-logo.svg);
+  background-repeat: no-repeat;
+  background-size: 197px, 780px;
+  background-position:
+    42px 28px,
+    190px -5px;
+}
+
+section.title h1 {
+  color: #006cb9;
+  font-size: 44pt;
+  position: absolute;
+  bottom: 195px;
+  left: 118px;
+}
+
+section.title h2 {
+  color: #006cb9;
+  font-size: 18pt;
+  font-weight: normal;
+  position: absolute;
+  top: 305px;
+  left: 118px;
+  background: #fff;
+}
+
+section.title h3 {
+  color: #006cb9;
+  font-size: 12pt;
+  font-weight: normal;
+  position: absolute;
+  bottom: 69px;
+  left: 118px;
+  background: #fff;
+}
+
+section.title footer {
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  bottom: 23px;
+  left: 118px;
+}
+
+section.title::after {
+  content: "" !important;
+  display: none !important;
+}
+
+section.slide {
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: 820px 27px;
+  font-size: 18pt;
+  color: #000;
+  position: absolute;
+  padding-left: 41px;
+  padding-right: 41px;
+  padding-top: 95px;
+  line-height: 144%;
+}
+
+section.slide h1 {
+  color: #006cb9;
+  font-size: 28pt;
+  position: absolute;
+  top: 8px;
+  left: 42px;
+}
+
+section.slide strong {
+  font-size: 120%;
+}
+
+section.slide footer {
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  left: 25px;
+  bottom: 3px;
+}
+
+section.slide::after {
+  color: #006cb9;
+  font-size: 14pt;
+  position: absolute;
+  right: -21px;
+  bottom: 1px;
+}
+
+section.subtitle {
+  background-image:
+    url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg),
+    url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/title-logo.svg);
+  background-repeat: no-repeat;
+  background-size: 100px, 780px;
+  background-position:
+    39px 27px,
+    190px -5px;
+  color: #fff;
+}
+
+section.subtitle h1 {
+  color: #006cb9;
+  font-size: 40pt;
+  position: absolute;
+  left: 42px;
+  top: 193px;
+}
+
+section.subtitle footer {
+  color: #7f7f7f;
+  font-size: 9pt;
+  position: absolute;
+  left: 25px;
+  bottom: 14px;
+}
+
+section.subtitle::after {
+  color: #006cb9;
+  font-size: 14pt;
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+}
+
+section.end1 {
+  color: #006cb9;
+  font-size: 36pt;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 147px;
+  padding-left: 41px;
+  padding-right: 41px;
+  line-height: 150%;
+}
+
+section.end1 footer {
+  content: "" !important;
+  display: none !important;
+}
+
+section.end1::after {
+  content: "" !important;
+  display: none !important;
+}
+
+section.end2 {
+  background-image: url(https://raw.githubusercontent.com/oe1307/dotfiles/refs/heads/main/config/marp/logo.svg);
+  background-repeat: no-repeat;
+  background-size: 488px;
+  background-position: center;
+}
+
+section.end2 footer {
+  content: "" !important;
+  display: none !important;
+}
+
+section.end2::after {
+  content: "" !important;
+  display: none !important;
+}
+
+a:link {
+  font-family: "Times New Roman";
+  color: #2694c9;
+  font-size: 16pt;
+  text-decoration: underline;
+}
+
+.gray {
+  color: #bbb;
+}
+
+.split {
+  display: flex;
+  gap: 1em;
+}
+
+.split .vline {
+  background: #696969;
+  width: 1px;
+  align-self: stretch;
+}
