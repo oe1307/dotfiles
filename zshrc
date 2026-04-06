@@ -81,6 +81,7 @@ setopt hist_no_store
 cd $WORKDIR
 
 # git
+alias gh="git clone git@github.com:"
 alias gs="git status -s --ignored"
 alias gp="git pull"
 alias ga="git add"
@@ -120,4 +121,3 @@ if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash ipython 2>/dev/null; then alias python="ipython"; else echo "ipython not found"; fi
-# if hash latexmk 2>/dev/null; then eval "$(/usr/libexec/path_helper)"; fi
