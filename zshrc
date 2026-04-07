@@ -10,8 +10,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$HOME/.homebrew/bin:$PATH"
 export PATH="$HOME/.homebrew/sbin:$PATH"
-export PATH="/opt/zerobrew/bin:$PATH"
-export PATH="/opt/zerobrew/sbin:$PATH"
+# export PATH="/opt/zerobrew/bin:$PATH"
+# export PATH="/opt/zerobrew/sbin:$PATH"
 
 # setup
 os="$(uname -s)"
@@ -19,20 +19,20 @@ if [[ "$os" == MSYS* ]]; then
     export HOME=/c/Users/$(whoami)
     export WORKDIR=/home/$(whoami)
     export ZSH_PLUGIN=$HOME/packages/share
-    export ZEROBREW_BIN=$HOME/packages/bin
-    export ZEROBREW_ROOT=$HOME/packages/zerobrew
-    export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
+    # export ZEROBREW_BIN=$HOME/packages/bin
+    # export ZEROBREW_ROOT=$HOME/packages/zerobrew
+    # export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
     alias open="explorer.exe"
 elif [[ "$os" == Darwin ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
-    export ZEROBREW_BIN=$HOME/packages/bin
+    # export ZEROBREW_BIN=$HOME/packages/bin
 elif [[ "$os" == Linux ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
-    export ZEROBREW_BIN=$HOME/packages/bin
-    export ZEROBREW_ROOT=$HOME/packages/zerobrew
-    export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
+    # export ZEROBREW_BIN=$HOME/packages/bin
+    # export ZEROBREW_ROOT=$HOME/packages/zerobrew
+    # export ZEROBREW_PREFIX=$HOME/packages/zerobrew/prefix
 fi
 
 # settings
