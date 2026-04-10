@@ -47,9 +47,5 @@ brew "flake8"
 brew "stylua"
 brew "lua-language-server"
 
-# verilog
-tap "chipsalliance/verible"
-brew "chipsalliance/verible/verible"
-
 # markdown
 brew "prettier"
