@@ -28,8 +28,10 @@ cask "docker-desktop"
 cask "google-chrome"
 cask "microsoft-powerpoint"
 cask "raycast"
+cask "rectangle"
 cask "spotify"
 cask "wezterm"
+cask "zoom"
 mas "Ethernet Menubar", id: 1549412235
 mas "Pure Paste", id: 1611378436
 mas "Xcode", id: 497799835
