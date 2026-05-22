@@ -20,15 +20,15 @@ brew "zsh-syntax-highlighting"
 cask "font-hackgen-nerd"
 
 if OS.mac?
+tap "0oastro/tap"
 brew "marp-cli"
 brew "mas"
+cask "0oastro/tap/raycast@beta"
 cask "box-drive"
 cask "cmd-eikana"
 cask "docker-desktop"
 cask "google-chrome"
 cask "microsoft-powerpoint"
-cask "raycast"
-cask "rectangle"
 cask "spotify"
 cask "wezterm"
 mas "Ethernet Menubar", id: 1549412235
