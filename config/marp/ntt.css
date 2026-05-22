@@ -201,3 +201,118 @@ a:link {
   width: 1px;
   align-self: stretch;
 }
+
+pre {
+  background: #1e1e1e;
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
+  padding: 0em 1em;
+}
+
+pre code {
+  background: transparent;
+  color: #d4d4d4;
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+  font-size: 0.72em;
+  line-height: 1.45;
+}
+
+/* code { */
+/*   background: rgba(175, 184, 193, 0.2); */
+/*   color: #24292f; */
+/*   border-radius: 6px; */
+/*   padding: 0.2em 0.4em; */
+/*   font-family: */
+/*     ui-monospace, */
+/*     SFMono-Regular, */
+/*     SF Mono, */
+/*     Consolas, */
+/*     Liberation Mono, */
+/*     Menlo, */
+/*     monospace; */
+/**/
+/*   font-size: 0.85em; */
+/* } */
+
+.hljs {
+  color: #d4d4d4;
+  background: #1e1e1e;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-symbol,
+.hljs-name {
+  color: #569cd6;
+}
+
+.hljs-link {
+  color: #569cd6;
+  text-decoration: underline;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #4ec9b0;
+}
+
+.hljs-number,
+.hljs-class {
+  color: #b8d7a3;
+}
+
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: #ce9178;
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+  color: #d16969;
+}
+
+.hljs-subst,
+.hljs-function,
+.hljs-title,
+.hljs-params,
+.hljs-formula {
+  color: #dcdcaa;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a9955;
+  font-style: italic;
+}
+
+.hljs-doctag {
+  color: #608b4e;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-tag {
+  color: #9b9b9b;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #9cdcfe;
+}
+
+.hljs-attr,
+.hljs-attribute {
+  color: #9cdcfe;
+}
+
+.hljs-section {
+  color: #ffd700;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
