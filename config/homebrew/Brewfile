@@ -30,7 +30,7 @@ cask "docker-desktop"
 cask "google-chrome"
 cask "microsoft-powerpoint"
 cask "spotify"
-cask "wezterm"
+cask "wezterm@nightly"
 mas "Ethernet Menubar", id: 1549412235
 mas "Pure Paste", id: 1611378436
 mas "Xcode", id: 497799835
