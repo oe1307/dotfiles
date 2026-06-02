@@ -72,7 +72,6 @@ setopt hist_no_store
 cd $WORKDIR
 
 # git
-alias gh="git clone git@github.com:"
 alias gs="git status -s --ignored"
 alias gp="git pull"
 alias ga="git add"
