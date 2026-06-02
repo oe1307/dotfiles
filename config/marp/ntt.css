@@ -220,7 +220,7 @@ pre {
 pre code {
   background: transparent;
   color: #d4d4d4;
-  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+  font-family: "HackGen Console NF";
   font-size: 0.72em;
   line-height: 1.45;
 }
