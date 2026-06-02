@@ -210,6 +210,25 @@ a:link {
   align-self: stretch;
 }
 
+code {
+  background: rgba(175, 184, 193, 0.2);
+  color: #24292f;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
+  font-family: "HackGen Console NF";
+  font-size: 0.85em;
+}
+
+.gray,
+.gray pre,
+.gray pre code,
+.gray code,
+.gray .hljs,
+.gray .hljs * {
+  color: #bbb !important;
+  background: transparent !important;
+}
+
 pre {
   background: #1e1e1e;
   border: 1px solid #3c3c3c;
