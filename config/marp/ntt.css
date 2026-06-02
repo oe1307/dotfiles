@@ -187,7 +187,7 @@ section.end2::after {
 a:link {
   font-family: "Times New Roman";
   color: #2694c9;
-  font-size: 16pt;
+  font-size: 0.9em;;
   text-decoration: underline;
 }
 
