@@ -2,10 +2,9 @@
 marp: true
 theme: ntt
 paginate: true
+title:
 math: mathjax
 footer: © NTT, Inc.&ensp;2026
-
-title: title
 ---
 
 <!--class: title-->
