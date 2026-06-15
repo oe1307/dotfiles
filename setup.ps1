@@ -7,14 +7,18 @@ $path = "$HOME\.ssh\key\github.pem"
 
 # dotfiles
 New-Item -ItemType Directory -Force -Path "$HOME\.config" | Out-Null
-$baseTarget = Join-Path $HOME "dotfiles\config"
-$baseLink   = Join-Path $HOME ".config"
-Get-ChildItem -LiteralPath $baseTarget -Directory | ForEach-Object {
+
+$baseSource = Join-Path $HOME "dotfiles\config"
+$baseDest   = Join-Path $HOME ".config"
+
+Get-ChildItem -LiteralPath $baseSource -Directory | ForEach-Object {
     $name       = $_.Name
-    $targetPath = $_.FullName
-    $linkPath   = Join-Path $baseLink $name
-    if (Test-Path -LiteralPath $linkPath) {
-        Remove-Item -LiteralPath $linkPath -Recurse -Force
+    $sourcePath = $_.FullName
+    $destPath   = Join-Path $baseDest $name
+
+    if (Test-Path -LiteralPath $destPath) {
+        Remove-Item -LiteralPath $destPath -Recurse -Force
     }
-    New-Item -ItemType SymbolicLink -Path $linkPath -Target $targetPath | Out-Null
+
+    Copy-Item -LiteralPath $sourcePath -Destination $destPath -Recurse -Force
 }
