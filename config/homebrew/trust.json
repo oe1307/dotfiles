@@ -1,5 +1,5 @@
 {
-  "trustedcasks": [
-    "0oastro/tap/raycast@beta"
+  "trustedtaps": [
+    "0oastro/tap"
   ]
 }
