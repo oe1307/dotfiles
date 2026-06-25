@@ -17,6 +17,7 @@ config/scoop/config.json
 config/wezterm/use_ime_state
 
 # tex
+*.eps
 *.aux
 *.bbl
 *.blg
