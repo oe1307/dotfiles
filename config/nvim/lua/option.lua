@@ -16,6 +16,7 @@ vim.opt.path:append({ "**" })
 vim.opt.diffopt:append({ "vertical" })
 vim.opt.diffopt:append("context:1000000")
 vim.opt.report = 100000
+vim.g.clipboard = "osc52"
 vim.opt.clipboard:append({ "unnamedplus" })
 
 -- backup
