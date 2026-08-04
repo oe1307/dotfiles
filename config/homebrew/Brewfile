@@ -37,7 +37,7 @@ if OS.mac?
   mas "Pure Paste", id: 1611378436
   mas "Xcode", id: 497799835
 elsif OS.linux?
-  brew "codex"
+  cask "codex"
 end
 
 # python
