@@ -16,8 +16,31 @@ vim.opt.path:append({ "**" })
 vim.opt.diffopt:append({ "vertical" })
 vim.opt.diffopt:append("context:1000000")
 vim.opt.report = 100000
-vim.g.clipboard = "osc52"
+
+-- clipboard
 vim.opt.clipboard:append({ "unnamedplus" })
+local osc52 = require("vim.ui.clipboard.osc52")
+vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+        ["+"] = osc52.copy("+"),
+        ["*"] = osc52.copy("*"),
+    },
+    paste = {
+        ["+"] = function()
+            return {
+                vim.fn.split(vim.fn.getreg(""), "\n"),
+                vim.fn.getregtype(""),
+            }
+        end,
+        ["*"] = function()
+            return {
+                vim.fn.split(vim.fn.getreg(""), "\n"),
+                vim.fn.getregtype(""),
+            }
+        end,
+    },
+}
 
 -- backup
 vim.opt.writebackup = false

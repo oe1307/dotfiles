@@ -48,10 +48,16 @@ export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
 if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
-if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
 if [ -e "$ZSH_AUTOPAIR" ]; then source $ZSH_AUTOPAIR; else echo "zsh-autopair not found"; fi
-if [ -e "$ZSH_HIST_SEARCH" ]; then source $ZSH_HIST_SEARCH; else echo "zsh-history-substring-search not found"; fi
 if [ -e "$ZSH_CMP" ]; then fpath=($ZSH_CMP $fpath); else echo "zsh-completions not found"; fi
+if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
+if [[ -e "$ZSH_HIST_SEARCH" ]]; then
+    source "$ZSH_HIST_SEARCH"
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+else
+    echo "zsh-history-substring-search not found: $ZSH_HIST_SEARCH"
+fi
 
 # options
 HISTSIZE=100000
@@ -115,4 +121,4 @@ if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash python3 2>/dev/null; then venv(){ py="python${1:+$1}"; "$py" -m venv .venv && printf '%s\n' 'source .venv/bin/activate' > .envrc && direnv allow .; }; fi
 if hash ipython 2>/dev/null; then python(){ [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
 if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then else echo "not found"; fi
-if hash codex >/dev/null 2>&1 || then alias cmt="cat .git/COMMIT_EDITMSG | codex exec - 2>/dev/null"; fi
+if hash codex >/dev/null 2>&1; then alias cmt="cat .git/COMMIT_EDITMSG | codex exec - 2>/dev/null"; fi
