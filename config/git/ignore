@@ -8,6 +8,7 @@ __marimo__
 *.egg-info
 .ipynb_checkpoints
 *.lock*
+_marp*.html
 ~$*.pptx
 credentials
 
