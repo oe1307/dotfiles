@@ -153,8 +153,8 @@ section.subtitle::after {
   color: #006cb9;
   font-size: 14pt;
   position: absolute;
-  right: 20px;
-  bottom: 8px;
+  right: -21px;
+  bottom: -32px;
 }
 
 section.end1 {
