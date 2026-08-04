@@ -33,6 +33,7 @@ export PKG_CONFIG_PATH="$ZEROBREW_PREFIX/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
 export ZSH_AUTO=$ZSH_PLUGIN/zsh-autosuggestions/zsh-autosuggestions.zsh
 export ZSH_SYNTAX=$ZSH_PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_AUTOPAIR=$ZSH_PLUGIN/zsh-autopair/autopair.zsh
+export ZSH_HIST_SEARCH=$ZSH_PLUGIN/zsh-zsh-history-substring-search/zsh-history-substring-search.zsh
 export ZSH_CMP=$ZSH_PLUGIN/zsh-completions
 export EDITOR=nvim
 export COLORTERM=truecolor
@@ -49,6 +50,7 @@ if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTF
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
 if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
 if [ -e "$ZSH_AUTOPAIR" ]; then source $ZSH_AUTOPAIR; else echo "zsh-autopair not found"; fi
+if [ -e "$ZSH_HIST_SEARCH" ]; then source $ZSH_HIST_SEARCH; else echo "zsh-history-substring-search not found"; fi
 if [ -e "$ZSH_CMP" ]; then fpath=($ZSH_CMP $fpath); else echo "zsh-completions not found"; fi
 
 # options

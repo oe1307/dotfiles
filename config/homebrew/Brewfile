@@ -16,6 +16,7 @@ brew "zsh"
 brew "zsh-autopair"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
 cask "font-hackgen-nerd"
 
