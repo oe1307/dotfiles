@@ -81,5 +81,7 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function()
         vim.keymap.set("n", "<C-s>", "obreakpoint()<esc>h", { noremap = true, silent = true })
+        vim.keymap.set("n", "<C-i>", "$a  # pyright: ignore<esc>", { noremap = true, silent = true })
+        vim.keymap.set("n", "<C-t>", "$a  # type: ignore<esc>", { noremap = true, silent = true })
     end,
 })
