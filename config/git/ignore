@@ -1,6 +1,17 @@
 # utils
-tmp*
 .DS_Store
+tmp*
+*.pdf
+~$*.pptx
+_marp*.html
+credentials
+
+# dotfiles
+config/scoop/config.json
+config/homebrew/trust.json
+config/wezterm/use_ime_state
+
+# python
 .envrc
 .venv
 __pycache__
@@ -8,15 +19,10 @@ __marimo__
 *.egg-info
 .ipynb_checkpoints
 *.lock*
-_marp*.html
-~$*.pptx
-credentials
-.build
 
-# dotfiles
-config/scoop/config.json
-config/homebrew/trust.json
-config/wezterm/use_ime_state
+# cpp
+.build
+compile_commands.json
 
 # tex
 *.aux
@@ -28,7 +34,6 @@ config/wezterm/use_ime_state
 *.out
 *.bib
 *.dvi
-*.pdf
 *.stdout
 .project-sync-state
 output.synctex.gz
