@@ -50,6 +50,16 @@ return {
             require("nvim-treesitter").install({ "python", "html", "ssh_config", "systemverilog" })
         end,
         config = function()
+            require("nvim-treesitter").install({
+                "python",
+                "c",
+                "cpp",
+                "markdown",
+                "html",
+                "bash",
+                "html_tags",
+                "markdown_inline",
+            })
             vim.api.nvim_create_autocmd("FileType", {
                 group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
                 callback = function()
