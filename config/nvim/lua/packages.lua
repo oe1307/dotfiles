@@ -120,9 +120,21 @@ return {
         keys = { { "K", vim.lsp.buf.definition, silent = true } },
         dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
-            vim.lsp.enable({ "pyright", "lua_ls", "verible" })
+            vim.lsp.enable({ "pyright", "lua_ls", "clangd", "verible" })
             local cap = require("cmp_nvim_lsp").default_capabilities()
             vim.lsp.config("pyright", { capabilities = cap })
+            vim.lsp.config(
+                "clangd",
+                {
+                    capabilities = cap,
+                    cmd = {
+                        "clangd",
+                        "--background-index",
+                        "--clang-tidy",
+                        "--completion-style=detailed",
+                    },
+                }
+            )
             vim.lsp.config(
                 "lua_ls",
                 { capabilities = cap, settings = { Lua = { diagnostics = { globals = { "vim" } } } } }

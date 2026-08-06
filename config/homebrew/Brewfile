@@ -49,7 +49,7 @@ brew "isort"
 brew "flake8"
 
 # cpp
-brew "clang-format"
+brew "llvm"
 
 # lua
 brew "stylua"
