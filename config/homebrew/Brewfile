@@ -48,6 +48,9 @@ brew "ruff"
 brew "isort"
 brew "flake8"
 
+# cpp
+brew "clang-format"
+
 # lua
 brew "stylua"
 brew "lua-language-server"

@@ -19,28 +19,30 @@ vim.opt.report = 100000
 
 -- clipboard
 vim.opt.clipboard:append({ "unnamedplus" })
-local osc52 = require("vim.ui.clipboard.osc52")
-vim.g.clipboard = {
-    name = "OSC 52",
-    copy = {
-        ["+"] = osc52.copy("+"),
-        ["*"] = osc52.copy("*"),
-    },
-    paste = {
-        ["+"] = function()
-            return {
-                vim.fn.split(vim.fn.getreg(""), "\n"),
-                vim.fn.getregtype(""),
-            }
-        end,
-        ["*"] = function()
-            return {
-                vim.fn.split(vim.fn.getreg(""), "\n"),
-                vim.fn.getregtype(""),
-            }
-        end,
-    },
-}
+if vim.uv.os_uname().sysname == "Linux" then
+    local osc52 = require("vim.ui.clipboard.osc52")
+    vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+            ["+"] = osc52.copy("+"),
+            ["*"] = osc52.copy("*"),
+        },
+        paste = {
+            ["+"] = function()
+                return {
+                    vim.fn.split(vim.fn.getreg(""), "\n"),
+                    vim.fn.getregtype(""),
+                }
+            end,
+            ["*"] = function()
+                return {
+                    vim.fn.split(vim.fn.getreg(""), "\n"),
+                    vim.fn.getregtype(""),
+                }
+            end,
+        },
+    }
+end
 
 -- backup
 vim.opt.writebackup = false

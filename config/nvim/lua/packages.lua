@@ -89,6 +89,8 @@ return {
         opts = {
             formatters_by_ft = {
                 python = { "ruff_format", "isort" },
+                c = { "clang_format" },
+                cpp = { "clang_format" },
                 lua = { "stylua" },
                 verilog = { "verible" },
                 systemverilog = { "verible" },
