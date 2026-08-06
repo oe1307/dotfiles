@@ -23,6 +23,10 @@
     {
       "Name": "nerd-fonts",
       "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
+    },
+    {
+      "Name": "nonportable",
+      "Source": "https://github.com/ScoopInstaller/Nonportable"
     }
   ],
   "apps": [
@@ -68,7 +72,7 @@
     },
     {
       "Name": "google-japanese-input-np",
-      "Source": null
+      "Source": "nonportable"
     },
     {
       "Name": "googlechrome",
@@ -140,7 +144,7 @@
     },
     {
       "Name": "vs_2022_cpp_build_tools",
-      "Source": null
+      "Source": "crystal-preview"
     },
     {
       "Name": "webex",

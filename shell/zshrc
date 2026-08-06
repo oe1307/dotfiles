@@ -14,7 +14,7 @@ os="$(uname -s)"
 if [[ "$os" == MSYS* ]]; then
     export HOME=/c/Users/$(whoami)
     export WORKDIR=/home/$(whoami)
-    export ZSH_PLUGIN=$HOME/packages/share
+    export ZSH_PLUGIN=$HOME/.zsh
     alias open="explorer.exe"
 elif [[ "$os" == Darwin ]]; then
     export WORKDIR=$HOME/work
