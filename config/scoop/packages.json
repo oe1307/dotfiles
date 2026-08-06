@@ -19,6 +19,10 @@
     {
       "Name": "motty",
       "Source": "https://github.com/motty-mio2/scoop-bucket/"
+    },
+    {
+      "Name": "nerd-fonts",
+      "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
     }
   ],
   "apps": [
@@ -61,6 +65,10 @@
     {
       "Name": "git",
       "Source": "main"
+    },
+    {
+      "Name": "google-japanese-input-np",
+      "Source": null
     },
     {
       "Name": "googlechrome",
@@ -129,6 +137,14 @@
     {
       "Name": "verible",
       "Source": "motty"
+    },
+    {
+      "Name": "vs_2022_cpp_build_tools",
+      "Source": null
+    },
+    {
+      "Name": "webex",
+      "Source": "extras"
     }
   ]
 }
