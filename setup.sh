@@ -39,5 +39,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.dock orientation -string left
     sudo nvram BootPreference=%00
     ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
+    ln -snvf "/opt/homebrew/bin/podman" "/opt/homebrew/bin/docker"
 fi
 
