@@ -22,6 +22,7 @@ __marimo__
 
 # cpp
 .build
+.cache
 compile_commands.json
 
 # tex
