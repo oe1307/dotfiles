@@ -180,22 +180,33 @@ return {
                 end,
             })
             vim.keymap.set("n", "<C-y>", function()
-                local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
-
-                if #diagnostics == 0 then
+                local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+                local diagnostics = vim.diagnostic.get(0, { lnum = lnum })
+                if vim.tbl_isempty(diagnostics) then
                     vim.notify("No diagnostics on this line")
                     return
                 end
-
-                local messages = vim.tbl_map(function(d)
-                    return d.message
-                end, diagnostics)
-
-                local text = table.concat(messages, "\n")
+                local messages = {}
+                for _, diagnostic in ipairs(diagnostics) do
+                    local parts = { diagnostic.message }
+                    if diagnostic.code then
+                        table.insert(parts, "code: " .. tostring(diagnostic.code))
+                    end
+                    if diagnostic.source then
+                        table.insert(parts, "source: " .. tostring(diagnostic.source))
+                    end
+                    local lsp_diag = diagnostic.user_data and diagnostic.user_data.lsp
+                    if lsp_diag and lsp_diag.relatedInformation then
+                        for _, info in ipairs(lsp_diag.relatedInformation) do
+                            table.insert(parts, info.message)
+                        end
+                    end
+                    table.insert(messages, table.concat(parts, "\n"))
+                end
+                local text = table.concat(messages, "\n\n")
                 vim.fn.setreg("+", text)
-
-                vim.notify("Diagnostic copied")
-            end, { desc = "Copy diagnostic message" })
+                vim.notify(string.format("Copied %d diagnostic(s)", #diagnostics))
+            end, { desc = "Copy all diagnostics on current line" })
         end,
     },
     {
