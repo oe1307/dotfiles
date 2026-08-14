@@ -4,7 +4,7 @@ local keymap = vim.keymap
 keymap.set("n", "<C-e>", ":edit<Return>", { silent = true })
 
 -- shortcut
-keymap.set("n", "<C-q>", ":wq<Return>", { silent = true })
+keymap.set("n", "<C-q>", ":q<Return>", { silent = true })
 
 -- delete
 keymap.set("n", "d", "")
@@ -82,5 +82,11 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "<C-s>", "obreakpoint()<esc>h", { noremap = true, silent = true })
         vim.keymap.set("n", "<C-i>", "$a  # pyright: ignore<esc>", { noremap = true, silent = true })
         vim.keymap.set("n", "<C-t>", "$a  # type: ignore<esc>", { noremap = true, silent = true })
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "lua",
+    callback = function()
+        keymap.set("n", "<C-q>", ":wq<Return>", { silent = true })
     end,
 })
