@@ -123,18 +123,15 @@ return {
             vim.lsp.enable({ "pyright", "lua_ls", "clangd", "verible" })
             local cap = require("cmp_nvim_lsp").default_capabilities()
             vim.lsp.config("pyright", { capabilities = cap })
-            vim.lsp.config(
-                "clangd",
-                {
-                    capabilities = cap,
-                    cmd = {
-                        "clangd",
-                        "--background-index",
-                        "--clang-tidy",
-                        "--completion-style=detailed",
-                    },
-                }
-            )
+            vim.lsp.config("clangd", {
+                capabilities = cap,
+                cmd = {
+                    "clangd",
+                    "--background-index",
+                    "--clang-tidy",
+                    "--completion-style=detailed",
+                },
+            })
             vim.lsp.config(
                 "lua_ls",
                 { capabilities = cap, settings = { Lua = { diagnostics = { globals = { "vim" } } } } }
@@ -182,6 +179,23 @@ return {
                     lint.try_lint()
                 end,
             })
+            vim.keymap.set("n", "<C-y>", function()
+                local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+
+                if #diagnostics == 0 then
+                    vim.notify("No diagnostics on this line")
+                    return
+                end
+
+                local messages = vim.tbl_map(function(d)
+                    return d.message
+                end, diagnostics)
+
+                local text = table.concat(messages, "\n")
+                vim.fn.setreg("+", text)
+
+                vim.notify("Diagnostic copied")
+            end, { desc = "Copy diagnostic message" })
         end,
     },
     {
