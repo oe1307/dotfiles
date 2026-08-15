@@ -42,11 +42,12 @@ elsif OS.linux?
 end
 
 # python
+brew "flake8"
 brew "ipython"
+brew "isort"
+brew "mypy"
 brew "pyright"
 brew "ruff"
-brew "isort"
-brew "flake8"
 
 # cpp
 brew "clang-format"

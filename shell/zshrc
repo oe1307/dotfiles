@@ -106,9 +106,9 @@ alias iverilog="iverilog -g2012"
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias bb="brew bundle -vvv --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
-alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88"
+alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy --disable-error-code=import-not-found ."
 alias reset="cd $HOME/dotfiles && gp && cd $HOME/.ssh && gp && cd $HOME && command rm -rf $HOME/.cache $HOME/.config $HOME/.local && ~/dotfiles/setup.sh"
-alias cmake-build="cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build .build && ln -sf .build/compile_commands.json compile_commands.json"
+alias cmake-build="command rm -rf .build && cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && cmake --build .build && ln -sf .build/compile_commands.json compile_commands.json"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
