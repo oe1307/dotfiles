@@ -15,6 +15,7 @@ config/wezterm/use_ime_state
 .envrc
 .venv
 __pycache__
+.pytest_cache
 __marimo__
 *.egg-info
 .ipynb_checkpoints
