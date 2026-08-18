@@ -51,6 +51,7 @@ brew "pyright"
 brew "ruff"
 
 # cpp
+brew "ninja"
 brew "clang-format"
 brew "llvm"
 
