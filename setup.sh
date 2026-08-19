@@ -12,6 +12,7 @@ done
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then
+    chmod -R go-w /opt/homebrew/share
     defaults write com.apple.desktopservices DSDontWriteNetworkStores true
     defaults write com.apple.desktopservices DSDontWriteLocalStores true
     defaults write com.apple.desktopservices DSDontWriteUSBStores true
