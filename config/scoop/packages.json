@@ -83,6 +83,10 @@
       "Source": "extras"
     },
     {
+      "Name": "make",
+      "Source": "main"
+    },
+    {
       "Name": "marp",
       "Source": "main"
     },
