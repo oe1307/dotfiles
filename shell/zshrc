@@ -108,7 +108,7 @@ alias bb="brew bundle -vvv --file $HOME/.config/homebrew/Brewfile && brew upgrad
 alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
 alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy --disable-error-code=import-not-found ."
 alias reset="cd $HOME/dotfiles && gp && cd $HOME/.ssh && gp && cd $HOME && command rm -rf $HOME/.cache $HOME/.config $HOME/.local && ~/dotfiles/setup.sh"
-alias cmake-build="cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja && cmake --build .build -j 16 && ln -sf .build/compile_commands.json compile_commands.json"
+alias c-build="cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja && ln -sf .build/compile_commands.json compile_commands.json"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
@@ -119,6 +119,7 @@ if hash bat 2>/dev/null; then alias cat="bat -p --paging=never --theme 'Visual S
 if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
+if hash watchexec 2>/dev/null; then alias cdev="watchexec -e c,h,cpp,hpp cmake --build .build -j 16"; fi
 if hash uv 2>/dev/null; then venv(){ uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' > .envrc && direnv allow .}; fi
 if hash ipython 2>/dev/null; then python(){ [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
 if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then else echo "not found"; fi
