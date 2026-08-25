@@ -45,6 +45,8 @@ export MPLCONFIGDIR=$XDG_CACHE_HOME/matplotlib
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/node_js/npmrc
 export IPYTHONDIR=$XDG_CACHE_HOME/ipython
 export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
 if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
 if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
