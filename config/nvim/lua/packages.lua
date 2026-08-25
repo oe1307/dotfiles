@@ -156,7 +156,7 @@ return {
         config = function()
             local lint = require("lint")
             lint.linters_by_ft = {
-                python = { "flake8" },
+                python = { "flake8", "mypy" },
                 verilog = { "verible" },
                 systemverilog = { "verible" },
             }
@@ -174,9 +174,14 @@ return {
                     { severity = vim.diagnostic.severity.WARN }
                 ),
             }
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
                 callback = function()
                     lint.try_lint()
+                end,
+            })
+            vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+                callback = function()
+                    lint.try_lint(nil, { filter = "stdin" })
                 end,
             })
             vim.keymap.set("n", "<C-y>", function()

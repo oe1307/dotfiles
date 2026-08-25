@@ -109,7 +109,7 @@ alias nvidia-smi="watch -n 1 nvidia-smi"
 alias pin="uv pip install"
 alias bb="brew bundle -vvv --file $HOME/.config/homebrew/Brewfile && brew upgrade"
 alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
-alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy --disable-error-code=import-not-found ."
+alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy . --disallow-untyped-defs --disable-error-code=import-not-found --exclude _marimo"
 alias reset="cd $HOME/dotfiles && gp && cd $HOME/.ssh && gp && cd $HOME && command rm -rf $HOME/.cache $HOME/.config $HOME/.local && ~/dotfiles/setup.sh"
 alias c-build="cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja && ln -sf .build/compile_commands.json compile_commands.json"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
