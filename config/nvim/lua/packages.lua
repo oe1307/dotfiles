@@ -161,6 +161,12 @@ return {
                 systemverilog = { "verible" },
             }
             vim.list_extend(lint.linters.flake8.args or {}, { "--max-line-length", "88" })
+            vim.list_extend(lint.linters.mypy.args or {}, {
+                "--disallow-untyped-defs",
+                "--disable-error-code=import-not-found",
+                "--exclude",
+                "_marimo",
+            })
             lint.linters.verible = {
                 cmd = "verible-verilog-lint",
                 stdin = false,
