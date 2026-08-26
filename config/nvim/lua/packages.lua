@@ -120,7 +120,6 @@ return {
         keys = { { "K", vim.lsp.buf.definition, silent = true } },
         dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
-            vim.lsp.enable({ "pyright", "lua_ls", "clangd", "verible" })
             local cap = require("cmp_nvim_lsp").default_capabilities()
             vim.lsp.config("pyright", { capabilities = cap })
             vim.lsp.config("clangd", {
@@ -137,6 +136,9 @@ return {
                 { capabilities = cap, settings = { Lua = { diagnostics = { globals = { "vim" } } } } }
             )
             vim.lsp.config("verible", { capabilities = cap })
+
+            vim.lsp.enable({ "pyright", "lua_ls", "clangd", "verible" })
+
             vim.diagnostic.config({
                 signs = {
                     text = {
@@ -180,14 +182,13 @@ return {
                     { severity = vim.diagnostic.severity.WARN }
                 ),
             }
-            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+            vim.api.nvim_create_autocmd({
+                "BufEnter",
+                "BufWritePost",
+                "FileChangedShellPost",
+            }, {
                 callback = function()
                     lint.try_lint()
-                end,
-            })
-            vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
-                callback = function()
-                    lint.try_lint(nil, { filter = "stdin" })
                 end,
             })
             vim.keymap.set("n", "<C-y>", function()
