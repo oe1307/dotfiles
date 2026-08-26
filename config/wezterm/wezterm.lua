@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+config.enable_kitty_keyboard = true
 config.font_size = 18.0
 config.audible_bell = "Disabled"
 config.font = wezterm.font("HackGen Console NF")
@@ -74,21 +75,20 @@ end
 
 wezterm.on("gui-startup", function(cmd)
     write_state(false)
-    local tab, pane, mux_window = wezterm.mux.spawn_window(cmd or {})
+    local _, _, mux_window = wezterm.mux.spawn_window(cmd or {})
     local window = mux_window:gui_window()
     local overrides = window:get_config_overrides() and (window:get_config_overrides() or {}) or {}
     overrides.use_ime = false
     window:set_config_overrides(overrides)
 end)
 
-wezterm.on("toggle-ime", function(window, pane)
+wezterm.on("toggle-ime", function(window, _)
     local current = window:effective_config().use_ime
     local nextv = not current
     write_state(nextv)
     local overrides = window:get_config_overrides() or {}
     overrides.use_ime = nextv
     window:set_config_overrides(overrides)
-    -- window:toast_notification("WezTerm", "日本語: " .. tostring(overrides.use_ime), nil, 2500)
 end)
 
 config.keys = config.keys or {}

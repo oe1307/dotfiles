@@ -1,8 +1,5 @@
 local keymap = vim.keymap
 
--- restart
-keymap.set("n", "<C-e>", ":checktime<Return>", { silent = true })
-
 -- quit
 keymap.set("n", "<C-q>", ":q<Return>", { silent = true })
 

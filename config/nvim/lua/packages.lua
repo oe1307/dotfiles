@@ -154,6 +154,17 @@ return {
     {
         -- linter
         "mfussenegger/nvim-lint",
+        keys = {
+            {
+                "<C-e>",
+                function()
+                    vim.cmd("checktime")
+                    require("lint").try_lint()
+                end,
+                silent = true,
+                noremap = true,
+            },
+        },
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lint = require("lint")
@@ -182,13 +193,14 @@ return {
                     { severity = vim.diagnostic.severity.WARN }
                 ),
             }
-            vim.api.nvim_create_autocmd({
-                "BufEnter",
-                "BufWritePost",
-                "FileChangedShellPost",
-            }, {
+            vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
                 callback = function()
                     lint.try_lint()
+                end,
+            })
+            vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+                callback = function()
+                    lint.try_lint(nil, { filter = "stdin" })
                 end,
             })
             vim.keymap.set("n", "<C-y>", function()
