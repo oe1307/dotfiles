@@ -111,10 +111,6 @@
       "Source": "main"
     },
     {
-      "Name": "powertoys",
-      "Source": "extras"
-    },
-    {
       "Name": "pwsh",
       "Source": "main"
     },
