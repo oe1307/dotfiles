@@ -47,7 +47,6 @@ end
 brew "flake8"
 brew "ipython"
 brew "isort"
-brew "mypy"
 brew "pyright"
 brew "ruff"
 
