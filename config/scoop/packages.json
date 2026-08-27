@@ -43,6 +43,10 @@
       "Source": "main"
     },
     {
+      "Name": "cmake",
+      "Source": "main"
+    },
+    {
       "Name": "dark",
       "Source": "main"
     },
@@ -136,6 +140,10 @@
     },
     {
       "Name": "tree-sitter",
+      "Source": "main"
+    },
+    {
+      "Name": "uv",
       "Source": "main"
     },
     {
