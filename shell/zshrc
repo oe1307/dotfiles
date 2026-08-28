@@ -126,4 +126,4 @@ if hash watchexec 2>/dev/null; then alias cdev="watchexec -e c,h,cpp,hpp cmake -
 if hash uv 2>/dev/null; then venv(){ uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' > .envrc && direnv allow .}; fi
 if hash ipython 2>/dev/null; then python(){ [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
 if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then else echo "not found"; fi
-if hash nohup >/dev/null 2&1; then detach() { nohup "$@" > nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 < /dev/null &! }; fi
+if hash nohup >/dev/null 2>&1; then detach() { nohup "$@" > nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 < /dev/null &! }; fi
