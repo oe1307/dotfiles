@@ -95,7 +95,7 @@ return {
     {
         -- formatter
         "stevearc/conform.nvim",
-        keys = { { "ff", ":lua require('conform').format()<Enter>", silent = true } },
+        keys = { { "<C-f>", ":lua require('conform').format()<Enter>", silent = true } },
         opts = {
             formatters_by_ft = {
                 python = { "ruff_format", "isort" },
