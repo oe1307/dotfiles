@@ -13,7 +13,6 @@ Set-Alias -Name lg -Value lazygit
 Set-Alias -Name top -Value ntop
 
 function cdr { cd ~/work }
-function venv {  uv venv .venv --python $args[0] &&  Set-Content -Path ".envrc" -Value "source .venv/bin/activate" && direnv allow . }
 function la { eza -a -g --icons --sort Name $args }
 function ll { eza -l -a -g --icons --sort Name $args }
 function lt { eza -T --git-ignore --sort Name $args }
@@ -23,6 +22,15 @@ function gd { git diff $args }
 function ga { git add $args }
 function gf { git push $args }
 function gt { ga -A ; gc ; gp ; gf }
+function venv {
+    uv venv .venv --python $args[0]
+    if ($LASTEXITCODE -eq 0) {
+        Set-Content -Path ".envrc" -Value ".venv\Scripts\Activate.ps1"
+    }
+    if ($LASTEXITCODE -eq 0) {
+        direnv allow
+    }
+}
 
 del alias:where -Force
 Set-Alias -Name which -Value where.exe

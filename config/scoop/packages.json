@@ -87,6 +87,10 @@
       "Source": "extras"
     },
     {
+      "Name": "llvm",
+      "Source": "main"
+    },
+    {
       "Name": "make",
       "Source": "main"
     },
@@ -153,6 +157,10 @@
     {
       "Name": "vs_2022_cpp_build_tools",
       "Source": "crystal-preview"
+    },
+    {
+      "Name": "webex",
+      "Source": "extras"
     }
   ]
 }
