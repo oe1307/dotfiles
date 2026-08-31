@@ -29,7 +29,7 @@ return {
     {
         -- multiple cursors
         "mg979/vim-visual-multi",
-        keys = { { "<C-n>", mode = { "n" } } },
+        keys = { { "<C-n>", mode = { "n", "v" } } },
     },
     {
         -- git signs

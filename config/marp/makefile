@@ -1,5 +1,5 @@
 view:
-	(open -a "Google Chrome" http://localhost:8080/_marp.md) & marp -s . --html --theme ntt.css
+	(open http://localhost:8080/_marp.md) & marp -s . --html --theme ntt.css
 
 html:
 	exec marp _marp.md --html --theme ntt.css --allow-local-files
