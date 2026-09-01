@@ -230,6 +230,7 @@ td {
   border: 0.5px solid #bbb;
   padding: 0.25em 0.6em;
   font-size: 12pt;
+  vertical-align: top;
 }
 
 tr:first-child th {
