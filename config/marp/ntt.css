@@ -198,7 +198,7 @@ section.end2::after {
 a:link {
   font-family: "Times New Roman";
   color: #2694c9;
-  font-size: 0.9em;;
+  font-size: 0.9em;
   text-decoration: underline;
 }
 
@@ -219,6 +219,36 @@ a:link {
   background: #696969;
   width: 1px;
   align-self: stretch;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 0.5px solid #bbb;
+  padding: 0.25em 0.6em;
+  font-size: 12pt;
+}
+
+tr:first-child th {
+  border-top: none;
+}
+
+tr:last-child th,
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr th:first-child,
+tr td:first-child {
+  border-left: none;
+  background-color: white;
+}
+
+table thead th {
+  font-weight: normal;
 }
 
 code {
