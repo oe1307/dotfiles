@@ -221,6 +221,15 @@ a:link {
   align-self: stretch;
 }
 
+.triangle {
+  --triangle-height: 86px;
+  --triangle-width: 52px;
+  width: var(--triangle-width);
+  height: var(--triangle-height);
+  background: #0072bc;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
 table {
   border-collapse: collapse;
 }
