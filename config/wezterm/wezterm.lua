@@ -4,7 +4,10 @@ local config = wezterm.config_builder()
 config.enable_kitty_keyboard = true
 config.font_size = 18.0
 config.audible_bell = "Disabled"
-config.font = wezterm.font("HackGen Console NF")
+config.font = wezterm.font_with_fallback({
+    "HackGen Console NF",
+    "Symbols Nerd Font Mono",
+})
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.color_scheme = "iTerm2 Smoooooth"
