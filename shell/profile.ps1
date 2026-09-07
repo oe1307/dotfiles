@@ -1,5 +1,7 @@
 $env:PATH += ";$HOME\scoop\apps\git\current\bin"
 
+$env:NODE_OPTIONS="--use-system-ca"
+
 $env:XDG_CACHE_HOME = "$HOME\.cache"
 $env:XDG_CONFIG_HOME = "$HOME\.config"
 $env:XDG_DATA_HOME = "$HOME\.local\share"
