@@ -3,7 +3,7 @@
 tmp*
 *.pdf
 ~$*.pptx
-_marp*.html
+_marp*
 credentials
 
 # dotfiles
