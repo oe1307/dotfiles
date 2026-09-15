@@ -24,6 +24,7 @@ function gd { git diff $args }
 function ga { git add $args }
 function gf { git push $args }
 function gt { ga -A ; gc ; gp ; gf }
+function rmf { Remove-Item -Force }
 function venv {
     uv venv .venv --python $args[0]
     if ($LASTEXITCODE -eq 0) {
