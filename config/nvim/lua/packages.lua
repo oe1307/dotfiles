@@ -105,6 +105,7 @@ return {
                 verilog = { "verible" },
                 systemverilog = { "verible" },
                 markdown = { "prettier" },
+                html = { "prettier" },
                 css = { "prettier" },
                 ["*"] = { "trim_whitespace" },
             },
