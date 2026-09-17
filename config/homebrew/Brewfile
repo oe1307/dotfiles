@@ -30,11 +30,12 @@ if OS.mac?
   brew "marp-cli"
   brew "mas"
   brew "watch"
+  cask "0oastro/tap/raycast@beta", trusted: true
   cask "box-drive"
   cask "chatgpt"
   cask "google-chrome"
   cask "microsoft-powerpoint"
-  cask "0oastro/tap/raycast@beta", trusted: true
+  cask "libreoffice"
   cask "spotify"
   cask "wezterm@nightly"
   mas "Ethernet Menubar", id: 1549412235
