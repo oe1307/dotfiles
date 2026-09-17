@@ -200,6 +200,16 @@ a:link {
   color: #006cb9;
 }
 
+.gray,
+.gray pre,
+.gray pre code,
+.gray code,
+.gray .hljs,
+.gray .hljs * {
+  color: #bbb !important;
+  background: transparent !important;
+}
+
 .tight {
   line-height: 1.2;
 }
@@ -221,45 +231,82 @@ a:link {
 }
 
 .triangle {
-  --triangle-height: 86px;
-  --triangle-width: 52px;
-  width: var(--triangle-width);
-  height: var(--triangle-height);
+  --height: 86px;
+  --width: 52px;
+  width: var(--width);
+  height: var(--height);
   background: #0072bc;
   clip-path: polygon(0 0, 100% 50%, 0 100%);
   align-self: center;
 }
 
+.triangle-down {
+  --width: 120px;
+  --height: 30px;
+  --margin: 8px;
+  width: var(--width);
+  height: var(--height);
+  margin-inline: auto;
+  background: #0072bc;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  margin-block: var(--margin);
+}
+
+.arrow {
+  --size: 9px;
+  position: relative;
+  width: 34px;
+  height: 4px;
+  background: #0072bc;
+}
+.arrow::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: var(--size) solid #0072bc;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: var(--size) solid #0072bc;
+}
+
+/* table */
 table {
   border-collapse: collapse;
 }
-
 th,
 td {
   border: 0.5px solid #bbb;
   padding: 0.25em 0.6em;
   vertical-align: top;
 }
-
 tr:first-child th {
   border-top: none;
 }
-
 tr:last-child th,
 tr:last-child td {
   border-bottom: none;
 }
-
 tr th:first-child,
 tr td:first-child {
   border-left: none;
   background-color: white;
 }
-
 table thead th {
   font-weight: normal;
 }
 
+/* code */
 code {
   background: rgba(175, 184, 193, 0.2);
   color: #24292f;
@@ -267,24 +314,12 @@ code {
   padding: 0.2em 0.4em;
   font-family: "HackGen Console NF";
 }
-
-.gray,
-.gray pre,
-.gray pre code,
-.gray code,
-.gray .hljs,
-.gray .hljs * {
-  color: #bbb !important;
-  background: transparent !important;
-}
-
 pre {
   background: #1e1e1e;
   border: 1px solid #3c3c3c;
   border-radius: 8px;
   padding: 0em 1em;
 }
-
 pre code {
   background: transparent;
   color: #d4d4d4;
@@ -292,44 +327,36 @@ pre code {
   font-size: 0.72em;
   line-height: 1.45;
 }
-
 .hljs {
   color: #d4d4d4;
   background: #1e1e1e;
 }
-
 .hljs-keyword,
 .hljs-literal,
 .hljs-symbol,
 .hljs-name {
   color: #569cd6;
 }
-
 .hljs-link {
   color: #569cd6;
   text-decoration: underline;
 }
-
 .hljs-built_in,
 .hljs-type {
   color: #4ec9b0;
 }
-
 .hljs-number,
 .hljs-class {
   color: #b8d7a3;
 }
-
 .hljs-string,
 .hljs-meta .hljs-string {
   color: #ce9178;
 }
-
 .hljs-regexp,
 .hljs-template-tag {
   color: #d16969;
 }
-
 .hljs-subst,
 .hljs-function,
 .hljs-title,
@@ -337,41 +364,33 @@ pre code {
 .hljs-formula {
   color: #dcdcaa;
 }
-
 .hljs-comment,
 .hljs-quote {
   color: #6a9955;
   font-style: italic;
 }
-
 .hljs-doctag {
   color: #608b4e;
 }
-
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-tag {
   color: #9b9b9b;
 }
-
 .hljs-variable,
 .hljs-template-variable {
   color: #9cdcfe;
 }
-
 .hljs-attr,
 .hljs-attribute {
   color: #9cdcfe;
 }
-
 .hljs-section {
   color: #ffd700;
 }
-
 .hljs-emphasis {
   font-style: italic;
 }
-
 .hljs-strong {
   font-weight: bold;
 }

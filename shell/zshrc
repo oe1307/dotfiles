@@ -84,6 +84,7 @@ add-zsh-hook preexec blank_line_before_command_output
 cd $WORKDIR
 
 # git
+alias gn="git clone"
 alias gs="git status -s --ignored"
 alias gp="git pull"
 alias ga="git add"
