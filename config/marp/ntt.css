@@ -302,6 +302,10 @@ tr td:first-child {
   border-left: none;
   background-color: white;
 }
+tr th:last-child,
+tr td:last-child {
+  border-right: none;
+}
 table thead th {
   font-weight: normal;
 }
