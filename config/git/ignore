@@ -4,6 +4,7 @@ tmp*
 *.pdf
 ~$*.pptx
 _marp*
+!_marp*.md
 credentials
 
 # dotfiles
@@ -25,17 +26,3 @@ __marimo__
 .build
 .cache
 compile_commands.json
-
-# tex
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.bib
-*.dvi
-*.stdout
-.project-sync-state
-output.synctex.gz
