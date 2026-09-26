@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+brew "bat"
+brew "cmake"
+brew "direnv"
+brew "eza"
+brew "git-delta"
+brew "htop"
+brew "lazygit"
+brew "neovim"
+brew "node"
+brew "podman"
+brew "rip2"
+brew "starship"
+brew "tree-sitter-cli"
+brew "uv"
+brew "zsh"
+brew "zsh-autopair"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+
+if OS.mac?
+  brew "marp-cli"
+  brew "mas"
+  brew "watch"
+  cask "alt-tab"
+  cask "box-drive"
+  cask "font-hackgen-nerd"
+  cask "font-symbols-only-nerd-font"
+  cask "google-chrome"
+  cask "google-japanese-ime"
+  cask "libreoffice"
+  cask "raycast"
+  cask "spotify"
+  cask "wezterm@nightly"
+  mas "Ethernet Menubar", id: 1549412235
+  mas "Pure Paste", id: 1611378436
+  mas "Xcode", id: 497799835
+elsif OS.linux?
+end
+
+# python
+brew "flake8"
+brew "ipython"
+brew "isort"
+brew "pyright"
+brew "ruff"
+
+# cpp
+brew "ninja"
+brew "clang-format"
+brew "llvm"
+brew "watchexec"
+
+# lua
+brew "stylua"
+brew "lua-language-server"
+
+# text
+brew "prettier"
+brew "latexindent"

@@ -1,0 +1,75 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultInputScope": "alphanumericHalfWidth",
+    "defaultProfile": "{9af7737e-1359-41f2-ad1f-baa2b00843ec}",
+    "keybindings":
+    [
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "language": "en-US",
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "colorScheme": "Dimidium",
+            "cursorColor": "#DEE3E4",
+            "cursorShape": "filledBox",
+            "font":
+            {
+                "face": "HackGen Console NF"
+            }
+        },
+        "list":
+        [
+            {
+                "commandline": "cmd.exe /c set MSYS=winsymlinks:nativestrict && C:%HOMEPATH%/scoop/apps/msys2/current/msys2_shell.cmd -defterm -no-start -full-path -shell zsh",
+                "guid": "{9af7737e-1359-41f2-ad1f-baa2b00843ec}",
+                "icon": "C:%HOMEPATH%/scoop/apps/msys2/current/msys2.ico",
+                "name": "msys2 zsh",
+                "opacity": 80
+            },
+            {
+                "bellStyle": "none",
+                "colorScheme": "Dimidium",
+                "commandline": "\"C:\\Users\\1001003167\\scoop\\shims\\pwsh.exe\" -NoLogo",
+                "cursorColor": "#DEE3E4",
+                "cursorShape": "filledBox",
+                "font":
+                {
+                    "face": "HackGen Console NF",
+                    "size": 14,
+                    "weight": "normal"
+                },
+                "guid": "{e56a658b-e8d5-4091-bb9d-7a9289fae6a9}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PowerShell",
+                "opacity": 80,
+                "startingDirectory": "%USERPROFILE%"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": []
+}
