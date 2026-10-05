@@ -6,6 +6,7 @@ tmp*
 _marp*
 !_marp*.md
 credentials
+nohup.out
 
 # dotfiles
 config/raycast/*
