@@ -52,7 +52,6 @@ brew "ruff"
 brew "ninja"
 brew "clang-format"
 brew "llvm"
-brew "watchexec"
 
 # lua
 brew "stylua"

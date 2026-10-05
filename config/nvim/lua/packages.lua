@@ -118,7 +118,10 @@ return {
     {
         -- language server
         "neovim/nvim-lspconfig",
-        keys = { { "K", vim.lsp.buf.definition, silent = true } },
+        keys = {
+            { "K", vim.lsp.buf.definition, silent = true },
+            { "H", vim.lsp.buf.hover, silent = true },
+        },
         dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
             local cap = require("cmp_nvim_lsp").default_capabilities()
