@@ -81,7 +81,7 @@ return {
                     lualine_b = { { "filename", path = 3 } },
                     lualine_c = { "diagnostics" },
                     lualine_x = {},
-                    lualine_y = {},
+                    lualine_y = { { require("minuet.lualine"), display_name = "model", display_on_idle = true } },
                     lualine_z = { "filetype" },
                 },
             })
@@ -307,6 +307,37 @@ return {
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false },
             })
+        end,
+    },
+
+    {
+        "milanglacier/minuet-ai.nvim",
+        config = function()
+            require("minuet").setup({
+                provider = "openai_fim_compatible",
+                n_completions = 1,
+                context_window = 2048,
+                context_ratio = 0.75,
+                debounce = 250,
+                throttle = 500,
+                request_timeout = 5,
+                notify = "warn",
+                provider_options = {
+                    openai_fim_compatible = {
+                        name = "Ollama",
+                        api_key = "TERM",
+                        end_point = "http://localhost:11434/v1/completions",
+                        model = "qwen2.5-coder:7b",
+                        optional = { max_tokens = 128, top_p = 0.9 },
+                    },
+                },
+                virtualtext = {
+                    auto_trigger_ft = { "lua", "python", "cpp", "gitcommit" },
+                    show_on_completion_menu = false,
+                    keymap = { accept = "<C-l>", next = "<C-j>", prev = "<C-k>" },
+                },
+            })
+            vim.api.nvim_set_hl(0, "MinuetVirtualText", { fg = "#808080" })
         end,
     },
 }

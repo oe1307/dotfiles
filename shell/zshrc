@@ -124,7 +124,7 @@ if hash eza 2>/dev/null; then alias lt="eza -T --git-ignore --sort Name"; fi
 if hash bat 2>/dev/null; then alias cat="bat -p --paging=never --theme 'Visual Studio Dark+'"; else echo "bat not found"; fi
 if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
-if hash nvim >/dev/null 2>&1; then vgrep() { local pattern="$1"; shift; nvim -O $(grep -rl -- "$pattern" "$@") }; fi
+if hash nvim >/dev/null 2>&1; then vgrep() { local pattern="$1"; shift; nvim -O -- $(grep -rl -- "$pattern" "$@" | sort -u) }; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash uv 2>/dev/null; then venv(){ uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' > .envrc && direnv allow .}; fi
 if hash ipython 2>/dev/null; then python(){ [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
