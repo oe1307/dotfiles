@@ -7,40 +7,24 @@ brew "eza"
 brew "git-delta"
 brew "htop"
 brew "lazygit"
+brew "marp-cli"
+brew "mas"
 brew "neovim"
 brew "node"
+brew "ollama"
 brew "podman"
 brew "rip2"
 brew "starship"
 brew "tree-sitter-cli"
 brew "uv"
+brew "watch"
+brew "zerobrewhq/zerobrew/zerobrew"
 brew "zsh"
 brew "zsh-autopair"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-history-substring-search"
 brew "zsh-syntax-highlighting"
-
-if OS.mac?
-  brew "ollama"
-  brew "marp-cli"
-  brew "mas"
-  brew "watch"
-  cask "alt-tab"
-  cask "box-drive"
-  cask "font-hackgen-nerd"
-  cask "font-symbols-only-nerd-font"
-  cask "google-chrome"
-  cask "google-japanese-ime"
-  cask "libreoffice"
-  cask "raycast"
-  cask "spotify"
-  cask "wezterm@nightly"
-  mas "Ethernet Menubar", id: 1549412235
-  mas "Pure Paste", id: 1611378436
-  mas "Xcode", id: 497799835
-elsif OS.linux?
-end
 
 # python
 brew "flake8"

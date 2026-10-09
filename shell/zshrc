@@ -19,6 +19,9 @@ if [[ "$os" == MSYS* ]]; then
 elif [[ "$os" == Darwin ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
+    export PATH="$HOME/.zerobrew/bin:$PATH"
+    export PATH="/opt/zerobrew/sbin:$PATH"
+    export PATH="/opt/zerobrew/bin:$PATH"
 elif [[ "$os" == Linux ]]; then
     export WORKDIR=$HOME/work
     export ZSH_PLUGIN=$(brew --prefix)/share
@@ -108,12 +111,14 @@ alias grep="grep --color=auto -d skip"
 alias iverilog="iverilog -g2012"
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias pin="uv pip install"
-alias bb="brew bundle -vvv --file $HOME/.config/homebrew/Brewfile && brew upgrade"
-alias bbc="brew bundle cleanup -f --file $XDG_CONFIG_HOME/homebrew/Brewfile && brew cleanup"
+# alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/Brewfile' '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile' | brew bundle -vvv --file=-"
+# alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/Brewfile' '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile' | brew bundle cleanup --file=-"
+alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile' | brew bundle -vvv --file=-"
+alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile' | brew bundle cleanup --file=-"
 alias cformat="find **/*pp -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' \) -exec clang-format -i {} +"
 alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy . --disallow-untyped-defs --disable-error-code=import-not-found --exclude _marimo"
 alias reset="cd $HOME/dotfiles && gp && cd $HOME/.ssh && gp && cd $HOME && command rm -rf $HOME/.cache $HOME/.config $HOME/.local && ~/dotfiles/setup.sh"
-alias cb="cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja && ln -sf .build/compile_commands.json compile_commands.json"
+alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cdev="cmake --build .build -j 16"
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
