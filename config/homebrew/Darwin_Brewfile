@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+tap "zerobrewhq/zerobrew", trusted: true
+
+cask "alt-tab"
+cask "box-drive"
+cask "font-hackgen-nerd"
+cask "font-symbols-only-nerd-font"
+cask "google-chrome"
+cask "google-japanese-ime"
+cask "libreoffice"
+cask "logi-options+"
+cask "raycast"
+cask "spotify"
+cask "wezterm@nightly"
+
+brew "mas"
+brew "zerobrewhq/zerobrew/zerobrew"
+
+mas "Ethernet Menubar", id: 1549412235
+mas "Pure Paste", id: 1611378436
+mas "Xcode", id: 497799835

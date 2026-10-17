@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+tap "zerobrewhq/zerobrew", trusted: true
+
+brew "zerobrewhq/zerobrew/zerobrew"

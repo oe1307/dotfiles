@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+brew "bat"
+brew "cmake"
+brew "direnv"
+brew "eza"
+brew "git-delta"
+brew "htop"
+brew "latexindent"
+brew "lazygit"
+brew "llvm"
+brew "marp-cli"
+brew "neovim"
+brew "node"
+brew "ollama"
+brew "podman"
+brew "prettier"
+brew "rip2"
+brew "starship"
+brew "tree-sitter-cli"
+brew "watch"
+brew "zsh"
+brew "zsh-autopair"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+
+# python
+brew "uv"
+brew "flake8"
+brew "ipython"
+brew "isort"
+brew "pyright"
+brew "ruff"
+
+# cpp
+brew "ninja"
+brew "clang-format"
+
+# lua
+brew "stylua"
+brew "lua-language-server"
