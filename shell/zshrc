@@ -3,32 +3,22 @@
 # proxy
 source $HOME/.ssh/bin/proxy.sh
 
-# PATH
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="$HOME/.homebrew/bin:$PATH"
-export PATH="$HOME/.homebrew/sbin:$PATH"
-
 # setup
+export WORKDIR=$HOME/work
+
 os="$(uname -s)"
-if [[ "$os" == MSYS* ]]; then
-    export HOME=/c/Users/$(whoami)
-    export WORKDIR=/home/$(whoami)
-    export ZSH_PLUGIN=$HOME/.zsh
-    alias open="explorer.exe"
-elif [[ "$os" == Darwin ]]; then
-    export WORKDIR=$HOME/work
+if [[ "$os" == Darwin ]]; then
     export ZSH_PLUGIN="/opt/zerobrew/share"
-    export PATH="$HOME/.zerobrew/bin:$PATH"
     export PATH="/opt/zerobrew/sbin:$PATH"
     export PATH="/opt/zerobrew/bin:$PATH"
+    export PATH="/opt/homebrew/sbin:$PATH"
+    export PATH="/opt/homebrew/bin:$PATH"
 elif [[ "$os" == Linux ]]; then
-    export WORKDIR=$HOME/work
     export ZSH_PLUGIN="$HOME/.local/share/zerobrew/prefix/share"
-    export PATH="$HOME/.zerobrew/bin:$PATH"
-    export PATH="$HOME/.local/share/zerobrew/sbin:$PATH"
-    export PATH="$HOME/.local/share/zerobrew/bin:$PATH"
+    export PATH="$HOME/.local/share/zerobrew/prefix/sbin:$PATH"
     export PATH="$HOME/.local/share/zerobrew/prefix/bin:$PATH"
+    export PATH="$HOME/.homebrew/sbin:$PATH"
+    export PATH="$HOME/.homebrew/bin:$PATH"
 fi
 
 # settings
