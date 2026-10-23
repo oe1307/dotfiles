@@ -27,6 +27,10 @@
     {
       "Name": "nonportable",
       "Source": "https://github.com/ScoopInstaller/Nonportable"
+    },
+    {
+      "Name": "wsl",
+      "Source": "https://github.com/KNOXDEV/wsl"
     }
   ],
   "apps": [
@@ -81,6 +85,10 @@
     {
       "Name": "googlechrome",
       "Source": "extras"
+    },
+    {
+      "Name": "latexindent",
+      "Source": "main"
     },
     {
       "Name": "lazygit",
@@ -161,6 +169,10 @@
     {
       "Name": "webex",
       "Source": "extras"
+    },
+    {
+      "Name": "wsl-ubuntu2004",
+      "Source": "wsl"
     }
   ]
 }
