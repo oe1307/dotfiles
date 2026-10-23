@@ -8,7 +8,7 @@ $env:XDG_DATA_HOME = "$HOME\.local\share"
 $env:GIT_SSH_COMMAND = '"C:\Windows\System32\OpenSSH\ssh.exe" -F "$HOME\.ssh\config"'
 
 Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
-Set-PSReadLineKeyHandler -Key Tab -Function Complete
+Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
 
 Set-Alias -Name c -Value clear
 Set-Alias -Name open -Value Invoke-Item
