@@ -1,0 +1,13 @@
+gui:
+  showIcons: true
+  mouseEvents: false
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --dark --paging=never
+keybinding:
+  universal:
+    scrollUpMain: "k"
+    scrollDownMain: "j"
+    prevItem-alt: "<up>"
+    nextItem-alt: "<down>"

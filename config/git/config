@@ -1,0 +1,59 @@
+[include]
+    path = ~/.ssh/git-user.conf
+
+[init]
+    defaultBranch = main
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+    ui = auto
+
+[core]
+    editor = nvim
+    pager = delta
+
+[commit]
+    template = ~/.config/git/commit
+    verbose = true
+
+[pull]
+    rebase = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
+
+[merge]
+    conflictstyle = zdiff3
+
+[credential]
+    helper = store --file ~/.ssh/credentials
+
+[alias]
+    ignore = "update-index --skip-worktree"
+    unignore = "update-index --no-skip-worktree"
+    reinit = "!f() { \
+        branch=$(git symbolic-ref --quiet --short HEAD) || { echo 'Error: detached HEAD' >&2; return 1; }; \
+        backup=\"${branch}-backup\"; \
+        if [ -n \"$(git status --porcelain)\" ]; then echo 'Error: working tree is not clean' >&2; return 1; fi; \
+        if git show-ref --verify --quiet \"refs/heads/$backup\"; then echo \"Error: $backup already exists\" >&2; return 1; fi; \
+        git fetch origin \"$branch\" || return 1; \
+        remote_head=$(git rev-parse FETCH_HEAD) || return 1; \
+        if ! git merge-base --is-ancestor \"$remote_head\" HEAD; then echo 'Error: remote contains commits missing locally' >&2; return 1; fi; \
+        printf 'Reset history of %s? Type branch name: ' \"$branch\"; \
+        IFS= read -r answer; \
+        [ \"$answer\" = \"$branch\" ] || { echo 'Cancelled'; return 1; }; \
+        git branch \"$backup\" || return 1; \
+        tree=$(git rev-parse 'HEAD^{tree}') || return 1; \
+        new_head=$(git commit-tree \"$tree\" -m 'initial commit') || return 1; \
+        git reset --soft \"$new_head\" || return 1; \
+        git push -u origin \"$branch\" \"--force-with-lease=refs/heads/$branch:$remote_head\" || return 1; \
+        echo \"Backup saved locally: $backup\"; \
+    }; f"

@@ -1,0 +1,153 @@
+#!/bin/zsh
+
+# proxy
+source $HOME/.ssh/bin/proxy_env.sh
+
+# setup
+export WORKDIR=$HOME/work
+
+os="$(uname -s)"
+if [[ "$os" == Darwin ]]; then
+    export ZSH_PLUGIN="/opt/zerobrew/share"
+    export PATH="/opt/zerobrew/sbin:$PATH"
+    export PATH="/opt/zerobrew/bin:$PATH"
+    export PATH="/opt/homebrew/sbin:$PATH"
+    export PATH="/opt/homebrew/bin:$PATH"
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+elif [[ "$os" == Linux ]]; then
+    export ZSH_PLUGIN="$HOME/.local/share/zerobrew/prefix/share"
+    export PATH="$HOME/.local/share/zerobrew/prefix/sbin:$PATH"
+    export PATH="$HOME/.local/share/zerobrew/prefix/bin:$PATH"
+    export PATH="$HOME/.homebrew/sbin:$PATH"
+    export PATH="$HOME/.homebrew/bin:$PATH"
+    bindkey "$terminfo[kcuu1]" history-substring-search-up
+    bindkey "$terminfo[kcud1]" history-substring-search-down
+fi
+
+# settings
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CONFIG_HOME=$HOME/.config
+export PKG_CONFIG_PATH="$ZEROBREW_PREFIX/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
+export ZSH_AUTO=$ZSH_PLUGIN/zsh-autosuggestions/zsh-autosuggestions.zsh
+export ZSH_AUTOPAIR=$ZSH_PLUGIN/zsh-autopair/autopair.zsh
+export ZSH_SYNTAX=$ZSH_PLUGIN/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIST_SEARCH=$ZSH_PLUGIN/zsh-history-substring-search/zsh-history-substring-search.zsh
+export ZSH_CMP=$ZSH_PLUGIN/zsh-completions
+export EDITOR=nvim
+export COLORTERM=truecolor
+export APPLE_SSH_ADD_BEHAVIOR=macos
+export LESSHISTFILE=$XDG_STATE_HOME/lesshst
+export HISTFILE=$XDG_STATE_HOME/zsh_history
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
+export MPLCONFIGDIR=$XDG_CACHE_HOME/matplotlib
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/node_js/npmrc
+export IPYTHONDIR=$XDG_CACHE_HOME/ipython
+export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
+export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
+
+if [ -e "$ZSH_CMP" ]; then fpath=($ZSH_CMP $fpath); else echo "zsh-completions not found"; fi
+autoload -Uz compinit && compinit
+autoload -Uz add-zsh-hook
+
+if [ ! -e "$HISTFILE" ]; then mkdir -p "$(dirname "$HISTFILE")" && touch "$HISTFILE"; fi
+if [ -e "$ZSH_AUTO" ]; then source $ZSH_AUTO; else echo "zsh-autosuggestions not found"; fi
+if [[ -e "$ZSH_HIST_SEARCH" ]]; then source "$ZSH_HIST_SEARCH"; else echo "zsh-history-substring-search not found"; fi
+if [ -e "$ZSH_AUTOPAIR" ]; then source $ZSH_AUTOPAIR; else echo "zsh-autopair not found"; fi
+if [ -e "$ZSH_SYNTAX" ]; then source $ZSH_SYNTAX; else echo "zsh-syntax-highlighting not found"; fi
+
+# options
+HISTSIZE=100000
+SAVEHIST=100000
+setopt prompt_subst
+setopt +o nonomatch
+setopt share_history
+setopt append_history
+setopt auto_param_slash
+setopt mark_dirs
+setopt interactive_comments
+setopt magic_equal_subst
+setopt complete_in_word
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_no_store
+blank_line_before_command_output() { print; }
+add-zsh-hook preexec blank_line_before_command_output
+cd $WORKDIR
+
+# git
+alias gs="git status -s --ignored"
+alias gp="git pull --rebase"
+alias ga="git add"
+alias gf="git push"
+alias gsp="git stash push"
+alias gc="git commit"
+alias go="git checkout"
+alias gb="git branch"
+alias gd="git diff"
+alias gl="git log"
+alias lg="lazygit"
+alias gt='git add -A && git commit && git pull --rebase && git push'
+function gn() { git clone "git@github.com:$1" "${@:2}"; }
+function gz() {
+    local repo="${1:?Usage: gr OWNER/REPO [REF]}"
+    local ref="${2:-}"
+    local name="${repo//\//-}"
+    [[ -n "$ref" ]] && name+="-${ref//\//-}"
+    gh api "repos/$repo/zipball${ref:+/$ref}" >"$name.zip"
+}
+function gfz() {
+    local repo_url="$1"
+    local branch="${2:-main}"
+    git init -b "$branch" || return 1
+    git remote add origin "$repo_url" || return 1
+    git fetch --depth=1 origin "$branch" || return 1
+    git reset --mixed "origin/$branch" || return 1
+    git branch --set-upstream-to="origin/$branch" "$branch" || return 1
+}
+
+# alias
+alias c="clear"
+alias cdr="cd $WORKDIR"
+alias diff="delta"
+alias mv="mv -i"
+alias cp="cp -i -r"
+alias grep="grep --color=auto -d skip"
+alias nvidia-smi="watch -n 1 nvidia-smi"
+alias pin="uv pip install"
+alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle --file=-"
+alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
+alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
+alias cformat='find . \( -type d \( -name .git -o -name build -o -name node_modules \) -prune \) -o \( -type f \( -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -print0 \) | xargs -0 -r -P 4 -n 16 clang-format -i'
+alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy ."
+alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
+alias cdev="cmake --build .build -j 16"
+alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
+alias lad="lazydocker"
+if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
+if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
+if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
+if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
+if hash eza 2>/dev/null; then alias ll="eza -l -a -g --icons --sort Name"; else alias ll="ls -la"; fi
+if hash eza 2>/dev/null; then alias lt="eza -T --git-ignore --sort Name"; fi
+if hash bat 2>/dev/null; then alias cat="bat -p --paging=never --theme 'Visual Studio Dark+'"; else echo "bat not found"; fi
+if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
+if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
+if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
+if hash uv 2>/dev/null; then venv() { uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' >.envrc && direnv allow .; }; fi
+if hash ipython 2>/dev/null; then python() { [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
+if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then :; else echo " clip command not found"; fi
+if hash nvim >/dev/null 2>&1; then vgrep() {
+    local pattern="$1"
+    shift
+    nvim -O -- $(grep -rl -- "$pattern" "$@" | sort -u)
+}; fi
+if hash nohup >/dev/null 2>&1; then detach() {
+    local cmd="$*"
+    nohup bash -c 'cmd="$1"; shift; "$@"; status=$?; ~/.ssh/bin/notify.sh "$cmd end"; exit "$status"' _ "$cmd" "$@" >nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 </dev/null &|
+} fi
