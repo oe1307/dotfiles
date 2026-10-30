@@ -53,10 +53,8 @@ return {
     {
         -- syntax highlighting
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPre", "BufNewFile" },
-        build = function()
-            require("nvim-treesitter").install({ "python", "html", "ssh_config", "systemverilog" })
-        end,
+        lazy = false,
+        build = ":TSUpdate",
         config = function()
             require("nvim-treesitter").install({
                 "python",
@@ -106,7 +104,7 @@ return {
         keys = { { "<C-f>", ":lua require('conform').format()<Enter>", silent = true } },
         opts = {
             formatters_by_ft = {
-                python = { "ruff_format", "isort" },
+                python = { "isort", "ruff_format" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
                 lua = { "stylua" },
@@ -118,6 +116,7 @@ return {
                 javascript = { "prettier" },
                 sh = { "shfmt" },
                 zsh = { "shfmt_zsh" },
+                dockerfile = { "dockerfmt" },
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
@@ -130,6 +129,7 @@ return {
     {
         -- language server
         "neovim/nvim-lspconfig",
+        lazy = false,
         keys = {
             { "K", vim.lsp.buf.definition, silent = true },
             { "H", vim.lsp.buf.hover, silent = true },
@@ -277,7 +277,6 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            "hrsh7th/nvim-cmp",
 
             -- snippet
             "L3MON4D3/LuaSnip",

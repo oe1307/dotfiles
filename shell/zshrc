@@ -95,12 +95,24 @@ alias lg="lazygit"
 alias gt='git add -A && git commit && git pull --rebase && git push'
 function gn() { git clone "git@github.com:$1" "${@:2}"; }
 function gz() {
-    local repo="${1:?Usage: gr OWNER/REPO [REF]}"
+    local repo="${1:?Usage: gz OWNER/REPO [REF]}"
     local ref="${2:-}"
     local name="${repo//\//-}"
     [[ -n "$ref" ]] && name+="-${ref//\//-}"
-    gh api "repos/$repo/zipball${ref:+/$ref}" >"$name.zip"
+    local tmpdir zip
+    tmpdir="$(mktemp -d -t gz)" || return 1
+    zip="$tmpdir/$name.zip"
+    if ! gh api "repos/$repo/zipball${ref:+/$ref}" > "$zip"; then
+        rm -rf "$tmpdir"
+        return 1
+    fi
+    osascript \
+        -e 'on run args' \
+        -e 'set the clipboard to POSIX file (item 1 of args)' \
+        -e 'end run' \
+        "$zip"
 }
+
 function gfz() {
     local repo_url="$1"
     local branch="${2:-main}"
@@ -112,6 +124,7 @@ function gfz() {
 }
 
 # alias
+alias brew="zb"
 alias c="clear"
 alias cdr="cd $WORKDIR"
 alias diff="delta"
@@ -129,6 +142,7 @@ alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . 
 alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 alias lad="lazydocker"
+python() { if [[ $# -eq 0 ]]; then ipython; else command python "$@"; fi }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
@@ -140,7 +154,6 @@ if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
 if hash uv 2>/dev/null; then venv() { uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' >.envrc && direnv allow .; }; fi
-if hash ipython 2>/dev/null; then python() { [ "$#" -eq 0 ] && ipython || command python "$@"; }; fi
 if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then :; else echo " clip command not found"; fi
 if hash nvim >/dev/null 2>&1; then vgrep() {
     local pattern="$1"
