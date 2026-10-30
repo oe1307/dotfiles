@@ -49,6 +49,7 @@ export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
+export DOCKER_HOST="unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"
 
 if [ -e "$ZSH_CMP" ]; then fpath=($ZSH_CMP $fpath); else echo "zsh-completions not found"; fi
 autoload -Uz compinit && compinit
@@ -94,23 +95,26 @@ alias gl="git log"
 alias lg="lazygit"
 alias gt='git add -A && git commit && git pull --rebase && git push'
 function gn() { git clone "git@github.com:$1" "${@:2}"; }
-function gz() {
+gz() {
     local repo="${1:?Usage: gz OWNER/REPO [REF]}"
     local ref="${2:-}"
     local name="${repo//\//-}"
     [[ -n "$ref" ]] && name+="-${ref//\//-}"
-    local tmpdir zip
-    tmpdir="$(mktemp -d -t gz)" || return 1
-    zip="$tmpdir/$name.zip"
-    if ! gh api "repos/$repo/zipball${ref:+/$ref}" > "$zip"; then
-        rm -rf "$tmpdir"
+    local dir="$HOME/Downloads/github-zips"
+    local zip="$dir/$name.zip"
+    mkdir -p "$dir" || return 1
+    if ! gh api "repos/$repo/zipball${ref:+/$ref}" >"$zip"; then
+        rm -f "$zip"
+        echo "Download failed" >&2
         return 1
     fi
-    osascript \
-        -e 'on run args' \
-        -e 'set the clipboard to POSIX file (item 1 of args)' \
-        -e 'end run' \
-        "$zip"
+    if ! unzip -tq "$zip" >/dev/null 2>&1; then
+        rm -f "$zip"
+        echo "Invalid ZIP" >&2
+        return 1
+    fi
+    open -R "$zip"
+    echo "ZIP ready: $zip"
 }
 
 function gfz() {
@@ -141,8 +145,8 @@ alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
-alias lad="lazydocker"
-python() { if [[ $# -eq 0 ]]; then ipython; else command python "$@"; fi }
+alias lzd="lazydocker"
+python() { if [[ $# -eq 0 ]]; then ipython; else command python "$@"; fi; }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
