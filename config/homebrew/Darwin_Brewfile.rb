@@ -1,6 +1,6 @@
 tap "domt4/autoupdate", trusted: { commands: ["autoupdate"] }
-tap "zerobrewhq/zerobrew", trusted: true
 tap "zerobrewhq/tap", trusted: true
+tap "zerobrewhq/zerobrew", trusted: true
 brew "mas"
 brew "zerobrewhq/zerobrew/zerobrew"
 cask "alt-tab"
