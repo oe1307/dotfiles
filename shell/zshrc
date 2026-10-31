@@ -49,7 +49,6 @@ export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
-export DOCKER_HOST="unix://$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}')"
 
 if [ -e "$ZSH_CMP" ]; then fpath=($ZSH_CMP $fpath); else echo "zsh-completions not found"; fi
 autoload -Uz compinit && compinit
@@ -168,3 +167,11 @@ if hash nohup >/dev/null 2>&1; then detach() {
     local cmd="$*"
     nohup bash -c 'cmd="$1"; shift; "$@"; status=$?; ~/.ssh/bin/notify.sh "$cmd end"; exit "$status"' _ "$cmd" "$@" >nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 </dev/null &|
 } fi
+if command -v podman >/dev/null 2>&1; then
+    podman_socket=$(podman machine inspect \
+        --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null)
+    if [[ -n "$podman_socket" ]]; then
+        export DOCKER_HOST="unix://$podman_socket"
+    fi
+    unset podman_socket
+fi
