@@ -100,7 +100,7 @@ gz() {
     local ref="${2:-}"
     local name="${repo//\//-}"
     [[ -n "$ref" ]] && name+="-${ref//\//-}"
-    local dir="$HOME/Downloads/github-zips"
+    local dir="$HOME/.cache/github-zips"
     local zip="$dir/$name.zip"
     mkdir -p "$dir" || return 1
     if ! gh api "repos/$repo/zipball${ref:+/$ref}" >"$zip"; then
@@ -137,9 +137,9 @@ alias cp="cp -i -r"
 alias grep="grep --color=auto -d skip"
 alias nvidia-smi="watch -n 1 nvidia-smi"
 alias pin="uv pip install"
-alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle --file=-"
+alias bb="command brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | command brew bundle --file=-"
 alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
-alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
+alias bbc="command brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | command brew bundle cleanup --file=-"
 alias cformat='find . \( -type d \( -name .git -o -name build -o -name node_modules \) -prune \) -o \( -type f \( -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -print0 \) | xargs -0 -r -P 4 -n 16 clang-format -i'
 alias checkpy="pyright . && ruff format . && isort . --profile=black --gitignore && flake8 **/*.py --max-line-length=88; mypy ."
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
