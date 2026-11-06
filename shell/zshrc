@@ -24,6 +24,7 @@ elif [[ "$os" == Linux ]]; then
     export PATH="$HOME/.homebrew/bin:$PATH"
     bindkey "$terminfo[kcuu1]" history-substring-search-up
     bindkey "$terminfo[kcud1]" history-substring-search-down
+    eval "$(keychain --eval --quiet ~/.ssh/key/*.pem)"
 fi
 
 # settings
