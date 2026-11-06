@@ -7,7 +7,9 @@ source $HOME/.ssh/bin/proxy_env.sh
 export WORKDIR=$HOME/work
 
 os="$(uname -s)"
-if [[ "$os" == Darwin ]]; then
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+    alias bw='bw.exe'
+elif [[ "$os" == Darwin ]]; then
     export ZSH_PLUGIN="/opt/zerobrew/share"
     export PATH="/opt/zerobrew/sbin:$PATH"
     export PATH="/opt/zerobrew/bin:$PATH"
@@ -154,7 +156,7 @@ alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 alias lzd="lazydocker"
 python() { if [[ $# -eq 0 ]]; then ipython; else command python "$@"; fi; }
-bws() { export BW_SESSION="$(bw unlock --raw)" }
+bws() { export BW_SESSION="$(bw unlock --raw)"; }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
