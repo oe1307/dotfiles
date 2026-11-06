@@ -27,6 +27,14 @@
       "Source": "main"
     },
     {
+      "Name": "bitwarden",
+      "Source": "extras"
+    },
+    {
+      "Name": "brave",
+      "Source": "extras"
+    },
+    {
       "Name": "font-hackgen-console-nf",
       "Source": "mo-san"
     },

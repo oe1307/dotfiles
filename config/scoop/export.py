@@ -1,14 +1,45 @@
 import json
+import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-# PowerShell 7があれば優先し、なければWindows PowerShellを使う
-powershell = shutil.which("pwsh") or shutil.which("powershell")
 
-if powershell is None:
+def is_wsl():
+    if os.environ.get("WSL_DISTRO_NAME"):
+        return True
+
+    try:
+        release = Path("/proc/sys/kernel/osrelease").read_text()
+        return "microsoft" in release.lower()
+    except OSError:
+        return False
+
+
+def find_powershell():
+    if is_wsl():
+        for name in ("pwsh.exe", "powershell.exe"):
+            if path := shutil.which(name):
+                return path
+
+        for path in (
+            "/mnt/c/Program Files/PowerShell/7/pwsh.exe",
+            "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+        ):
+            if Path(path).is_file():
+                return path
+
+    else:
+        # Windows / Linux
+        for name in ("pwsh", "powershell", "pwsh.exe", "powershell.exe"):
+            if path := shutil.which(name):
+                return path
+
     raise RuntimeError("PowerShellが見つかりません")
+
+
+powershell = find_powershell()
 
 command = (
     "$ErrorActionPreference = 'Stop'; "
@@ -16,6 +47,9 @@ command = (
     "[System.Text.UTF8Encoding]::new($false); "
     "scoop export"
 )
+
+if is_wsl():
+    command = "Set-Location $env:USERPROFILE; " + command
 
 try:
     result = subprocess.run(
@@ -37,7 +71,7 @@ except subprocess.CalledProcessError as error:
     print(error.stderr, file=sys.stderr)
     raise
 
-packages = json.loads(result.stdout)
+packages = json.loads(result.stdout.lstrip("\ufeff"))
 
 for bucket in packages.get("buckets", []):
     bucket.pop("Updated", None)
