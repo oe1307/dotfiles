@@ -9,7 +9,8 @@ export WORKDIR=$HOME/work
 os="$(uname -s)"
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
     alias bw='bw.exe'
-elif [[ "$os" == Darwin ]]; then
+fi
+if [[ "$os" == Darwin ]]; then
     export ZSH_PLUGIN="/opt/zerobrew/share"
     export PATH="/opt/zerobrew/sbin:$PATH"
     export PATH="/opt/zerobrew/bin:$PATH"
