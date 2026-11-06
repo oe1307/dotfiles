@@ -1,0 +1,44 @@
+{
+  "UserAgents": [
+    {
+      "append_to_default_ua": false,
+      "badge": "",
+      "group": "Chrome",
+      "is_managed": false,
+      "is_preset": true,
+      "key": "c_1",
+      "title": "Default",
+      "ua_string": "",
+      "vendor": ""
+    },
+    {
+      "append_to_default_ua": false,
+      "badge": "iPad",
+      "group": "iOS",
+      "is_managed": false,
+      "is_preset": true,
+      "key": "c_12",
+      "title": "iPad",
+      "ua_string": "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25",
+      "vendor": "Apple, Inc."
+    }
+  ],
+  "PermanentSpoofs": [
+    {
+      "domain": "login.microsoftonline.com",
+      "is_managed": false,
+      "key": "s_1",
+      "user_agent": {
+        "append_to_default_ua": false,
+        "badge": "iPad",
+        "group": "iOS",
+        "is_managed": false,
+        "is_preset": true,
+        "key": "c_12",
+        "title": "iPad",
+        "ua_string": "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25",
+        "vendor": "Apple, Inc."
+      }
+    }
+  ]
+}

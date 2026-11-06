@@ -1,0 +1,174 @@
+{
+  "buckets": [
+  ],
+  "buckets-backup": [
+    {
+      "Name": "crystal-preview",
+      "Source": "https://github.com/neatorobito/scoop-crystal"
+    },
+    {
+      "Name": "extras",
+      "Source": "https://github.com/ScoopInstaller/Extras"
+    },
+    {
+      "Name": "main",
+      "Source": "https://github.com/ScoopInstaller/Main"
+    },
+    {
+      "Name": "mo-san",
+      "Source": "https://github.com/mo-san/scoop-bucket"
+    },
+    {
+      "Name": "motty",
+      "Source": "https://github.com/motty-mio2/scoop-bucket/"
+    },
+    {
+      "Name": "nerd-fonts",
+      "Source": "https://github.com/matthewjberger/scoop-nerd-fonts"
+    },
+    {
+      "Name": "nonportable",
+      "Source": "https://github.com/ScoopInstaller/Nonportable"
+    },
+    {
+      "Name": "wsl",
+      "Source": "https://github.com/KNOXDEV/wsl"
+    }
+  ],
+  "apps": [
+    {
+      "Name": "aria2",
+      "Source": "main"
+    },
+    {
+      "Name": "font-hackgen-console-nf",
+      "Source": "mo-san"
+    },
+    {
+      "Name": "google-japanese-input-np",
+      "Source": "nonportable"
+    },
+    {
+      "Name": "marp",
+      "Source": "main"
+    },
+    {
+      "Name": "neovim",
+      "Source": "main"
+    },
+    {
+      "Name": "ntop",
+      "Source": "main"
+    },
+    {
+      "Name": "openssh",
+      "Source": "main"
+    },
+    {
+      "Name": "pwsh",
+      "Source": "main"
+    },
+    {
+      "Name": "starship",
+      "Source": "main"
+    },
+    {
+      "Name": "webex",
+      "Source": "extras"
+    },
+    {
+      "Name": "wsl-ubuntu2004",
+      "Source": "wsl"
+    }
+  ],
+  "apps-backup": [
+    {
+      "Name": "7zip",
+      "Source": "main"
+    },
+    {
+      "Name": "bat",
+      "Source": "main"
+    },
+    {
+      "Name": "cmake",
+      "Source": "main"
+    },
+    {
+      "Name": "dark",
+      "Source": "main"
+    },
+    {
+      "Name": "delta",
+      "Source": "main"
+    },
+    {
+      "Name": "direnv",
+      "Source": "main"
+    },
+    {
+      "Name": "eza",
+      "Source": "main"
+    },
+    {
+      "Name": "gcc",
+      "Source": "main"
+    },
+    {
+      "Name": "git",
+      "Source": "main"
+    },
+    {
+      "Name": "latexindent",
+      "Source": "main"
+    },
+    {
+      "Name": "lazygit",
+      "Source": "extras"
+    },
+    {
+      "Name": "llvm",
+      "Source": "main"
+    },
+    {
+      "Name": "make",
+      "Source": "main"
+    },
+    {
+      "Name": "nmap",
+      "Source": "main"
+    },
+    {
+      "Name": "nodejs-lts",
+      "Source": "main"
+    },
+    {
+      "Name": "python",
+      "Source": "main"
+    },
+    {
+      "Name": "rip",
+      "Source": "main"
+    },
+    {
+      "Name": "sshpass",
+      "Source": "main"
+    },
+    {
+      "Name": "stylua",
+      "Source": "main"
+    },
+    {
+      "Name": "tree-sitter",
+      "Source": "main"
+    },
+    {
+      "Name": "uv",
+      "Source": "main"
+    },
+    {
+      "Name": "vs_2022_cpp_build_tools",
+      "Source": "crystal-preview"
+    }
+  ]
+}
