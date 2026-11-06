@@ -15,17 +15,34 @@
             "keys": "alt+^"
         }
     ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
+        "defaults": {},
         "list": 
         [
             {
                 "bellStyle": "none",
-                "colorScheme": "One Half Dark",
+                "colorScheme": "Dimidium",
                 "commandline": "C:\\WINDOWS\\system32\\wsl.exe",
+                "cursorColor": "#DEE3E4",
+                "cursorShape": "filledBox",
+                "font": 
+                {
+                    "face": "HackGen Console NF"
+                },
                 "guid": "{e381fe40-9d15-58b7-99ea-5908cd6561e5}",
-                "name": "Ubuntu"
+                "name": "Ubuntu",
+                "opacity": 80
             }
         ]
     },
+    "schemes": [],
+    "tabWidthMode": "equal",
+    "themes": []
 }
