@@ -1,5 +1,4 @@
-tap "domt4/autoupdate", trusted: { commands: ["autoupdate"] }
-tap "homebrew/autoupdate"
+tap "domt4/autoupdate", trusted: { command: ["autoupdate"] }
 tap "zerobrewhq/tap"
 tap "zerobrewhq/zerobrew", trusted: { formula: "zerobrew" }
 brew "mas"
