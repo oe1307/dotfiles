@@ -1,5 +1,6 @@
 {
-    "keybindings":
+    "defaultProfile": "{e381fe40-9d15-58b7-99ea-5908cd6561e5}",
+    "keybindings": 
     [
         {
             "id": "Terminal.CopyToClipboard",
@@ -14,16 +15,17 @@
             "keys": "alt+^"
         }
     ],
-    "profiles":
+    "profiles": 
     {
-        "list":
+        "list": 
         [
             {
+                "bellStyle": "none",
+                "colorScheme": "One Half Dark",
                 "commandline": "C:\\WINDOWS\\system32\\wsl.exe",
-                "font": { "face": "HackGen Console NF" },
-                "name": "wsl",
-                "opacity": 80
+                "guid": "{e381fe40-9d15-58b7-99ea-5908cd6561e5}",
+                "name": "Ubuntu"
             }
         ]
-    }
+    },
 }
