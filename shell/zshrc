@@ -8,8 +8,7 @@ export WORKDIR=$HOME/work
 
 os="$(uname -s)"
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
-    alias bw='bw.exe'
-    export GIT_SSH_COMMAND=/mnt/c/Windows/System32/OpenSSH/ssh.exe
+    export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 fi
 if [[ "$os" == Darwin ]]; then
     export ZSH_PLUGIN="/opt/zerobrew/share"
