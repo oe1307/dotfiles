@@ -16,6 +16,7 @@ if [[ "$os" == Darwin ]]; then
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 elif [[ "$os" == Linux ]]; then
+    alias open="explorer.exe"
     export ZSH_PLUGIN="$HOME/.local/share/zerobrew/prefix/share"
     export PATH="$HOME/.local/share/zerobrew/prefix/sbin:$PATH"
     export PATH="$HOME/.local/share/zerobrew/prefix/bin:$PATH"
