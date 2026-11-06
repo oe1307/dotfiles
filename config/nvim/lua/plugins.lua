@@ -170,6 +170,7 @@ return {
     {
         -- linter
         "mfussenegger/nvim-lint",
+        lazy = false,
         keys = {
             {
                 "<C-e>",
@@ -181,7 +182,6 @@ return {
                 noremap = true,
             },
         },
-        event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lint = require("lint")
             lint.linters_by_ft = {

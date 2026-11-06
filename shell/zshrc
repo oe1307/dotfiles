@@ -49,7 +49,8 @@ export GIT_SSH_COMMAND="$(command -v ssh) -F $HOME/.ssh/config"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 export PYTHONWARNINGS="ignore::UserWarning:IPython.core.interactiveshell"
-export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+export SSH_AUTH_SOCK="$HOME/.ssh/bitwarden-ssh-agent.sock"
+export BITWARDEN_SSH_AUTH_SOCK="$HOME/.ssh/bitwarden-ssh-agent.sock"
 
 mkdir -p "$XDG_STATE_HOME"
 chmod 700 "$XDG_STATE_HOME"
