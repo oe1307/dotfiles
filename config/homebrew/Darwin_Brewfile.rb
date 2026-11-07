@@ -14,7 +14,6 @@ cask "google-japanese-ime"
 cask "libreoffice"
 cask "raycast"
 cask "scroll-reverser"
-cask "spotify"
 cask "wezterm@nightly"
 mas "Ethernet Menubar", id: 1549412235
 mas "Clean Links: URL Cleaner", id: 6747395062

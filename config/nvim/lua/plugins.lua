@@ -104,7 +104,7 @@ return {
         keys = { { "<C-f>", ":lua require('conform').format()<Enter>", silent = true } },
         opts = {
             formatters_by_ft = {
-                python = { "isort", "ruff_format" },
+                python = { "ruff_fix", "ruff_format" },
                 c = { "clang_format" },
                 cpp = { "clang_format" },
                 lua = { "stylua" },
@@ -120,7 +120,6 @@ return {
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
-                isort = { prepend_args = { "--profile", "black" } },
                 stylua = { prepend_args = { "--indent-type", "Spaces" } },
                 shfmt_zsh = { inherit = "shfmt", prepend_args = { "-ln=zsh" } },
             },
@@ -185,17 +184,10 @@ return {
         config = function()
             local lint = require("lint")
             lint.linters_by_ft = {
-                python = { "flake8", "mypy" },
+                python = { "ruff" },
                 -- verilog = { "verible" },
                 -- systemverilog = { "verible" },
             }
-            vim.list_extend(lint.linters.flake8.args or {}, { "--max-line-length", "88" })
-            vim.list_extend(lint.linters.mypy.args or {}, {
-                "--disallow-untyped-defs",
-                "--disable-error-code=import-not-found",
-                "--exclude",
-                "_marimo",
-            })
             -- lint.linters.verible = {
             --     cmd = "verible-verilog-lint",
             --     stdin = false,
