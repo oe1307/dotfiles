@@ -13,6 +13,7 @@ config/scoop/config.json
 config/homebrew/trust.json
 config/wezterm/use_ime_state
 config/nvim/lazy-lock.json
+config/wox
 
 # python
 .envrc

@@ -12,10 +12,10 @@ cask "font-hackgen-nerd"
 cask "font-symbols-only-nerd-font"
 cask "google-japanese-ime"
 cask "libreoffice"
-cask "raycast"
 cask "scroll-reverser"
 cask "wezterm@nightly"
+cask "wox"
+mas "Clean Links", id: 6747395062
 mas "Ethernet Menubar", id: 1549412235
-mas "Clean Links: URL Cleaner", id: 6747395062
 mas "Pure Paste", id: 1611378436
 mas "Xcode", id: 497799835
