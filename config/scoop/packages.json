@@ -23,6 +23,10 @@
   ],
   "apps": [
     {
+      "Name": "7zip",
+      "Source": "main"
+    },
+    {
       "Name": "aria2",
       "Source": "main"
     },
@@ -39,11 +43,23 @@
       "Source": "mo-san"
     },
     {
+      "Name": "git",
+      "Source": "main"
+    },
+    {
       "Name": "google-japanese-input-np",
       "Source": "nonportable"
     },
     {
+      "Name": "npiperelay",
+      "Source": "extras"
+    },
+    {
       "Name": "webex",
+      "Source": "extras"
+    },
+    {
+      "Name": "wox",
       "Source": "extras"
     },
     {

@@ -157,7 +157,7 @@ alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . 
 alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 alias lzd="lazydocker"
-python() { if [[ $# -eq 0 ]]; then ipython; else command python "$@"; fi; }
+python() { if [[ $# -eq 0 ]]; then ipython; else command python3 "$@"; fi; }
 bws() { export BW_SESSION="$(bw unlock --raw)"; }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
