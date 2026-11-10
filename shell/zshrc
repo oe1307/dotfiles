@@ -105,6 +105,7 @@ alias gd="git diff"
 alias gl="git log"
 alias lg="lazygit"
 alias gt='git add -A && git commit && git pull --rebase && git push'
+alias gcl="git clean -fdX"
 gn() { git clone "git@github.com:$1" "${@:2}"; }
 gz() {
     local repo="${1:?Usage: gz OWNER/REPO [REF]}"
@@ -151,7 +152,7 @@ alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | br
 alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
 alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
 alias cformat='find . \( -type d \( -name .git -o -name build -o -name node_modules \) -prune \) -o \( -type f \( -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" \) -print0 \) | xargs -0 -r -P 4 -n 16 clang-format -i'
-alias checkpy='ruff check --fix --unsafe-fixes . && ruff format . && pyright'
+alias checkpy='ruff check --fix --unsafe-fixes .; ruff format .; pyright; mypy .'
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"

@@ -136,7 +136,19 @@ return {
         dependencies = { "hrsh7th/cmp-nvim-lsp" },
         config = function()
             local cap = require("cmp_nvim_lsp").default_capabilities()
-            vim.lsp.config("pyright", { capabilities = cap })
+            vim.lsp.config("pyright", {
+                capabilities = cap,
+                init_options = {
+                    disablePullDiagnostics = true,
+                },
+                settings = {
+                    python = {
+                        analysis = {
+                            diagnosticMode = "openFilesOnly",
+                        },
+                    },
+                },
+            })
             vim.lsp.config("clangd", {
                 capabilities = cap,
                 cmd = {
@@ -184,7 +196,7 @@ return {
         config = function()
             local lint = require("lint")
             lint.linters_by_ft = {
-                python = { "ruff" },
+                python = { "ruff", "mypy" },
                 -- verilog = { "verible" },
                 -- systemverilog = { "verible" },
             }
@@ -277,22 +289,35 @@ return {
         end,
     },
     {
-        -- custom diagnostic display
         "rachartier/tiny-inline-diagnostic.nvim",
-        event = "LspAttach",
+        lazy = false,
         priority = 1000,
         config = function()
             require("tiny-inline-diagnostic").setup({
                 options = {
                     use_icons_from_diagnostic = true,
-                    multilines = { enabled = true },
+
+                    multilines = {
+                        enabled = true,
+                        always_show = true,
+                    },
+
+                    show_all_diags_on_cursorline = false,
+                    show_diags_only_under_cursor = false,
+
                     enable_on_insert = true,
                     enable_on_select = true,
-                    show_all_diags_on_cursorline = true,
-                    show_diags_only_under_cursor = true,
+
+                    overwrite_events = {
+                        "LspAttach",
+                        "BufEnter",
+                    },
                 },
             })
-            vim.diagnostic.config({ virtual_text = false })
+
+            vim.diagnostic.config({
+                virtual_text = false,
+            })
         end,
     },
     {
