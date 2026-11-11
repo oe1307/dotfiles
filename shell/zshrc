@@ -19,7 +19,21 @@ if [[ "$os" == Darwin ]]; then
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 elif [[ "$os" == Linux ]]; then
-    alias open="explorer.exe"
+    open() {
+        local reveal=false
+        if [[ "$1" == "-R" ]]; then
+            reveal=true
+            shift
+        fi
+        local target="${1:-.}"
+        local win_target
+        win_target="$(wslpath -w "${target:A}")" || return 1
+        if [[ "$reveal" == true ]]; then
+            explorer.exe /select, "$win_target"
+        else
+            explorer.exe "$win_target"
+        fi
+    }
     export ZSH_PLUGIN="$HOME/.local/share/zerobrew/prefix/share"
     export PATH="$HOME/.local/share/zerobrew/prefix/sbin:$PATH"
     export PATH="$HOME/.local/share/zerobrew/prefix/bin:$PATH"

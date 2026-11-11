@@ -4,7 +4,7 @@ set -euo pipefail
 # Resolve symlinks too, so this launcher can be put in ~/bin.
 script_path="$(readlink -f -- "${BASH_SOURCE[0]}")"
 script_dir="$(dirname -- "$script_path")"
-ps_file="$script_dir/packages.ps1"
+ps_file="$script_dir/export_scoop.ps1"
 
 if [[ ! -f "$ps_file" ]]; then
     printf 'Cannot find %s\n' "$ps_file" >&2
