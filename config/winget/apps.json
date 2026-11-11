@@ -1,0 +1,17 @@
+{
+  "Sources": [
+    {
+      "Packages": [
+        {
+          "PackageIdentifier": "Box.Box"
+        },
+        {
+          "PackageIdentifier": "Google.JapaneseIME"
+        },
+        {
+          "PackageIdentifier": "Microsoft.WSL"
+        }
+      ]
+    }
+  ]
+}
