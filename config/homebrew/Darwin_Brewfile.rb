@@ -1,6 +1,6 @@
-tap "domt4/autoupdate", trusted: { command: ["autoupdate"] }
-tap "zerobrewhq/tap"
-tap "zerobrewhq/zerobrew", trusted: { formula: "zerobrew" }
+tap "domt4/autoupdate", trusted: { commands: ["autoupdate"] }
+tap "zerobrewhq/tap", "https://github.com/zerobrewhq/homebrew-tap.git", trusted: { formulae: ["zerobrew"] }
+tap "zerobrewhq/zerobrew", "https://github.com/zerobrewhq/homebrew-tap.git"
 brew "mas"
 brew "pinentry-mac"
 brew "zerobrewhq/zerobrew/zerobrew"
