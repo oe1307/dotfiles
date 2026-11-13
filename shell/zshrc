@@ -188,7 +188,13 @@ if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/
 if hash nvim >/dev/null 2>&1; then vgrep() {
     local pattern="$1"
     shift
-    nvim -O -- $(grep -rl -- "$pattern" "$@" | sort -u)
+    local matches
+    if git rev-parse --show-toplevel >/dev/null 2>&1; then
+        matches=$(git grep -l -- "$pattern" "$@" | sort -u)
+    else
+        matches=$(grep -rl -- "$pattern" "$@" | sort -u)
+    fi
+    [[ -n "$matches" ]] && nvim -O -- ${(f)matches}
 }; fi
 if hash nohup >/dev/null 2>&1; then detach() {
     local cmd="$*"
