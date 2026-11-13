@@ -24,7 +24,7 @@ __marimo__
 *.egg-info
 .ipynb_checkpoints
 *.lock*
-.mypy_cacahe
+.mypy_cache
 
 # cpp
 .build
