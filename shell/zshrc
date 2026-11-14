@@ -41,6 +41,11 @@ elif [[ "$os" == Linux ]]; then
     export PATH="$HOME/.homebrew/bin:$PATH"
     bindkey "$terminfo[kcuu1]" history-substring-search-up
     bindkey "$terminfo[kcud1]" history-substring-search-down
+
+    export SSH_AUTH_SOCK="$HOME/.ssh/bitwarden-ssh-agent.sock"
+    socat "UNIX-LISTEN:$SSH_AUTH_SOCK,fork,mode=600,unlink-early" \
+        "EXEC:npiperelay.exe -ei -s //./pipe/openssh-ssh-agent,nofork" \
+        &>/tmp/bitwarden-socat.log &|
 fi
 
 # settings
