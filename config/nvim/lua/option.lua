@@ -19,7 +19,24 @@ vim.opt.report = 100000
 
 -- clipboard
 vim.opt.clipboard:append({ "unnamedplus" })
-if vim.uv.os_uname().sysname == "Linux" then
+
+if vim.fn.has("wsl") == 1 then
+    local paste =
+        [[powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))]]
+
+    vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "clip.exe",
+            ["*"] = "clip.exe",
+        },
+        paste = {
+            ["+"] = paste,
+            ["*"] = paste,
+        },
+        cache_enabled = 0,
+    }
+elseif vim.uv.os_uname().sysname == "Linux" then
     local osc52 = require("vim.ui.clipboard.osc52")
     vim.g.clipboard = {
         name = "OSC 52",
