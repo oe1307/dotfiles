@@ -3,27 +3,20 @@
 tmp*
 *.pdf
 ~$*.pptx
-credentials
+*.lock*
 nohup*
 
 # dotfiles
-config/raycast/*
-!config/raycast/*rayconfig
-config/scoop/config.json
 config/homebrew/trust.json
 config/wezterm/use_ime_state
 config/nvim/lazy-lock.json
-config/wox
 
 # python
-.envrc
 .venv
 __pycache__
 .pytest_cache
 __marimo__
 *.egg-info
-.ipynb_checkpoints
-*.lock*
 .mypy_cache
 
 # cpp

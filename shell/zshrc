@@ -10,24 +10,8 @@ os="$(uname -s)"
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
     export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
     export SSH_AUTH_SOCK="$HOME/.ssh/bitwarden-ssh-agent.sock"
-    socat "UNIX-LISTEN:$SSH_AUTH_SOCK,fork,mode=600,unlink-early" \
-        "EXEC:npiperelay.exe -ei -s //./pipe/openssh-ssh-agent,nofork" \
-        &>/tmp/bitwarden-socat.log &|
-    open() {
-        local reveal=false
-        if [[ "$1" == "-R" ]]; then
-            reveal=true
-            shift
-        fi
-        local target="${1:-.}"
-        local win_target
-        win_target="$(wslpath -w "${target:A}")" || return 1
-        if [[ "$reveal" == true ]]; then
-            explorer.exe /select, "$win_target"
-        else
-            explorer.exe "$win_target"
-        fi
-    }
+    socat "UNIX-LISTEN:$SSH_AUTH_SOCK,fork,mode=600,unlink-early" "EXEC:npiperelay.exe -ei -s //./pipe/openssh-ssh-agent,nofork" &>/tmp/bitwarden-socat.log &|
+    open() { local reveal=false; if [[ "$1" == "-R" ]]; then reveal=true; shift; fi; local target="${1:-.}"; local win_target; win_target="$(wslpath -w "${target:A}")" || return 1; if [[ "$reveal" == true ]]; then explorer.exe /select, "$win_target"; else explorer.exe "$win_target"; fi; }
 fi
 if [[ "$os" == Darwin ]]; then
     export ZSH_PLUGIN="/opt/zerobrew/share"
@@ -123,27 +107,7 @@ alias lg="lazygit"
 alias gt='git add -A && git commit && git pull --rebase && git push'
 alias gcl="git clean -fdX"
 gn() { git clone "git@github.com:$1" "${@:2}"; }
-gz() {
-    local repo="${1:?Usage: gz OWNER/REPO [REF]}"
-    local ref="${2:-}"
-    local name="${repo//\//-}"
-    [[ -n "$ref" ]] && name+="-${ref//\//-}"
-    local dir="$HOME/.cache/github-zips"
-    local zip="$dir/$name.zip"
-    mkdir -p "$dir" || return 1
-    if ! gh api "repos/$repo/zipball${ref:+/$ref}" >"$zip"; then
-        rm -f "$zip"
-        echo "Download failed" >&2
-        return 1
-    fi
-    if ! unzip -tq "$zip" >/dev/null 2>&1; then
-        rm -f "$zip"
-        echo "Invalid ZIP" >&2
-        return 1
-    fi
-    open -R "$zip"
-    echo "ZIP ready: $zip"
-}
+gz() { local repo="${1:?Usage: gz OWNER/REPO [REF]}"; local ref="${2:-}"; local name="${repo//\//-}"; [[ -n "$ref" ]] && name+="-${ref//\//-}"; local dir="$HOME/.cache/github-zips"; local zip="$dir/$name.zip"; mkdir -p "$dir" || return 1; if ! gh api "repos/$repo/zipball${ref:+/$ref}" >"$zip"; then rm -f "$zip"; echo "Download failed" >&2; return 1; fi; if ! unzip -tq "$zip" >/dev/null 2>&1; then rm -f "$zip"; echo "Invalid ZIP" >&2; return 1; fi; open -R "$zip"; echo "ZIP ready: $zip"; }
 
 # alias
 alias c="clear"
@@ -157,11 +121,6 @@ alias pin="uv pip install"
 alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle --file=-"
 alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
 alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
-cformat() {
-    git ls-files -z -- \
-        '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' |
-        xargs -0 -r -P 2 -n 1 -t clang-format -i
-}
 alias checkpy='ruff check --fix --unsafe-fixes .; ruff format .; pyright; mypy .;'
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cdev="cmake --build .build -j 16"
@@ -169,8 +128,10 @@ alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 alias lzd="lazydocker"
 python() { if [[ $# -eq 0 ]]; then ipython; else command python3 "$@"; fi; }
 bws() { export BW_SESSION="$(bw unlock --raw)"; }
+venv() { uv venv .venv --python ${1:+$1} }
+cformat() { git ls-files -z -- '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' | xargs -0 -r -P 2 -n 1 -t clang-format -i }
+vgrep() { local pattern="$1"; shift; local matches; if git rev-parse --show-toplevel >/dev/null 2>&1; then matches=$(git grep -l -- "$pattern" "$@" | sort -u); else matches=$(grep -rl -- "$pattern" "$@" | sort -u); fi; [[ -n "$matches" ]] && nvim -O -- ${(f)matches}; }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
-if hash direnv 2>/dev/null; then eval "$(direnv hook zsh)"; else echo "direnv not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
 if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
 if hash eza 2>/dev/null; then alias ll="eza -l -a -g --icons --sort Name"; else alias ll="ls -la"; fi
@@ -179,28 +140,6 @@ if hash bat 2>/dev/null; then alias cat="bat -p --paging=never --theme 'Visual S
 if hash htop 2>/dev/null; then alias top="htop"; else echo "htop not found"; fi
 if hash nvim 2>/dev/null; then alias vim="nvim -O"; else echo "nvim not found"; fi
 if hash rip 2>/dev/null; then alias rm="rip"; else echo "rip2 not found"; fi
-if hash uv 2>/dev/null; then venv() { uv venv .venv --python ${1:+$1} && printf '%s\n' 'source .venv/bin/activate' >.envrc && direnv allow .; }; fi
 if hash pbcopy >/dev/null 2>&1 || hash xclip >/dev/null 2>&1 || hash clip >/dev/null 2>&1; then :; else echo " clip command not found"; fi
-if hash nvim >/dev/null 2>&1; then vgrep() {
-    local pattern="$1"
-    shift
-    local matches
-    if git rev-parse --show-toplevel >/dev/null 2>&1; then
-        matches=$(git grep -l -- "$pattern" "$@" | sort -u)
-    else
-        matches=$(grep -rl -- "$pattern" "$@" | sort -u)
-    fi
-    [[ -n "$matches" ]] && nvim -O -- ${(f)matches}
-}; fi
-if hash nohup >/dev/null 2>&1; then detach() {
-    local cmd="$*"
-    nohup bash -c 'cmd="$1"; shift; "$@"; status=$?; ~/.ssh/bin/notify.sh "$cmd end"; exit "$status"' _ "$cmd" "$@" >nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 </dev/null &|
-} fi
-if command -v podman >/dev/null 2>&1; then
-    podman_socket=$(podman machine inspect \
-        --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null)
-    if [[ -n "$podman_socket" ]]; then
-        export DOCKER_HOST="unix://$podman_socket"
-    fi
-    unset podman_socket
-fi
+if hash nohup >/dev/null 2>&1; then detach() { local cmd="$*"; nohup bash -c 'cmd="$1"; shift; "$@"; status=$?; ~/.ssh/bin/notify.sh "$cmd end"; exit "$status"' _ "$cmd" "$@" >nohup_$(date +%Y%m%d_%H%M%S).log 2>&1 </dev/null &| }; fi
+if hash podman >/dev/null 2>&1; then podman_socket=$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null); if [[ -n "$podman_socket" ]]; then export DOCKER_HOST="unix://$podman_socket"; fi; unset podman_socket; fi
