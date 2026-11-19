@@ -2,7 +2,6 @@
 
 brew "bat"
 brew "cmake"
-brew "direnv"
 brew "eza"
 brew "gh"
 brew "git-delta"
