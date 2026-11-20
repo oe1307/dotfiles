@@ -21,6 +21,7 @@ if [[ "$os" == Darwin ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+    export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 elif [[ "$os" == Linux ]]; then
     export ZSH_PLUGIN="$HOME/.local/share/zerobrew/prefix/share"
     export PATH="$HOME/.local/share/zerobrew/prefix/sbin:$PATH"
@@ -115,20 +116,19 @@ alias cdr="cd $WORKDIR"
 alias diff="delta"
 alias mv="mv -i"
 alias cp="cp -i -r"
+alias lzd="lazydocker"
+alias python="ipython"
 alias grep="grep --color=auto -d skip"
 alias lsgpu="watch -n 1 nvidia-smi"
 alias pin="uv pip install"
 alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle --file=-"
 alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
 alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
-alias checkpy='ruff check --fix --unsafe-fixes .; ruff format .; pyright; mypy .;'
+alias checkpy='ruff check --fix --unsafe-fixes .; ruff format .; uv run pyright; uv run mypy .;'
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
-alias lzd="lazydocker"
-python() { if [[ $# -eq 0 ]]; then ipython; else command python3 "$@"; fi; }
 bws() { export BW_SESSION="$(bw unlock --raw)"; }
-venv() { uv venv .venv --python ${1:+$1} }
 cformat() { git ls-files -z -- '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' | xargs -0 -r -P 2 -n 1 -t clang-format -i }
 vgrep() { local pattern="$1"; shift; local matches; if git rev-parse --show-toplevel >/dev/null 2>&1; then matches=$(git grep -l -- "$pattern" "$@" | sort -u); else matches=$(grep -rl -- "$pattern" "$@" | sort -u); fi; [[ -n "$matches" ]] && nvim -O -- ${(f)matches}; }
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
