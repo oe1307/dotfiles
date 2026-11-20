@@ -17,8 +17,8 @@ keymap.set("n", "X", '"_d$')
 keymap.set("n", "dw", '"_daw')
 
 -- move adaptive with wrap
-keymap.set("n", "^", "g^", { noremap = true, silent = true })
-keymap.set("n", "4", "g$", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "^", "g^", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "4", "g$", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<Down>", function()
     return vim.v.count == 0 and "gj" or "j"
 end, { expr = true, silent = true })
@@ -82,6 +82,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- lua keymap
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "lua",
     callback = function(ev)
