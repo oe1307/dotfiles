@@ -11,7 +11,5 @@ winget "Windows Terminal", id: "Microsoft.WindowsTerminal", source: "winget"
 winget "Wox", id: "Wox.Wox", source: "winget"
 
 # FIXME
-brew "direnv"
 brew "neovim"
 brew "unzip"
-brew "podman"
