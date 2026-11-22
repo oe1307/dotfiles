@@ -17,6 +17,4 @@ cask "scroll-reverser"
 cask "wezterm@nightly"
 cask "wox"
 mas "Clean Links", id: 6747395062
-mas "Ethernet Menubar", id: 1549412235
 mas "Pure Paste", id: 1611378436
-mas "Xcode", id: 497799835
