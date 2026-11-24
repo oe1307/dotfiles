@@ -1,14 +1,42 @@
 #!/bin/sh
 
+# Copy regular files interactively without following destination symlinks.
+copy_config() (
+    src=$1
+    dst=$2
+
+    if [ -L "$dst" ]; then
+        printf 'Skipping existing symbolic link: %s\n' "$dst" >&2
+    elif [ -L "$src" ]; then
+        printf 'Skipping source symbolic link: %s\n' "$src" >&2
+    elif [ -d "$src" ]; then
+        mkdir -p "$dst" || exit 1
+        for entry in "$src"/* "$src"/.[!.]* "$src"/..?*; do
+            [ -e "$entry" ] || [ -L "$entry" ] || continue
+            copy_config "$entry" "$dst/${entry##*/}"
+        done
+    elif [ -e "$dst" ] && [ ! -f "$dst" ]; then
+        printf 'Skipping non-regular destination: %s\n' "$dst" >&2
+    else
+        cp -i "$src" "$dst"
+    fi
+)
+
 # dotfiles
-ln -snvf "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
-ln -snvf "$HOME/dotfiles/shell/bashrc" "$HOME/.bashrc"
-ln -snvf "$HOME/dotfiles/shell/profile" "$HOME/.profile"
-ln -snvf "$HOME/dotfiles/shell/hushlogin" "$HOME/.hushlogin"
-mkdir -p "$HOME/.config"
-for file in $(ls "$HOME/dotfiles/config"); do
-    ln -snvf "$HOME/dotfiles/config/$file" "$HOME/.config/$file"
-done
+copy_config "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
+copy_config "$HOME/dotfiles/shell/bashrc" "$HOME/.bashrc"
+copy_config "$HOME/dotfiles/shell/profile" "$HOME/.profile"
+copy_config "$HOME/dotfiles/shell/hushlogin" "$HOME/.hushlogin"
+copy_config "$HOME/dotfiles/config" "$HOME/.config"
+
+# Keep actual aliases as symbolic links, but never replace them silently.
+link_config() {
+    if [ -d "$2" ] && [ ! -L "$2" ]; then
+        printf 'Skipping existing directory: %s\n' "$2" >&2
+    else
+        ln -snvi "$1" "$2"
+    fi
+}
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then
@@ -39,6 +67,6 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.dock orientation -string left
     sudo nvram BootPreference=%00
     brew autoupdate start 12h --upgrade --cleanup --immediate --sudo 2>/dev/null
-    ln -snvf "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
-    ln -snvf "/opt/zerobrew/bin/podman" "/opt/zerobrew/bin/docker"
+    link_config "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
+    link_config "/opt/zerobrew/bin/podman" "/opt/zerobrew/bin/docker"
 fi
