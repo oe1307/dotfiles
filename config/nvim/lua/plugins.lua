@@ -148,6 +148,17 @@ return {
                         },
                     },
                 },
+                before_init = function(_, config)
+                    if not config.root_dir then
+                        return
+                    end
+
+                    local python = config.root_dir .. "/.venv/bin/python"
+
+                    if vim.fn.executable(python) == 1 then
+                        config.settings.python.pythonPath = python
+                    end
+                end,
             })
             vim.lsp.config("clangd", {
                 capabilities = cap,
