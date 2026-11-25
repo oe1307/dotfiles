@@ -1,5 +1,6 @@
 tap "zerobrewhq/tap"
 brew "zerobrewhq/tap/zerobrew", trusted: true
+cask "font-times-new-roman"
 
 winget "npiperelay", id: "albertony.npiperelay", source: "winget"
 winget "Bitwarden", id: "Bitwarden.Bitwarden", source: "winget"
@@ -9,6 +10,7 @@ winget "Webex", id: "Cisco.Webex", source: "winget"
 winget "Google Japanese IME", id: "Google.JapaneseIME", source: "winget"
 winget "Windows Terminal", id: "Microsoft.WindowsTerminal", source: "winget"
 winget "Wox", id: "Wox.Wox", source: "winget"
+winget "9PLM9XGG6VKS", source: "msstore"
 
 # FIXME
 brew "neovim"
