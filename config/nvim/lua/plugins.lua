@@ -117,6 +117,7 @@ return {
                 sh = { "shfmt" },
                 zsh = { "shfmt_zsh" },
                 dockerfile = { "dockerfmt" },
+                tex = { "latexindent" },
                 ["*"] = { "trim_whitespace" },
             },
             formatters = {
