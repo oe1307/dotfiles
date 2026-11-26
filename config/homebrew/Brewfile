@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 brew "bat"
+brew "bitwarden-cli"
 brew "cmake"
 brew "eza"
 brew "gh"

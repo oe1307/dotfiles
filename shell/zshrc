@@ -122,7 +122,7 @@ alias grep="grep --color=auto -d skip"
 alias lsgpu="watch -n 1 nvidia-smi"
 alias pin="uv pip install"
 alias bb="brew upgrade && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle --file=-"
-alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null"
+alias zbb="cd $HOME/.config/homebrew && zb bundle && cd - >/dev/null;"
 alias bbc="brew cleanup && cat '$XDG_CONFIG_HOME/homebrew/${os}_Brewfile.rb' | brew bundle cleanup --file=-"
 alias checkpy='ruff check --fix --unsafe-fixes .; ruff format .; uv run pyright; uv run mypy .;'
 alias cb="ln -sf .build/compile_commands.json compile_commands.json; cmake -S . -B .build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
