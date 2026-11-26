@@ -132,6 +132,7 @@ bws() { export BW_SESSION="$(bw unlock --raw)"; }
 cformat() { git ls-files -z -- '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' | xargs -0 -r -P 2 -n 1 -t clang-format -i }
 vgrep() { local pattern="$1"; shift; local matches; if git rev-parse --show-toplevel >/dev/null 2>&1; then matches=$(git grep -l -- "$pattern" "$@" | sort -u); else matches=$(grep -rl -- "$pattern" "$@" | sort -u); fi; [[ -n "$matches" ]] && nvim -O -- ${(f)matches}; }
 sshbw() { SSH_ASKPASS="$HOME/.ssh/bin/bitwarden-askpass.sh" SSH_ASKPASS_REQUIRE=force ssh "$@" }
+compdef sshbw=ssh
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
 if hash eza 2>/dev/null; then alias ls="eza -g --icons --sort Name"; else echo "eza not found"; fi
 if hash eza 2>/dev/null; then alias la="eza -a -g --icons --sort Name"; else alias la="ls -a"; fi
