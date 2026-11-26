@@ -2,6 +2,7 @@ gui:
   showIcons: true
   mouseEvents: false
 git:
+  autoFetch: false
   diffRenderers:
     - colorArg: always
       command: delta --dark --paging=never
