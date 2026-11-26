@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# Copy regular files interactively without following destination symlinks.
 copy_config() (
     src=$1
     dst=$2
@@ -21,15 +20,6 @@ copy_config() (
         cp -i "$src" "$dst"
     fi
 )
-
-# dotfiles
-copy_config "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
-copy_config "$HOME/dotfiles/shell/bashrc" "$HOME/.bashrc"
-copy_config "$HOME/dotfiles/shell/profile" "$HOME/.profile"
-copy_config "$HOME/dotfiles/shell/hushlogin" "$HOME/.hushlogin"
-copy_config "$HOME/dotfiles/config" "$HOME/.config"
-
-# Keep actual aliases as symbolic links, but never replace them silently.
 link_config() {
     if [ -d "$2" ] && [ ! -L "$2" ]; then
         printf 'Skipping existing directory: %s\n' "$2" >&2
@@ -37,6 +27,13 @@ link_config() {
         ln -snvi "$1" "$2"
     fi
 }
+
+# dotfiles
+copy_config "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
+copy_config "$HOME/dotfiles/shell/bashrc" "$HOME/.bashrc"
+copy_config "$HOME/dotfiles/shell/profile" "$HOME/.profile"
+copy_config "$HOME/dotfiles/shell/hushlogin" "$HOME/.hushlogin"
+copy_config "$HOME/dotfiles/config" "$HOME/.config"
 
 # macOS settings
 if [ "$(uname)" = "Darwin" ]; then
@@ -69,4 +66,6 @@ if [ "$(uname)" = "Darwin" ]; then
     brew autoupdate start 12h --upgrade --cleanup --immediate --sudo 2>/dev/null
     link_config "$HOME/Library/CloudStorage/Box-Box/" "$HOME/Box"
     link_config "/opt/zerobrew/bin/podman" "/opt/zerobrew/bin/docker"
+elif [ "$(uname)" = "Linux" ]; then
+    link_config "$HOME/.local/share/zerobrew/prefix/bin/podman" "$HOME/.local/share/zerobrew/prefix/bin/docker"
 fi
