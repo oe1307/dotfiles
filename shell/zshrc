@@ -132,7 +132,36 @@ alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 bws() { export BW_SESSION="$(bw unlock --raw)"; }
 cformat() { git ls-files -z -- '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' | xargs -0 -r -P 2 -n 1 -t clang-format -i }
-vgrep() { local pattern="$1"; shift; local matches; if git rev-parse --show-toplevel >/dev/null 2>&1; then matches=$(git grep -l -- "$pattern" "$@" | sort -u); else matches=$(grep -rl -- "$pattern" "$@" | sort -u); fi; [[ -n "$matches" ]] && VGREP_PATTERN="$pattern" nvim -O -c 'let @/ = $VGREP_PATTERN | call histadd("search", @/) | set hlsearch' -- ${(f)matches}; }
+# vgrep uses Vim regex syntax (\\v enables very magic mode).
+vgrep() (
+    if (( $# == 0 )) || [[ -z "$1" ]]; then
+        print -u2 'usage: vgrep VIM_PATTERN [PATH ...]'
+        return 2
+    fi
+    local pattern="$1"
+    shift
+    local files tracked=0
+    files=$(mktemp "${TMPDIR:-/tmp}/vgrep.XXXXXXXX") || return 2
+    trap 'command rm -f -- "$files"' EXIT
+    if git rev-parse --show-toplevel >/dev/null 2>&1; then
+        tracked=1
+        git ls-files -z -- "$@" > "$files" || return 2
+    else
+        if (( $# == 0 )); then
+            set -- .
+        fi
+        # Prefix relative paths so find does not interpret them as expressions.
+        local path
+        local -a paths
+        for path in "$@"; do
+            [[ "$path" == /* ]] || path="./$path"
+            paths+=("$path")
+        done
+        command find -H "${paths[@]}" -type f -print0 > "$files" || return 2
+    fi
+    VGREP_PATTERN="$pattern" VGREP_FILES="$files" VGREP_TRACKED="$tracked" \
+        nvim -S "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/vgrep.vim"
+)
 sshbw() { SSH_ASKPASS="$HOME/.ssh/bin/bitwarden-askpass.sh" SSH_ASKPASS_REQUIRE=force ssh "$@" }
 compdef sshbw=ssh
 if hash starship 2>/dev/null; then eval "$(starship init zsh)"; else echo "starship not found"; fi
