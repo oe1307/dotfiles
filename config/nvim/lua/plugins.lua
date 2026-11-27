@@ -123,6 +123,7 @@ return {
             formatters = {
                 stylua = { prepend_args = { "--indent-type", "Spaces" } },
                 shfmt_zsh = { inherit = "shfmt", prepend_args = { "-ln=zsh" } },
+                latexindent = { prepend_args = { "-g", "/dev/null" } },
             },
         },
     },
