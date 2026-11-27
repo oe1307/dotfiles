@@ -13,7 +13,7 @@ os="$(uname -s)"
 if [[ -n "$WSL_DISTRO_NAME" ]]; then
     export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
     export SSH_AUTH_SOCK="$HOME/.ssh/bitwarden-ssh-agent.sock"
-    socat "UNIX-LISTEN:$SSH_AUTH_SOCK,fork,mode=600,unlink-early" "EXEC:npiperelay.exe -ei -s //./pipe/openssh-ssh-agent,nofork" &>/tmp/bitwarden-socat.log &|
+    sh "$HOME/.ssh/bin/bitwarden-ssh-agent.sh"
     open() { local reveal=false; if [[ "$1" == "-R" ]]; then reveal=true; shift; fi; local target="${1:-.}"; local win_target; win_target="$(wslpath -w "${target:A}")" || return 1; if [[ "$reveal" == true ]]; then explorer.exe /select, "$win_target"; else explorer.exe "$win_target"; fi; }
 fi
 if [[ "$os" == Darwin ]]; then
