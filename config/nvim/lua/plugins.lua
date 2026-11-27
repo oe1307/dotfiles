@@ -101,8 +101,17 @@ return {
     {
         -- formatter
         "stevearc/conform.nvim",
-        keys = { { "<C-f>", ":lua require('conform').format()<Enter>", silent = true } },
+        keys = {
+            {
+                "<C-f>",
+                function()
+                    require("conform").format({ async = true })
+                end,
+                silent = true,
+            },
+        },
         opts = {
+            default_format_opts = { timeout_ms = 5000 },
             formatters_by_ft = {
                 python = { "ruff_fix", "ruff_format" },
                 c = { "clang_format" },
