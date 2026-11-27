@@ -60,6 +60,7 @@ return {
                 "python",
                 "c",
                 "cpp",
+                "latex",
                 "markdown",
                 "html",
                 "bash",
