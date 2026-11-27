@@ -108,7 +108,6 @@ alias lg="lazygit"
 alias gt='git add -A && git commit && git pull --rebase && git push'
 alias gcl="git clean -fdX"
 gn() { git clone "git@github.com:$1" "${@:2}"; }
-gz() { local repo="${1:?Usage: gz OWNER/REPO [REF]}"; local ref="${2:-}"; local name="${repo//\//-}"; [[ -n "$ref" ]] && name+="-${ref//\//-}"; local dir="$HOME/.cache/github-zips"; local zip="$dir/$name.zip"; mkdir -p "$dir" || return 1; if ! gh api "repos/$repo/zipball${ref:+/$ref}" >"$zip"; then rm -f "$zip"; echo "Download failed" >&2; return 1; fi; if ! unzip -tq "$zip" >/dev/null 2>&1; then rm -f "$zip"; echo "Invalid ZIP" >&2; return 1; fi; open -R "$zip"; echo "ZIP ready: $zip"; }
 
 # alias
 alias c="clear"
