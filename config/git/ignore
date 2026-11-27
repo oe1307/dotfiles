@@ -1,7 +1,6 @@
 # utils
 .DS_Store
 tmp*
-*.pdf
 ~$*.pptx
 *.lock*
 nohup*
