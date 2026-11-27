@@ -1,7 +1,10 @@
 #!/bin/zsh
 
 # proxy
-source $HOME/.ssh/bin/proxy_env.sh
+export PROXY_ENV=$HOME/.ssh/bin/proxy_env.sh
+if [ -e $PROXY_ENV ]; then
+    source $PROXY_ENV
+fi
 
 # setup
 export WORKDIR=$HOME/work
