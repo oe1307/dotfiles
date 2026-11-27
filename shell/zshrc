@@ -132,7 +132,7 @@ alias cdev="cmake --build .build -j 16"
 alias latexindent="latexindent -s -w -c ~/.cache/latexindent **/*.tex"
 bws() { export BW_SESSION="$(bw unlock --raw)"; }
 cformat() { git ls-files -z -- '*.c' '*.cc' '*.cpp' '*.h' '*.hpp' | xargs -0 -r -P 2 -n 1 -t clang-format -i }
-# vgrep uses Vim regex syntax (\\v enables very magic mode).
+# vgrep uses Vim regex syntax (\v enables very magic mode).
 vgrep() (
     if (( $# == 0 )) || [[ -z "$1" ]]; then
         print -u2 'usage: vgrep VIM_PATTERN [PATH ...]'
@@ -151,11 +151,11 @@ vgrep() (
             set -- .
         fi
         # Prefix relative paths so find does not interpret them as expressions.
-        local path
+        local target
         local -a paths
-        for path in "$@"; do
-            [[ "$path" == /* ]] || path="./$path"
-            paths+=("$path")
+        for target in "$@"; do
+            [[ "$target" == /* ]] || target="./$target"
+            paths+=("$target")
         done
         command find -H "${paths[@]}" -type f -print0 > "$files" || return 2
     fi
